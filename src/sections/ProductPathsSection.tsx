@@ -26,11 +26,9 @@ function ProductPathsSection() {
               {product.action}
               {product.external ? <span className="sr-only"> (opens in a new tab)</span> : null}
             </a>
-            {product.name === 'Parcel Plotter' ? (
-              <Link className="text-link mt-4 self-start text-sm font-medium" to="/parcel-plotter/">
-                Learn about Parcel Plotter
-              </Link>
-            ) : null}
+            <Link className="text-link mt-4 self-start text-sm font-medium" to={product.learnHref}>
+              Learn about {product.name}
+            </Link>
           </Card>
         ))}
       </div>

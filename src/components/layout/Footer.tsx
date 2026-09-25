@@ -14,6 +14,8 @@ function Footer() {
             <Link to="/parcel-plotter/" className="theme-text-link">
               Parcel Plotter
             </Link>
+            <Link to="/sparta/" className="theme-text-link">SPARTA</Link>
+            <Link to="/rbim-cloud/" className="theme-text-link">RBIM Cloud</Link>
             <Link to="/contact" className="theme-text-link">
               Contact
             </Link>

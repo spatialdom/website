@@ -6,10 +6,12 @@ const sitePages = data('sitePages.json');
 const parcelPages = data('parcelPages.json');
 const toolPages = data('toolPages.json');
 const insightArticles = data('insightArticles.json');
+const lguProductPages = data('lguProductPages.json');
 const pages = [
   ...sitePages,
   ...parcelPages,
   ...toolPages,
+  ...lguProductPages,
   ...insightArticles.map((article) => ({ ...article, slug: `insights/${article.slug}`, article: true }))
 ];
 const seenTitles = new Set();
@@ -45,6 +47,8 @@ for (const page of pages) {
     if (!graph.some((item) => item['@type'] === 'BreadcrumbList')) throw new Error(`Missing breadcrumb JSON-LD: ${url}`);
     if (page.article && (!graph.some((item) => item['@type'] === 'Article') || !html.includes('Related product:'))) throw new Error(`Missing article content: ${url}`);
   }
+  if (page.family === 'sparta' && (!html.includes('Discuss Tax Mapping') || !html.includes('mailto:spatialdom@gmail.com'))) throw new Error(`Missing SPARTA contact flow: ${url}`);
+  if (page.family === 'rbim' && (!html.includes('Request a Demo') || !html.includes('GIZ assistance') || !html.includes('Spatialdom did not create'))) throw new Error(`Missing RBIM CTA or attribution: ${url}`);
 }
 
 const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);

@@ -7,6 +7,7 @@ export const inquirySubjects = {
   rbim: 'RBIM Cloud — Demo Request'
 } as const;
 
-export function mailtoFor(subject?: string) {
-  return `mailto:${contactEmail}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}`;
+export function mailtoFor(subject?: string, body?: string) {
+  const query = [subject ? `subject=${encodeURIComponent(subject)}` : '', body ? `body=${encodeURIComponent(body)}` : ''].filter(Boolean).join('&');
+  return `mailto:${contactEmail}${query ? `?${query}` : ''}`;
 }

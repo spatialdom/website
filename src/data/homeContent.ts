@@ -7,6 +7,7 @@ export const productPaths = [
     description: 'Understand the technical description of a land title and see the parcel it describes.',
     action: 'Try Early Access',
     href: 'https://parcel.spatialdom.xyz/',
+    learnHref: '/parcel-plotter/',
     external: true
   },
   {
@@ -15,6 +16,7 @@ export const productPaths = [
     description: "Build and maintain a parcel and tax mapping system around the real work of the Assessor's Office.",
     action: 'Discuss Tax Mapping',
     href: mailtoFor(inquirySubjects.sparta),
+    learnHref: '/sparta/',
     external: false
   },
   {
@@ -23,6 +25,7 @@ export const productPaths = [
     description: 'Help your LGU maintain local household information for planning, targeting programs, and community services.',
     action: 'Request a Demo',
     href: mailtoFor(inquirySubjects.rbim),
+    learnHref: '/rbim-cloud/',
     external: false
   }
 ] as const;

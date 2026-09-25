@@ -14,6 +14,7 @@ The Insights index and article pages use data-driven layouts. Existing `/insight
 - `src/data/sitePages.json` describes Home, Contact, Privacy, and the Insights index.
 - `src/data/parcelPages.json` describes Parcel Plotter pages.
 - `src/data/toolPages.json` describes the Tools index and live tools.
+- `src/data/lguProductPages.json` describes the SPARTA and RBIM Cloud product and guide routes.
 - `src/shared/utils/RouteMetadata.tsx` updates metadata and structured data during client navigation.
 - `scripts/prepare-pages.mjs` generates the corresponding HTML for direct requests on GitHub Pages. Add a new route to both the React router and the build generator, then include it in the sitemap. Use `https://spatialdom.xyz/<path>/` as its canonical URL.
 

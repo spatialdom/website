@@ -5,12 +5,14 @@ import HomePage from './pages/HomePage';
 import ContactPage from './pages/ContactPage';
 import InsightsPage from './pages/InsightsPage';
 import InsightArticlePage from './pages/InsightArticlePage';
+import LguProductPage from './pages/LguProductPage';
 import PrivacyPage from './pages/PrivacyPage';
 import ParcelPage from './pages/ParcelPage';
 import ToolsPage from './pages/ToolsPage';
 import MainLayout from './shared/layout/MainLayout';
 import RouteMetadata from './shared/utils/RouteMetadata';
 import insightArticles from './data/insightArticles.json';
+import lguProductPages from './data/lguProductPages.json';
 
 const CoordinateConverterPage = lazy(() => import('./tools/coordinate-converter/CoordinateConverterPage'));
 const GeoJSONViewerPage = lazy(() => import('./tools/geojson-viewer/GeoJSONViewerPage'));
@@ -44,6 +46,7 @@ function App() {
             <Route path="/parcel-plotter" element={<ParcelPage slug="parcel-plotter" />} />
             <Route path="/plot-land-title-technical-description" element={<ParcelPage slug="plot-land-title-technical-description" />} />
             <Route path="/how-to-read-bearings-and-distances-land-title" element={<ParcelPage slug="how-to-read-bearings-and-distances-land-title" />} />
+            {lguProductPages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LguProductPage slug={page.slug} />} />)}
             <Route path="/insights" element={<InsightsPage />} />
             {insightArticles.map((article) => <Route key={article.slug} path={`/insights/${article.slug}`} element={<InsightArticlePage slug={article.slug} />} />)}
             <Route path="/tools" element={<ToolsPage />} />

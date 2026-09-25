@@ -60,7 +60,7 @@
       {"id":"limits","heading":"Keep the purpose clear","paragraphs":["Tax mapping supports assessment administration and spatial review. A tax map does not by itself establish ownership or replace an approved survey. A useful system preserves the source and review status so an office can work with confidence about what each line represents."]}
     ],
     "related":["rpvara-digital-tax-mapping","digitize-cadastral-tax-maps"],
-    "product":{"name":"SPARTA","href":"mailto:spatialdom@gmail.com?subject=SPARTA%20%E2%80%94%20Tax%20Mapping%20Discussion","label":"Discuss a tax mapping workflow with SPARTA"},
+    "product":{"name":"SPARTA","href":"/sparta/","label":"Explore SPARTA's tax mapping workflow"},
     "sources":[{"label":"BLGF Manual on Real Property Appraisal and Assessment Operations","url":"https://blgf.gov.ph/wp-content/uploads/2015/08/ManualRPAandAO.pdf"}]
   },
   {
@@ -76,7 +76,7 @@
       {"id":"implementation","heading":"Treat the map as one part of the workflow","paragraphs":["A useful implementation joins map review, assessment records, valuation work, and staff responsibilities. Ask how a disputed match will be resolved, who approves a change, and how the office can audit it later. Check current BLGF guidance when planning formal compliance work."]}
     ],
     "related":["tax-mapping-philippine-lgu","digitize-cadastral-tax-maps"],
-    "product":{"name":"SPARTA","href":"mailto:spatialdom@gmail.com?subject=SPARTA%20%E2%80%94%20Tax%20Mapping%20Discussion","label":"Discuss SPARTA for LGU parcel workflows"},
+    "product":{"name":"SPARTA","href":"/sparta/","label":"Explore SPARTA for LGU parcel workflows"},
     "sources":[{"label":"Republic Act No. 12001","url":"https://lawphil.net/statutes/repacts/ra2024/ra_12001_2024.html"},{"label":"BLGF implementing rules for RA 12001","url":"https://blgf.gov.ph/wp-content/uploads/2025/03/BLGF-MC-No.-001.2025-IRR-of-RA-No.-12001-or-the-RPVARA-Reform-Act-6-Jan-2025-Approved-3.pdf"}]
   },
   {
@@ -92,7 +92,7 @@
       {"id":"maintain","heading":"Keep the digital layer reviewable","paragraphs":["Mark which features are verified, provisional, or awaiting field or document review. Save corrections with their source and reviewer. A digital trace improves access and comparison, but it does not create an official boundary or replace the underlying approved records."]}
     ],
     "related":["tax-mapping-philippine-lgu","rpvara-digital-tax-mapping"],
-    "product":{"name":"SPARTA","href":"mailto:spatialdom@gmail.com?subject=SPARTA%20%E2%80%94%20Tax%20Mapping%20Discussion","label":"Discuss digitized parcel records with SPARTA"},
+    "product":{"name":"SPARTA","href":"/sparta/","label":"Explore SPARTA for digitized parcel records"},
     "sources":[{"label":"DENR cadastral index mapping guide","url":"https://faspselib.denr.gov.ph/Materials/Detail/ab3d9ecd-5a32-417e-9724-d24394dcdaf7"},{"label":"DENR GIS construction guide","url":"https://faspselib.denr.gov.ph/Materials/Detail/6e64fc57-842f-41b3-93b4-2843736be349"}]
   },
   {
@@ -103,13 +103,13 @@
     "heading":"Household profiling systems for LGUs",
     "intro":"A household profile is useful when an LGU can maintain it responsibly and use it for a defined service or planning purpose. A large form alone is not a working system.",
     "sections":[
-      {"id":"purpose","heading":"Begin with the decision the data supports","paragraphs":["List the questions staff need to answer, such as where services are missing or which households need follow-up. Define the unit of record, the responsible office, and the update cycle before selecting fields. This helps avoid collecting personal details that have no clear use.","The PSA's Community-Based Monitoring System is a specific, legally established statistical program with its own procedures. An LGU's operational household register should not be presented as CBMS data or as a substitute for PSA protocols."]},
+      {"id":"purpose","heading":"Begin with the decision the data supports","paragraphs":["List the questions staff need to answer, such as where services are missing or which households need follow-up. Define the unit of record, the responsible office, and the update cycle before selecting fields. This helps avoid collecting personal details that have no clear use.","The Commission on Population and Development (CPD) describes the Registry of Barangay Inhabitants and Migrants (RBIM) as a database of household demographic and socioeconomic information and a way to track population movement at the community level. Plan the local workflow around that purpose, including who collects, checks, updates, and uses the records."]},
       {"id":"operations","heading":"Make updates and corrections routine","paragraphs":["Assign who may create, verify, edit, and retire a record. Keep a way to flag moves, duplicate households, changed contact details, and uncertain locations. Staff should be able to see when a record was last checked and which source supports it.","Prefer aggregate views for planning when named records are unnecessary. If staff need identifiable information for service delivery, give access according to role and document the purpose of that access."]},
       {"id":"privacy","heading":"Protect residents' information","paragraphs":["Provide a clear privacy notice, collect only data needed for the stated purpose, set retention and correction procedures, and plan secure sharing before exchange with another office. The Data Privacy Act and guidance from the National Privacy Commission apply to LGU processing of personal information."]}
     ],
     "related":["barangay-household-information-system","why-lgus-maintain-household-data"],
-    "product":{"name":"RBIM Cloud","href":"mailto:spatialdom@gmail.com?subject=RBIM%20Cloud%20%E2%80%94%20Demo%20Request","label":"Ask about RBIM Cloud for household records"},
-    "sources":[{"label":"PSA: CBMS and its legal basis","url":"https://psa.gov.ph/node/1684063924"},{"label":"National Privacy Commission: Data Privacy Act","url":"https://privacy.gov.ph/data-privacy-act/"}]
+    "product":{"name":"RBIM Cloud","href":"/rbim-cloud/","label":"Explore RBIM Cloud for household records"},
+    "sources":[{"label":"CPD progress report on RBIM","url":"https://region10.cpd.gov.ph/wp-content/uploads/2025/08/2-CPD_PPDPOA-2023-2024-PROGRESS-REPORT_092524_FA_compressed.pdf"},{"label":"National Privacy Commission: Data Privacy Act","url":"https://privacy.gov.ph/data-privacy-act/"}]
   },
   {
     "slug":"barangay-household-information-system",
@@ -119,13 +119,13 @@
     "heading":"Barangay household information systems",
     "intro":"A barangay household information system helps authorized workers find and maintain local records. Its value comes from accuracy, clear responsibilities, and respect for residents' data.",
     "sections":[
-      {"id":"record","heading":"Define a useful household record","paragraphs":["Choose fields tied to a concrete service or planning task. Keep a stable identifier, location reference, update status, and enough information to distinguish households without copying every document into one database. Write down where each field comes from and who can correct it.","A barangay register may serve day-to-day operations; the PSA's CBMS has a separate legal basis and collection protocol. When a barangay uses CBMS results, it should follow the applicable access and sharing rules instead of treating the underlying interviews as an open local directory."]},
+      {"id":"record","heading":"Define a useful household record","paragraphs":["Choose fields tied to a concrete service or planning task. Keep a stable identifier, location reference, update status, and enough information to distinguish households without copying every document into one database. Write down where each field comes from and who can correct it.","CPD's RBIM guidance describes a barangay management team, household data collection, encoding, validation, analysis, and use of the results. Assign those responsibilities locally so records remain useful after the initial profiling work."]},
       {"id":"workflow","heading":"Plan for change","paragraphs":["Households move, split, and change membership. Give staff a consistent way to record these changes, verify uncertain entries, and avoid duplicate records. A date and source for each important update help the next worker understand what remains reliable.","Map views can help identify areas with service gaps, but named household locations should be visible only to people with an authorized need. Aggregate counts are often enough for public reporting."]},
       {"id":"trust","heading":"Build trust into the process","paragraphs":["Explain why data is collected, who will use it, how residents can ask for a correction, and when records will be reviewed or removed. National Privacy Commission guidance emphasizes clear notice, proportional collection, and safeguards in local-government processing."]}
     ],
     "related":["household-profiling-systems-lgu","why-lgus-maintain-household-data"],
-    "product":{"name":"RBIM Cloud","href":"mailto:spatialdom@gmail.com?subject=RBIM%20Cloud%20%E2%80%94%20Demo%20Request","label":"Ask about RBIM Cloud for barangay records"},
-    "sources":[{"label":"PSA: CBMS privacy notice","url":"https://psa.gov.ph/cbms/privacy-notice"},{"label":"National Privacy Commission: LGU privacy compliance","url":"https://privacy.gov.ph/npc-commends-new-dilg-issuance-enhancing-data-privacy-compliance-among-lgus/"}]
+    "product":{"name":"RBIM Cloud","href":"/rbim-cloud/","label":"Explore RBIM Cloud for barangay records"},
+    "sources":[{"label":"CPD RBIM barangay implementation guidance","url":"https://ncr.cpd.gov.ph/wp-content/uploads/2025/03/Approved-CPD-DTP-dated-16-March-2022.pdf"},{"label":"National Privacy Commission: LGU privacy compliance","url":"https://privacy.gov.ph/npc-commends-new-dilg-issuance-enhancing-data-privacy-compliance-among-lgus/"}]
   },
   {
     "slug":"why-lgus-maintain-household-data",
@@ -135,12 +135,12 @@
     "heading":"Why LGUs maintain local household data",
     "intro":"Local programs need a picture of who lives where and which needs are changing. Reliable household information can help, provided collection and use stay tied to a legitimate purpose.",
     "sections":[
-      {"id":"uses","heading":"Use evidence to locate needs","paragraphs":["Aggregate household data can help an LGU compare areas, identify gaps in basic services, and plan follow-up. The PSA describes CBMS as a source of local, disaggregated information for planning, program implementation, and impact monitoring.","Named records can support authorized case work, but they should not be the default view for every planning question. Decide whether an aggregate map, count, or individual record is actually needed for each task."]},
+      {"id":"uses","heading":"Use evidence to locate needs","paragraphs":["Aggregate household data can help an LGU compare areas, identify gaps in basic services, and plan follow-up. CPD describes RBIM as household demographic and socioeconomic data that can support local planning and help track population movement.","Named records can support authorized case work, but they should not be the default view for every planning question. Decide whether an aggregate map, count, or individual record is actually needed for each task."]},
       {"id":"quality","heading":"Keep information current enough to use","paragraphs":["A record collected once becomes less useful as families move and circumstances change. Assign an owner for updates, record the date and source of a change, and give staff a way to flag uncertain or duplicate entries. Review the quality of data before using it to prioritize services.","Different offices may hold overlapping records. Agree on identifiers and a correction process before combining them; copying files into a shared database does not resolve conflicting facts."]},
-      {"id":"responsibility","heading":"Make privacy part of the workflow","paragraphs":["Tell residents the purpose of collection and who may receive their information. Limit access and sharing to authorized purposes, keep retention rules clear, and use the PSA's CBMS privacy rules when working with CBMS data. Privacy is part of keeping local evidence trustworthy."]}
+      {"id":"responsibility","heading":"Make privacy part of the workflow","paragraphs":["Tell residents the purpose of collection and who may receive their information. Limit access and sharing to authorized purposes and keep retention rules clear. CPD's RBIM guidance calls for barangay privacy guidelines because the registry contains residents' personal information."]}
     ],
     "related":["household-profiling-systems-lgu","barangay-household-information-system"],
-    "product":{"name":"RBIM Cloud","href":"mailto:spatialdom@gmail.com?subject=RBIM%20Cloud%20%E2%80%94%20Demo%20Request","label":"Ask about RBIM Cloud for local data workflows"},
-    "sources":[{"label":"PSA: CBMS and its legal basis","url":"https://psa.gov.ph/node/1684063924"},{"label":"PSA: CBMS privacy notice","url":"https://psa.gov.ph/cbms/privacy-notice"}]
+    "product":{"name":"RBIM Cloud","href":"/rbim-cloud/","label":"Explore RBIM Cloud for local data workflows"},
+    "sources":[{"label":"CPD progress report on RBIM","url":"https://region10.cpd.gov.ph/wp-content/uploads/2025/08/2-CPD_PPDPOA-2023-2024-PROGRESS-REPORT_092524_FA_compressed.pdf"},{"label":"CPD RBIM barangay implementation guidance","url":"https://ncr.cpd.gov.ph/wp-content/uploads/2025/03/Approved-CPD-DTP-dated-16-March-2022.pdf"}]
   }
 ]

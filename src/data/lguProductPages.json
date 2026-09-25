@@ -1,0 +1,115 @@
+[
+  {
+    "slug": "sparta",
+    "family": "sparta",
+    "kind": "product",
+    "title": "SPARTA | Tax Mapping Modernization for Philippine LGUs | Spatialdom",
+    "description": "Bring tax maps and property records into a working parcel database. Explore SPARTA's digitization, reconciliation, field validation, and maintenance approach for LGUs.",
+    "heading": "From tax maps and property records to a working parcel database.",
+    "intro": "SPARTA helps Assessor's Offices establish, organize, map, validate, and keep property information current. The work can include data preparation, field review, and staff workflows alongside the software.",
+    "sections": [
+      {"heading":"Start with the office's real records","paragraphs":["Tax declarations, parcel identifiers, old tax maps, cadastral sheets, and field notes often sit in different places. Before a map becomes useful, staff need to know which records refer to the same property and where the source is uncertain.","SPARTA is scoped around that work. An implementation may include scanning and digitizing source maps, populating a parcel database, matching records, mapping parcels, and flagging exceptions for review. The aim is an office that can use and update the information after the initial project."]},
+      {"heading":"A workflow that continues after digitization","paragraphs":["Digitize the source, reconcile identifiers, map the parcel, validate uncertain cases, operate with the records, and maintain changes. The sequence is a working model, not a promise that every LGU begins at the same stage.","Parcel divisions, consolidations, corrections, and new assessments need a clear route through the office. Staff should be able to see the source of a geometry, who reviewed it, and what still needs field or document validation."]},
+      {"heading":"Tax mapping for the RPVARA era","paragraphs":["The Real Property Valuation and Assessment Reform Act encourages stronger property information and digital workflows. A usable map and reconciled parcel records can support preparation, but software alone does not establish compliance with valuation standards or implementing rules.","We start with the Assessor's Office process and the available records, then discuss what digitization, validation, and ongoing support the LGU actually needs."
+      ]}
+    ],
+    "related": ["tax-mapping-system-philippines", "rpvara-tax-mapping", "digitize-cadastral-tax-maps"],
+    "sources": [{"label":"BLGF Manual on Real Property Appraisal and Assessment Operations","url":"https://blgf.gov.ph/wp-content/uploads/2015/08/ManualRPAandAO.pdf"},{"label":"Republic Act No. 12001","url":"https://lawphil.net/statutes/repacts/ra2024/ra_12001_2024.html"}]
+  },
+  {
+    "slug": "tax-mapping-system-philippines",
+    "family": "sparta",
+    "kind": "guide",
+    "title": "Tax Mapping System for Philippine LGUs | Spatialdom",
+    "description": "Learn what a Philippine LGU tax mapping system should connect: parcel maps, property identifiers, assessment records, validation, and day-to-day updates.",
+    "heading": "What does a tax mapping system need to do for an LGU?",
+    "intro": "A tax map is most useful when an Assessor's Office can connect each parcel to its supporting property record and keep both current.",
+    "sections": [
+      {"heading":"Connect the parcel and the assessment record","paragraphs":["The map gives staff a way to locate a property. The assessment record carries the information used in office work. A dependable system links them through identifiers and keeps the source of each map feature visible.","BLGF guidance describes maintaining property identification and tax mapping systems. A digital screen is therefore only one part of the job: unmatched records, duplicate identifiers, and uncertain map lines still need review."]},
+      {"heading":"Plan for changes, not just initial encoding","paragraphs":["A parcel may be split, consolidated, corrected, or linked to a new assessment. The system needs a way to record these changes without losing the earlier source or the reason for an edit.","Field validation and document checks matter where a map and an assessment record disagree. Mark unresolved cases clearly so staff do not mistake a provisional geometry for a verified one."]},
+      {"heading":"Keep the role of the tax map clear","paragraphs":["Tax mapping supports assessment administration and spatial review. It does not by itself establish ownership or an official surveyed boundary. A successful modernization project gives the office a repeatable process for correcting and maintaining its records."]}
+    ],
+    "related": ["sparta", "digitize-cadastral-tax-maps", "rpvara-tax-mapping"],
+    "sources": [{"label":"BLGF Manual on Real Property Appraisal and Assessment Operations","url":"https://blgf.gov.ph/wp-content/uploads/2015/08/ManualRPAandAO.pdf"}]
+  },
+  {
+    "slug": "rpvara-tax-mapping",
+    "family": "sparta",
+    "kind": "guide",
+    "title": "RPVARA and Tax Mapping for LGUs | Spatialdom",
+    "description": "Understand how reliable parcel and property records can support an LGU preparing for the RPVARA era, without mistaking a map system for legal compliance.",
+    "heading": "Tax mapping for the RPVARA era",
+    "intro": "RPVARA raises the importance of usable property information. An LGU still needs to separate mapping and record preparation from formal valuation and compliance decisions.",
+    "sections": [
+      {"heading":"What RPVARA changes in the conversation","paragraphs":["Republic Act No. 12001 reforms real property valuation and assessment and provides for stronger property information and digital processes. Its implementing rules and BLGF guidance govern formal requirements.","A tax map can help locate properties and reconcile records, but a parcel polygon is not a valuation. No software should be called RPVARA compliant without a separate review against the applicable requirements."]},
+      {"heading":"Prepare the data an office can trust","paragraphs":["Start with tax declarations, property identifiers, map sheets, and other source documents. Identify records that cannot be matched confidently and note which geometries are traced, field checked, or still provisional.","Build a change process for subdivisions, consolidations, corrections, and new assessments. Keep the history and source visible so staff can revisit decisions when records disagree."]},
+      {"heading":"Discuss the implementation work","paragraphs":["SPARTA can support a modernization effort that includes digitization, data population, parcel mapping, reconciliation, validation, and maintenance design. The right scope depends on the LGU's source records, staffing, and current workflow."]}
+    ],
+    "related": ["sparta", "tax-mapping-system-philippines", "digitize-cadastral-tax-maps"],
+    "sources": [{"label":"Republic Act No. 12001","url":"https://lawphil.net/statutes/repacts/ra2024/ra_12001_2024.html"},{"label":"BLGF implementing rules for RA 12001","url":"https://blgf.gov.ph/wp-content/uploads/2025/03/BLGF-MC-No.-001.2025-IRR-of-RA-No.-12001-or-the-RPVARA-Reform-Act-6-Jan-2025-Approved-3.pdf"}]
+  },
+  {
+    "slug": "digitize-cadastral-tax-maps",
+    "family": "sparta",
+    "kind": "guide",
+    "title": "Digitize Cadastral and Tax Maps for LGUs | Spatialdom",
+    "description": "A practical path from scanned cadastral and tax maps to reviewable parcel data, with identifiers, source tracking, reconciliation, and field validation.",
+    "heading": "How can an LGU digitize cadastral and tax maps?",
+    "intro": "Scanning and tracing are only the beginning. The office also needs to know where every parcel line came from and how to handle conflicting records.",
+    "sections": [
+      {"heading":"Inventory and scan the source","paragraphs":["Record each sheet's title, scale, identifiers, date if shown, and source office. Scan at a resolution that preserves small labels and linework, and keep the original image available for review.","Separate cadastral index maps, tax maps, and approved survey documents by purpose. Their lines may relate to the same parcel, but they should not be treated as interchangeable authority."]},
+      {"heading":"Align, trace, and reconcile","paragraphs":["Georeference sheets using reliable control information, then inspect alignment rather than trusting one point. Trace parcel geometry with consistent shared edges and attach the correct identifiers and source references.","Check for overlaps, gaps, duplicate identifiers, and parcels with no matching assessment record. Flag uncertain lines for document or field validation instead of filling gaps by guesswork."]},
+      {"heading":"Make the result maintainable","paragraphs":["Track whether a feature is provisional, reviewed, or verified. Record who changed it and why. SPARTA's implementation work can combine digitization with database population, reconciliation, validation, and an office process for future updates."]}
+    ],
+    "related": ["sparta", "tax-mapping-system-philippines", "rpvara-tax-mapping"],
+    "sources": [{"label":"DENR cadastral index mapping guide","url":"https://faspselib.denr.gov.ph/Materials/Detail/ab3d9ecd-5a32-417e-9724-d24394dcdaf7"},{"label":"DENR GIS construction guide","url":"https://faspselib.denr.gov.ph/Materials/Detail/6e64fc57-842f-41b3-93b4-2843736be349"}]
+  },
+  {
+    "slug": "rbim-cloud",
+    "family": "rbim",
+    "kind": "product",
+    "title": "RBIM Cloud | Managed Household Data for LGUs | Spatialdom",
+    "description": "Help your LGU maintain local household and resident information for planning and services with managed RBIM cloud deployment, hosting, administration, and support.",
+    "heading": "Know your residents. Plan with better local data.",
+    "intro": "RBIM Cloud helps LGUs keep household and resident information usable for planning and service delivery. Spatialdom provides managed cloud deployment, hosting, system administration, maintenance, and implementation support for the RBIM digital system.",
+    "sections": [
+      {"heading":"Make local information useful between surveys","paragraphs":["A household record is valuable when authorized staff can find it, check when it was last updated, and use it for a defined planning or service task. RBIM Cloud is intended to make the digital system easier to operate where maintaining local server infrastructure is difficult.","Local teams remain responsible for the purpose and quality of the data. A demonstration should begin with the barangay or LGU's current collection, update, reporting, and access practices."]},
+      {"heading":"A managed deployment and support layer","paragraphs":["Spatialdom's role covers cloud deployment and hosting, system administration, maintenance, technical support, and help with implementation. It is not a claim that Spatialdom created the RBIM digital system.","The practical scope can include setup, user access planning, operational handover, and ongoing support. Any deployment should be discussed against the LGU's policies, available connectivity, and existing official systems."]},
+      {"heading":"Use household data responsibly","paragraphs":["Resident information can be sensitive. Define who may see named records, when aggregate results are enough, how corrections are made, and how data will be protected and retained. A demo can show the workflow, but data governance remains an LGU decision under applicable privacy requirements."]}
+    ],
+    "related": ["household-mapping-system-lgu", "barangay-household-information-system"],
+    "sources": [{"label":"CPD population and development progress report on RBIM and GIZ","url":"https://region10.cpd.gov.ph/wp-content/uploads/2025/08/2-CPD_PPDPOA-2023-2024-PROGRESS-REPORT_092524_FA_compressed.pdf"},{"label":"National Privacy Commission: Data Privacy Act","url":"https://privacy.gov.ph/data-privacy-act/"}]
+  },
+  {
+    "slug": "household-mapping-system-lgu",
+    "family": "rbim",
+    "kind": "guide",
+    "title": "Household Mapping System for LGUs | Spatialdom",
+    "description": "How an LGU can use household locations and records for planning while keeping named resident data restricted and current.",
+    "heading": "How can an LGU use household mapping for planning?",
+    "intro": "A map can reveal where services are needed, but the underlying household records must be current, purposeful, and protected.",
+    "sections": [
+      {"heading":"Start with a planning question","paragraphs":["An LGU may need to compare areas by service coverage or plan follow-up work. Define that use first, then decide whether an aggregate map is enough or whether an authorized worker needs a named household record.","CPD describes RBIM as a household information database and a way to track population movement for community-level planning. That does not make every household location suitable for public display."]},
+      {"heading":"Maintain the record behind the point","paragraphs":["A location marker is only useful if it connects to a record that staff can update and verify. Assign responsibility for moves, new households, duplicate entries, and corrections. Keep the date and source of changes so users know what can be relied on.","When combining records from separate offices or surveys, check identifiers and sharing rules before moving data into one system. An attractive map cannot resolve conflicting facts by itself."]},
+      {"heading":"Choose a workable operating model","paragraphs":["RBIM Cloud offers managed deployment and technical support for the RBIM digital system. Discuss how authorized LGU staff will collect, maintain, view, and protect information before choosing a hosting arrangement."]}
+    ],
+    "related": ["rbim-cloud", "barangay-household-information-system"],
+    "sources": [{"label":"CPD progress report on RBIM","url":"https://region10.cpd.gov.ph/wp-content/uploads/2025/08/2-CPD_PPDPOA-2023-2024-PROGRESS-REPORT_092524_FA_compressed.pdf"},{"label":"CPD RBIM barangay implementation guidance","url":"https://ncr.cpd.gov.ph/wp-content/uploads/2025/03/Approved-CPD-DTP-dated-16-March-2022.pdf"}]
+  },
+  {
+    "slug": "barangay-household-information-system",
+    "family": "rbim",
+    "kind": "guide",
+    "title": "Barangay Household Information System | Spatialdom",
+    "description": "What a barangay household information system should support: current resident records, controlled access, corrections, local planning, and ongoing administration.",
+    "heading": "What should a barangay household information system manage?",
+    "intro": "A useful barangay system helps authorized staff maintain resident information over time. The daily update process matters as much as the initial data collection.",
+    "sections": [
+      {"heading":"Keep a clear household record","paragraphs":["Define a household identifier, location reference, fields needed for actual services, and the source of each important entry. A barangay should be able to correct moves, splits, duplicate records, and changed membership without losing the reason for an update.","The Registry of Barangay Inhabitants and Migrants digital system is one approach to organizing this work. The CPD has promoted RBIM for local demographic and socioeconomic information; an LGU should check how it fits with its current official systems and policies."]},
+      {"heading":"Separate planning views from named records","paragraphs":["Counts and aggregate maps may be enough to plan a program. Named records should be available only to staff with an authorized purpose. Explain collection and sharing to residents, and set clear correction and retention practices.","The National Privacy Commission's guidance applies to LGU handling of personal information. The system's users and administrators need practical access rules, not only a privacy statement."]},
+      {"heading":"Plan who will run it","paragraphs":["Where local server capacity is limited, RBIM Cloud can provide managed hosting, administration, maintenance, and technical support for the RBIM digital system. A demo should cover the barangay's current process and the responsibilities that remain with the LGU."]}
+    ],
+    "related": ["rbim-cloud", "household-mapping-system-lgu"],
+    "sources": [{"label":"CPD population and development progress report on RBIM and GIZ","url":"https://region10.cpd.gov.ph/wp-content/uploads/2025/08/2-CPD_PPDPOA-2023-2024-PROGRESS-REPORT_092524_FA_compressed.pdf"},{"label":"National Privacy Commission: LGU privacy compliance","url":"https://privacy.gov.ph/npc-commends-new-dilg-issuance-enhancing-data-privacy-compliance-among-lgus/"}]
+  }
+]

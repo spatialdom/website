@@ -8,6 +8,7 @@ const pages = JSON.parse(readFileSync(resolve('src/data/parcelPages.json'), 'utf
 const toolPages = JSON.parse(readFileSync(resolve('src/data/toolPages.json'), 'utf8'));
 const sitePages = JSON.parse(readFileSync(resolve('src/data/sitePages.json'), 'utf8'));
 const insightArticles = JSON.parse(readFileSync(resolve('src/data/insightArticles.json'), 'utf8'));
+const lguProductPages = JSON.parse(readFileSync(resolve('src/data/lguProductPages.json'), 'utf8'));
 const appUrl = 'https://parcel.spatialdom.xyz/';
 const siteUrl = 'https://spatialdom.xyz';
 
@@ -93,15 +94,18 @@ function structuredData(page, slug, url, article = false) {
       author: { '@type': 'Organization', name: 'Spatialdom' }, publisher: { '@type': 'Organization', name: 'Spatialdom' } });
   }
   if (slug) {
+    const lguPage = lguProductPages.find((item) => item.slug === slug);
     const parent = slug.startsWith('insights/')
       ? [{ '@type': 'ListItem', position: 2, name: 'Insights', item: `${siteUrl}/insights/` }]
       : pages.some((item) => item.slug === slug && slug !== 'parcel-plotter')
         ? [{ '@type': 'ListItem', position: 2, name: 'Parcel Plotter', item: `${siteUrl}/parcel-plotter/` }]
+        : lguPage?.kind === 'guide'
+          ? [{ '@type': 'ListItem', position: 2, name: lguPage.family === 'sparta' ? 'SPARTA' : 'RBIM Cloud', item: `${siteUrl}/${lguPage.family === 'sparta' ? 'sparta' : 'rbim-cloud'}/` }]
         : [];
     graph.push({ '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
       ...parent,
-      { '@type': 'ListItem', position: parent.length + 2, name: page.heading, item: url }
+      { '@type': 'ListItem', position: parent.length + 2, name: lguPage?.kind === 'product' ? (lguPage.family === 'sparta' ? 'SPARTA' : 'RBIM Cloud') : page.heading, item: url }
     ] });
   }
   return graph.length ? `<script id="route-jsonld" type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')}</script>` : '';
@@ -147,6 +151,26 @@ function renderSiteBody(page) {
   return `<div id="root"><main class="pb-16 pt-32"><div class="container-shell"><h1 class="text-4xl font-bold">${escapeHtml(page.heading)}</h1><p>${escapeHtml(page.description)}</p><nav aria-label="Explore Spatialdom"><a href="/parcel-plotter/">Parcel Plotter</a> · <a href="/tools/">Free tools</a> · <a href="/insights/">Insights</a> · <a href="/contact/">Contact</a></nav></div></main></div>`;
 }
 
+function renderLguProductBody(page) {
+  const isSparta = page.family === 'sparta';
+  const productName = isSparta ? 'SPARTA' : 'RBIM Cloud';
+  const productSlug = isSparta ? 'sparta' : 'rbim-cloud';
+  const primaryLabel = isSparta ? 'Discuss Tax Mapping' : 'Request a Demo';
+  const primarySubject = isSparta ? 'SPARTA — Tax Mapping Discussion' : 'RBIM Cloud — Demo Request';
+  const primaryHref = `mailto:spatialdom@gmail.com?subject=${encodeURIComponent(primarySubject)}`;
+  const workflowHref = `mailto:spatialdom@gmail.com?subject=${encodeURIComponent("SPARTA — Assessor's Office Workflow Discussion")}&body=${encodeURIComponent("Please tell us about your current tax maps and property records, what is difficult to reconcile, and what your Assessor's Office wants to improve.")}`;
+  const parent = page.kind === 'guide' ? `<a class="text-link" href="/${productSlug}/">${productName}</a> / ` : '';
+  const attribution = isSparta ? '' : `<aside class="mt-8 max-w-3xl rounded-xl border border-border-strong bg-surface-soft p-5"><h2 class="text-lg font-semibold">Who developed the RBIM digital system?</h2><p class="mt-2 leading-7">The RBIM digital system was developed through a Commission on Population and Development (CPD) initiative with GIZ assistance. Spatialdom provides cloud deployment, hosting, system administration, maintenance, and implementation support; Spatialdom did not create the RBIM digital system.</p></aside>`;
+  const workflow = isSparta && page.kind === 'product' ? `<section class="mt-10"><h2 class="text-2xl font-semibold">A working sequence for the office</h2><ol class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">${['Digitize', 'Reconcile', 'Map', 'Validate', 'Operate', 'Maintain'].map((step) => `<li class="panel p-4">${step}</li>`).join('')}</ol></section>` : '';
+  const discovery = isSparta && page.kind === 'product' ? `<aside class="mt-10 max-w-3xl rounded-xl border border-border-strong bg-surface-soft p-5"><h2 class="text-xl font-semibold">Share your workflow</h2><p>We are speaking with Assessor's Offices about how tax mapping works in practice. If your LGU is digitizing tax maps, preparing for RPVARA implementation, or working with fragmented property records, we would like to understand your workflow.</p><a class="text-link" href="${escapeHtml(workflowHref)}">Email your current workflow to Spatialdom</a></aside>` : '';
+  const sections = page.sections.map((section) => `<section class="border-b border-border-subtle py-8 sm:py-10"><h2 class="text-2xl font-semibold">${escapeHtml(section.heading)}</h2><div class="mt-4 max-w-prose space-y-4 leading-8 text-text-secondary">${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div></section>`).join('');
+  const related = page.related.map((slug) => lguProductPages.find((item) => item.slug === slug)).filter(Boolean).map((item) => `<li><a class="text-link" href="/${escapeHtml(item.slug)}/">${escapeHtml(item.heading)}</a></li>`).join('');
+  const insightHref = isSparta ? '/insights/tax-mapping-philippine-lgu/' : '/insights/household-profiling-systems-lgu/';
+  const sources = page.sources.map((source) => `<li><a class="text-link" href="${escapeHtml(source.url)}">${escapeHtml(source.label)}</a></li>`).join('');
+
+  return `<div id="root"><main class="pb-16 pt-32 sm:pt-40"><div class="container-shell max-w-5xl"><nav aria-label="Breadcrumb" class="text-sm"><a class="text-link" href="/">Home</a> / ${parent}<span aria-current="page">${escapeHtml(page.kind === 'product' ? productName : page.heading)}</span></nav><header class="mt-8 max-w-3xl"><p class="section-label">${productName}${page.kind === 'guide' ? ' guide' : ''}</p><h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-5xl">${escapeHtml(page.heading)}</h1><p class="mt-5 text-lg leading-8">${escapeHtml(page.intro)}</p><div class="mt-7 flex flex-wrap gap-3"><a class="interactive-accent" href="${escapeHtml(primaryHref)}">${primaryLabel}</a>${isSparta && page.kind === 'product' ? `<a class="interactive-outline" href="${escapeHtml(workflowHref)}">Share your workflow</a>` : ''}</div></header>${attribution}${workflow}<div class="mt-10 max-w-3xl border-t border-border-subtle">${sections}</div>${discovery}<aside class="mt-10 max-w-3xl rounded-xl border border-border-strong bg-surface p-5"><h2 class="text-xl font-semibold">${isSparta ? 'Discuss your tax mapping needs' : 'See whether RBIM Cloud fits your LGU'}</h2><p>Tell us about your current records, staff workflow, and support needs.</p><a class="interactive-accent mt-4" href="${escapeHtml(primaryHref)}">${primaryLabel}</a><p>Or email <a class="text-link" href="mailto:spatialdom@gmail.com">spatialdom@gmail.com</a>.</p></aside><nav class="mt-10" aria-label="Related pages"><h2 class="text-xl font-semibold">Keep exploring</h2><ul>${related}<li><a class="text-link" href="${insightHref}">Read the related Insight guide</a></li></ul></nav><div class="mt-10 text-sm"><h2 class="font-semibold">Sources and further reading</h2><ul>${sources}</ul></div></div></main></div>`;
+}
+
 for (const page of pages) {
   if (!/^[a-z0-9-]+$/.test(page.slug)) throw new Error(`Invalid page slug: ${page.slug}`);
   const pageDir = resolve(distDir, page.slug);
@@ -169,6 +193,17 @@ for (const page of sitePages) {
   writeFileSync(resolve(pageDir, 'index.html'), finalizePageHtml(html, page, page.slug));
 }
 
+const lguSlugs = new Set();
+for (const page of lguProductPages) {
+  if (!/^[a-z0-9-]+$/.test(page.slug) || lguSlugs.has(page.slug)) throw new Error(`Invalid or duplicate LGU page slug: ${page.slug}`);
+  lguSlugs.add(page.slug);
+  if (page.related.some((slug) => !lguProductPages.some((item) => item.slug === slug))) throw new Error(`Broken related LGU page on ${page.slug}`);
+  const pageDir = resolve(distDir, page.slug);
+  mkdirSync(pageDir, { recursive: true });
+  const html = replaceTag(indexHtml, /<div id="root"><\/div>/, renderLguProductBody(page));
+  writeFileSync(resolve(pageDir, 'index.html'), finalizePageHtml(html, page, page.slug));
+}
+
 const insightSlugs = new Set();
 for (const page of insightArticles) {
   if (!/^[a-z0-9-]+$/.test(page.slug) || insightSlugs.has(page.slug)) throw new Error(`Invalid or duplicate insight slug: ${page.slug}`);
@@ -184,6 +219,7 @@ for (const page of insightArticles) {
 const urls = [
   ...sitePages.map((page) => `${siteUrl}/${page.slug ? `${page.slug}/` : ''}`),
   ...pages.map((page) => `${siteUrl}/${page.slug}/`),
+  ...lguProductPages.map((page) => `${siteUrl}/${page.slug}/`),
   ...toolPages.map((page) => `${siteUrl}/${page.slug}/`),
   ...insightArticles.map((page) => `${siteUrl}/insights/${page.slug}/`)
 ];
