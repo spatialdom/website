@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "tools",
+    "title": "Free Geospatial Tools | Spatialdom",
+    "description": "Use free browser tools to convert Philippine coordinates and inspect GeoJSON data. Start a practical mapping task without signing in.",
+    "heading": "Free geospatial tools",
+    "intro": "Small, practical utilities for coordinates and map data. Choose a task and start in your browser; no account is required."
+  },
+  {
+    "slug": "tools/coordinate-converter",
+    "title": "Luzon 1911 Coordinate Converter | Spatialdom",
+    "description": "Convert Luzon 1911 longitude and latitude to Philippine Transverse Mercator grid coordinates, or convert PTM X and Y back. Choose a zone and copy the result.",
+    "heading": "Luzon 1911 coordinate converter",
+    "intro": "Enter Luzon 1911 longitude and latitude, or PTM X and Y, then choose the correct Philippine zone. Results update as you type.",
+    "howToUse": [
+      "Choose Geo to Grid or Grid to Geo, then select the Luzon 1911 zone used by your source data.",
+      "Enter longitude and latitude in decimal degrees or DMS, or enter PTM X and PTM Y. Copy the compact or detailed result."
+    ],
+    "meaning": [
+      "PTM X and Y are projected grid coordinates in meters. Longitude and latitude are angular coordinates. The zone and datum must match the source; otherwise a plausible looking result can still be misplaced.",
+      "This converter works with Luzon 1911 geographic and grid coordinates. It is not a WGS 84 latitude/longitude to UTM converter, and it does not establish a legal parcel boundary."
+    ],
+    "insight": { "label": "Read about coordinate systems and zones", "href": "/insights/#coordinate-systems" },
+    "product": { "label": "Working with a land-title technical description? Explore Parcel Plotter", "href": "/parcel-plotter/" }
+  },
+  {
+    "slug": "tools/geojson-viewer",
+    "title": "View GeoJSON Online | Spatialdom",
+    "description": "Open a GeoJSON file in your browser, check its features and geometry types, and inspect properties on an interactive map. No account required.",
+    "heading": "GeoJSON viewer",
+    "intro": "Choose a .geojson or .json file to check its structure, inspect features, and view them on a map. The file is read in your browser.",
+    "howToUse": [
+      "Choose or drop a GeoJSON file. The viewer checks its structure and reports the feature count and geometry types.",
+      "Explore the map, tap a feature to inspect its properties, or use Zoom to Extents to return to your data."
+    ],
+    "meaning": [
+      "GeoJSON describes features such as points, lines, and polygons with coordinates and optional properties. Standard GeoJSON uses WGS 84 longitude and latitude in that order.",
+      "The viewer reads the selected file locally in your browser. Map tiles are requested from the selected basemap provider; your GeoJSON file is not uploaded by this tool."
+    ],
+    "insight": { "label": "Read how GeoJSON coordinates work", "href": "/insights/#geojson-basics" }
+  }
+]

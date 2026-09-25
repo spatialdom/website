@@ -13,6 +13,9 @@ import {
   type Luzon1911Zone
 } from '../../shared/utils/coordinates';
 import ToolLayout from '../../shared/layout/ToolLayout';
+import ToolGuide from '../../shared/layout/ToolGuide';
+import { getToolPage, useToolMetadata } from '../../shared/utils/toolPage';
+import { emitToolEvent } from '../../shared/utils/toolEvents';
 
 type ConversionMode = 'geographic-to-grid' | 'grid-to-geographic';
 
@@ -178,6 +181,8 @@ function getGridToGeographicResult(
 }
 
 function CoordinateConverterPage() {
+  useToolMetadata('tools/coordinate-converter');
+  const page = getToolPage('tools/coordinate-converter');
   const [mode, setMode] = useState<ConversionMode>('geographic-to-grid');
   const [angularFormat, setAngularFormat] = useState<AngularFormat>('dd');
   const [zone, setZone] = useState<Luzon1911Zone>(defaultZone);
@@ -187,14 +192,7 @@ function CoordinateConverterPage() {
   const [gridValues, setGridValues] = useState(defaultGrid);
   const [copyStatus, setCopyStatus] = useState('');
 
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = 'Coordinate Converter | Spatialdom';
-
-    return () => {
-      document.title = previousTitle;
-    };
-  }, []);
+  useEffect(() => { emitToolEvent('coordinate-converter', 'opened'); }, []);
 
   useEffect(() => {
     if (!copyStatus) {
@@ -221,6 +219,7 @@ function CoordinateConverterPage() {
     try {
       await copyText(value);
       setCopyStatus(successMessage);
+      emitToolEvent('coordinate-converter', 'copied');
     } catch {
       setCopyStatus('Copy failed. Please copy manually.');
     }
@@ -252,9 +251,9 @@ function CoordinateConverterPage() {
 
   return (
     <ToolLayout
-      title="Coordinate Converter"
-      intro="Convert Luzon 1911 geographic coordinates and Luzon 1911 grid coordinates for common Philippine workflows. Inputs support longitude/latitude with zone, or PTM X / PTM Y with zone, and angular values can be handled in decimal degrees or DMS."
-      showAds
+      title={page.heading}
+      intro={page.intro}
+      compact
     >
       <div className="mx-auto grid max-w-5xl gap-6">
         <section className="panel rounded-xl p-4 sm:p-6">
@@ -551,6 +550,7 @@ function CoordinateConverterPage() {
           </div>
         </section>
       </div>
+      <ToolGuide slug="tools/coordinate-converter" />
     </ToolLayout>
   );
 }

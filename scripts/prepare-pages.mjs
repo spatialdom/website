@@ -5,6 +5,7 @@ const distDir = resolve('dist');
 const indexFile = resolve(distDir, 'index.html');
 const fallbackFile = resolve(distDir, '404.html');
 const pages = JSON.parse(readFileSync(resolve('src/data/parcelPages.json'), 'utf8'));
+const toolPages = JSON.parse(readFileSync(resolve('src/data/toolPages.json'), 'utf8'));
 const appUrl = 'https://parcel.spatialdom.xyz/';
 const siteUrl = 'https://spatialdom.xyz';
 
@@ -78,6 +79,39 @@ function renderPageHtml(page) {
   return html;
 }
 
+function renderToolBody(page) {
+  const heading = escapeHtml(page.heading);
+  const intro = escapeHtml(page.intro);
+  const compact = page.slug !== 'tools';
+  const toolLinks = [
+    { href: '/tools/coordinate-converter/', label: 'Coordinate Converter', description: 'Convert Luzon 1911 longitude and latitude to PTM grid coordinates, or back again.' },
+    { href: '/tools/geojson-viewer/', label: 'GeoJSON Viewer', description: 'Open a GeoJSON file, check its features, and inspect the data on a map.' }
+  ];
+  const content = page.slug === 'tools'
+    ? `<section aria-labelledby="available-tools"><h2 id="available-tools">Choose a task</h2><ul>${toolLinks.map((tool) => `<li><h3>${tool.label}</h3><p>${tool.description}</p><a class="text-link" href="${tool.href}">Open ${tool.label}</a></li>`).join('')}</ul></section><section><h2>More practical tasks</h2><p>Area & Distance Calculator, Shapefile to GeoJSON Converter, and Parcel Sketch Generator are in development.</p></section>`
+    : `<section><h2>How to use</h2><ol>${page.howToUse.map((step) => `<li>${escapeHtml(step)}</li>`).join('')}</ol></section><section><h2>What the result means</h2>${page.meaning.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}${page.insight ? `<p><a class="text-link" href="${escapeHtml(page.insight.href)}">${escapeHtml(page.insight.label)}</a></p>` : ''}${page.product ? `<p><a class="text-link" href="${escapeHtml(page.product.href)}">${escapeHtml(page.product.label)}</a></p>` : ''}</section>`;
+
+  return `<div id="root"><main class="pb-16 pt-32 sm:pt-36"><div class="container-shell"><header class="${compact ? 'max-w-3xl border-b border-border-subtle pb-5' : 'panel rounded-xl p-6 sm:p-8'}"><p class="section-label">Spatialdom Tools</p><h1 class="mt-2 ${compact ? 'text-2xl' : 'text-3xl'} font-bold tracking-tight text-text-primary sm:text-4xl">${heading}</h1><p class="mt-2 max-w-3xl text-sm leading-7 text-text-body sm:text-base">${intro}</p></header><div class="mt-8 max-w-4xl space-y-6 leading-7 text-text-secondary">${content}</div></div></main></div>`;
+}
+
+function renderToolHtml(page) {
+  const url = `${siteUrl}/${page.slug}/`;
+  const title = escapeHtml(page.title);
+  const description = escapeHtml(page.description);
+  let html = indexHtml;
+  html = replaceTag(html, /<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
+  html = replaceTag(html, /<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${description}" />`);
+  html = replaceTag(html, /<meta\s+property="og:type"[\s\S]*?\/>/, '<meta property="og:type" content="website" />');
+  html = replaceTag(html, /<meta\s+property="og:url"[\s\S]*?\/>/, `<meta property="og:url" content="${url}" />`);
+  html = replaceTag(html, /<meta\s+property="og:title"[\s\S]*?\/>/, `<meta property="og:title" content="${title}" />`);
+  html = replaceTag(html, /<meta\s+property="og:description"[\s\S]*?\/>/, `<meta property="og:description" content="${description}" />`);
+  html = replaceTag(html, /<link\s+rel="canonical"[\s\S]*?\/>/, `<link rel="canonical" href="${url}" />`);
+  html = replaceTag(html, /<meta\s+name="twitter:title"[\s\S]*?\/>/, `<meta name="twitter:title" content="${title}" />`);
+  html = replaceTag(html, /<meta\s+name="twitter:description"[\s\S]*?\/>/, `<meta name="twitter:description" content="${description}" />`);
+  html = replaceTag(html, /<div id="root"><\/div>/, renderToolBody(page));
+  return html;
+}
+
 for (const page of pages) {
   if (!/^[a-z0-9-]+$/.test(page.slug)) throw new Error(`Invalid page slug: ${page.slug}`);
   const pageDir = resolve(distDir, page.slug);
@@ -85,6 +119,13 @@ for (const page of pages) {
   writeFileSync(resolve(pageDir, 'index.html'), renderPageHtml(page));
 }
 
-const urls = [`${siteUrl}/`, ...pages.map((page) => `${siteUrl}/${page.slug}/`)];
+for (const page of toolPages) {
+  if (!/^tools(?:\/[a-z0-9-]+)?$/.test(page.slug)) throw new Error(`Invalid tool page slug: ${page.slug}`);
+  const pageDir = resolve(distDir, page.slug);
+  mkdirSync(pageDir, { recursive: true });
+  writeFileSync(resolve(pageDir, 'index.html'), renderToolHtml(page));
+}
+
+const urls = [`${siteUrl}/`, ...pages.map((page) => `${siteUrl}/${page.slug}/`), ...toolPages.map((page) => `${siteUrl}/${page.slug}/`)];
 writeFileSync(resolve(distDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${url}</loc></url>`).join('')}</urlset>\n`);
 writeFileSync(resolve(distDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);

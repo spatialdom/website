@@ -16,7 +16,10 @@ function ScrollToHash() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (!hash) return;
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
     const frame = window.requestAnimationFrame(() => document.getElementById(hash.slice(1))?.scrollIntoView());
     return () => window.cancelAnimationFrame(frame);
   }, [pathname, hash]);

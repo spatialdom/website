@@ -4,6 +4,24 @@ import Container from '../components/layout/Container';
 
 const articles = [
   {
+    id: 'coordinate-systems',
+    title: 'Why coordinate systems and zones matter',
+    paragraphs: [
+      'Longitude and latitude describe angular positions, while projected grid coordinates describe positions on a flat map. A datum and projection define how those numbers relate to places on the ground.',
+      'Before converting coordinates, confirm the source datum and zone. The Spatialdom converter handles Luzon 1911 geographic and Philippine Transverse Mercator grid coordinates; it does not convert WGS 84 or UTM coordinates.'
+    ],
+    source: { label: 'EPSG Geodetic Parameter Dataset', href: 'https://epsg.org/home.html' }
+  },
+  {
+    id: 'geojson-basics',
+    title: 'How to read GeoJSON coordinates',
+    paragraphs: [
+      'GeoJSON stores geometry as points, lines, polygons, and collections of features. A feature can also carry properties, such as a name or identifier.',
+      'Standard GeoJSON positions use longitude first, then latitude, in decimal degrees on WGS 84. If a dataset uses a different coordinate reference system, check or transform it before relying on its position on a web map.'
+    ],
+    source: { label: 'IETF RFC 7946: The GeoJSON Format', href: 'https://datatracker.ietf.org/doc/html/rfc7946' }
+  },
+  {
     id: 'land-title-technical-description',
     title: 'What is a land title technical description?',
     paragraphs: [
@@ -58,6 +76,12 @@ function InsightsPage() {
                 <Link className="text-link mt-5 inline-block" to="/plot-land-title-technical-description/">
                   Learn how to plot a technical description
                 </Link>
+              ) : null}
+              {article.id === 'coordinate-systems' ? (
+                <Link className="text-link mt-5 inline-block" to="/tools/coordinate-converter/">Use the coordinate converter</Link>
+              ) : null}
+              {article.id === 'geojson-basics' ? (
+                <Link className="text-link mt-5 inline-block" to="/tools/geojson-viewer/">Open the GeoJSON viewer</Link>
               ) : null}
               <a className="text-link mt-6 inline-block text-sm" href={article.source.href} target="_blank" rel="noopener noreferrer">
                 Source: {article.source.label}<span className="sr-only"> (opens in a new tab)</span>

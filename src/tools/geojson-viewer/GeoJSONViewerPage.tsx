@@ -9,8 +9,10 @@ import maplibregl, {
   type StyleSpecification
 } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import ToolAdSlot from '../../shared/ads/ToolAdSlot';
 import ToolLayout from '../../shared/layout/ToolLayout';
+import ToolGuide from '../../shared/layout/ToolGuide';
+import { getToolPage, useToolMetadata } from '../../shared/utils/toolPage';
+import { emitToolEvent } from '../../shared/utils/toolEvents';
 import {
   getBounds,
   getGeoJSONCrsInfo,
@@ -116,6 +118,12 @@ function formatPropertyValue(value: unknown) {
   return String(value);
 }
 
+function escapeHtml(value: string) {
+  return value.replace(/[&<>"']/g, (character) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[character] ?? character);
+}
+
 function createPopupHtml(feature: GeoJSONFeature) {
   const properties = feature.properties ?? {};
   const entries = Object.entries(properties);
@@ -127,7 +135,7 @@ function createPopupHtml(feature: GeoJSONFeature) {
   const rows = entries
     .map(
       ([key, value]) =>
-        `<div class="geojson-popup-row"><span class="geojson-popup-key">${key}</span><span class="geojson-popup-value">${formatPropertyValue(value)}</span></div>`
+        `<div class="geojson-popup-row"><span class="geojson-popup-key">${escapeHtml(key)}</span><span class="geojson-popup-value">${escapeHtml(formatPropertyValue(value))}</span></div>`
     )
     .join('');
 
@@ -247,6 +255,8 @@ function ensureDataLayers(map: Map) {
 }
 
 function GeoJSONViewerPage() {
+  useToolMetadata('tools/geojson-viewer');
+  const page = getToolPage('tools/geojson-viewer');
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const mapRef = useRef<Map | null>(null);
@@ -266,14 +276,7 @@ function GeoJSONViewerPage() {
     []
   );
 
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = 'GeoJSON Viewer | Spatialdom';
-
-    return () => {
-      document.title = previousTitle;
-    };
-  }, []);
+  useEffect(() => { emitToolEvent('geojson-viewer', 'opened'); }, []);
 
   useEffect(() => {
     if (!mapContainerRef.current || mapRef.current) {
@@ -284,7 +287,8 @@ function GeoJSONViewerPage() {
       container: mapContainerRef.current,
       style: buildStyle('osm'),
       center: philippinesCenter,
-      zoom: 4.8
+      zoom: 4.8,
+      cooperativeGestures: true
     });
 
     map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
@@ -404,6 +408,7 @@ function GeoJSONViewerPage() {
       });
       setFileName(name);
       setError('');
+      emitToolEvent('geojson-viewer', 'completed');
     } catch (parseError) {
       setError(parseError instanceof Error ? parseError.message : 'Unable to read the uploaded file.');
       setInfo(null);
@@ -503,8 +508,9 @@ function GeoJSONViewerPage() {
 
   return (
     <ToolLayout
-      title="GeoJSON Viewer"
-      intro="Upload GeoJSON, validate the structure instantly, inspect feature properties, and visualize data on a fast browser map with mobile-friendly controls."
+      title={page.heading}
+      intro={page.intro}
+      compact
     >
       <div className="mx-auto grid max-w-6xl gap-6">
         <section className="panel rounded-xl p-5 sm:p-6">
@@ -519,15 +525,6 @@ function GeoJSONViewerPage() {
             </div>
 
             <div
-              role="button"
-              tabIndex={0}
-              onClick={() => fileInputRef.current?.click()}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault();
-                  fileInputRef.current?.click();
-                }
-              }}
               onDragOver={(event) => {
                 event.preventDefault();
                 setDragActive(true);
@@ -552,7 +549,7 @@ function GeoJSONViewerPage() {
                 <p className="text-sm leading-6 text-text-body">
                   Or tap below to choose a file from your device.
                 </p>
-                <button type="button" className="interactive-accent inline-flex items-center justify-center">
+                <button type="button" onClick={() => fileInputRef.current?.click()} className="interactive-accent inline-flex items-center justify-center">
                   Choose file
                 </button>
               </div>
@@ -652,10 +649,8 @@ function GeoJSONViewerPage() {
           </div>
         </section>
 
-        <div className="pt-2">
-          <ToolAdSlot label="Bottom Banner" />
-        </div>
       </div>
+      <ToolGuide slug="tools/geojson-viewer" />
     </ToolLayout>
   );
 }

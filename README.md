@@ -83,6 +83,8 @@ VITE_BASE_PATH=/repo-name/ npm run build
 
 ## Micro Tools Foundation
 
+`/tools/` is the free utility directory. Coordinate Converter and GeoJSON Viewer have direct-refresh HTML pages with unique metadata and sitemap entries. Their task controls stay above short usage guidance; the GeoJSON viewer reads selected files in the browser and uses cooperative map gestures on mobile. See `docs/tools-pages.md` for the page briefs and event hooks.
+
 The app now uses React Router with a split between the existing homepage and a scalable tools subsystem:
 
 - `/` keeps the homepage structure largely intact through `src/pages/HomePage.tsx`.
