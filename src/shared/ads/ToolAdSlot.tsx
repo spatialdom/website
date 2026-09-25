@@ -6,7 +6,7 @@ type ToolAdSlotProps = {
 function ToolAdSlot({ label = 'Ad Slot', className = '' }: ToolAdSlotProps) {
   return (
     <aside
-      className={`panel rounded-[1.75rem] px-5 py-6 text-center ${className}`.trim()}
+      className={`panel rounded-xl px-5 py-6 text-center ${className}`.trim()}
       aria-label={label}
     >
       {/* Mount the production ad unit here for tool pages. */}

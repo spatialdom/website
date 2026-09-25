@@ -6,6 +6,7 @@ import { cn } from '../../lib/cn';
 import { fadeUp } from '../../lib/motion';
 import { useScrolled } from '../../hooks/useScrolled';
 import BrandMark from '../ui/BrandMark';
+import IconButton from '../ui/IconButton';
 import Container from './Container';
 
 function Navbar() {
@@ -35,14 +36,14 @@ function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       <Container
         className={cn(
-          'mt-4 rounded-[1.25rem] border px-4 py-3 transition-all duration-500 ease-refined sm:mt-5 sm:px-5',
+          'mt-4 rounded-xl border px-4 py-3 transition-all duration-500 ease-refined sm:mt-5 sm:px-5',
           scrolled ? 'theme-nav-scrolled' : 'border-transparent bg-transparent'
         )}
       >
         <div className="flex items-center justify-between gap-4">
           <Link
             to="/"
-            className="inline-flex items-center gap-3 rounded-full text-sm font-medium text-text-primary transition-colors duration-300 hover:text-text-strong"
+            className="inline-flex items-center gap-3 rounded-md text-sm font-medium text-text-primary transition-colors duration-300 hover:text-text-strong"
             aria-label="Go to Spatialdom hero section"
           >
             <BrandMark />
@@ -56,7 +57,7 @@ function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <Link to="/tools" className="nav-link">
+              <Link to="/tools" className="nav-link" aria-current={location.pathname.startsWith('/tools') ? 'page' : undefined}>
                 Tools
               </Link>
             </nav>
@@ -71,39 +72,40 @@ function Navbar() {
             </a>
           </div>
 
-          <button
-            type="button"
-            className="theme-icon-button inline-flex h-11 w-11 items-center justify-center rounded-full transition duration-300 md:hidden"
+          <IconButton
+            className="md:hidden"
             aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
             aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             onClick={() => setMenuOpen((current) => !current)}
           >
             <span className="relative flex h-4 w-4 flex-col items-center justify-center">
               <span
                 className={cn(
-                  'absolute h-px w-4 bg-current transition-transform duration-300',
+                  'absolute h-px w-4 rounded-full bg-current transition-transform duration-300',
                   menuOpen ? 'translate-y-0 rotate-45' : '-translate-y-[4px]'
                 )}
               />
               <span
                 className={cn(
-                  'absolute h-px w-4 bg-current transition-opacity duration-300',
+                  'absolute h-px w-4 rounded-full bg-current transition-opacity duration-300',
                   menuOpen ? 'opacity-0' : 'opacity-100'
                 )}
               />
               <span
                 className={cn(
-                  'absolute h-px w-4 bg-current transition-transform duration-300',
+                  'absolute h-px w-4 rounded-full bg-current transition-transform duration-300',
                   menuOpen ? 'translate-y-0 -rotate-45' : 'translate-y-[4px]'
                 )}
               />
             </span>
-          </button>
+          </IconButton>
         </div>
 
         <AnimatePresence>
           {menuOpen ? (
             <motion.nav
+              id="mobile-navigation"
               className="theme-mobile-nav mt-4 grid gap-2 pt-4 md:hidden"
               initial="hidden"
               animate="visible"
@@ -121,7 +123,7 @@ function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <Link to="/tools" className="theme-mobile-link px-4 py-3" onClick={() => setMenuOpen(false)}>
+              <Link to="/tools" className="theme-mobile-link px-4 py-3" aria-current={location.pathname.startsWith('/tools') ? 'page' : undefined} onClick={() => setMenuOpen(false)}>
                 Tools
               </Link>
               <a

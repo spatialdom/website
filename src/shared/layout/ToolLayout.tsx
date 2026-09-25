@@ -13,10 +13,10 @@ function ToolLayout({ title, intro, children, showAds = false }: ToolLayoutProps
     <main className="pb-16 pt-32 sm:pt-36">
       <Container>
         <div className="space-y-8">
-          <header className="panel rounded-[2rem] p-6 sm:p-8">
+          <header className="panel rounded-xl p-6 sm:p-8">
             <div className="max-w-3xl space-y-4">
               <p className="section-label">Spatialdom Tools</p>
-              <h1 className="text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">{title}</h1>
+              <h1 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">{title}</h1>
               <p className="text-sm leading-7 text-text-body sm:text-base">{intro}</p>
             </div>
           </header>

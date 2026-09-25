@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import ToolLayout from '../shared/layout/ToolLayout';
+import Badge from '../components/ui/Badge';
+import Card from '../components/ui/Card';
 
 const tools = [
   {
@@ -42,19 +44,13 @@ function ToolsPage() {
     >
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {tools.map((tool) => (
-          <article key={tool.title} className="panel rounded-3xl p-6">
+          <Card key={tool.title} className="p-6">
             <div className="flex h-full flex-col gap-5">
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-3">
-                  <span
-                    className={
-                      tool.status === 'live'
-                        ? 'theme-chip px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.2em] text-text-strong'
-                        : 'theme-chip px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.2em] text-text-muted'
-                    }
-                  >
+                  <Badge tone={tool.status === 'live' ? 'success' : 'neutral'}>
                     {tool.status}
-                  </span>
+                  </Badge>
                 </div>
                 <div className="space-y-2">
                   <h2 className="text-xl font-semibold text-text-primary">{tool.title}</h2>
@@ -68,11 +64,11 @@ function ToolsPage() {
                     Open tool
                   </Link>
                 ) : (
-                  <span className="interactive-outline inline-flex items-center opacity-70">Coming soon</span>
+                  <span className="status-badge status-neutral">Coming soon</span>
                 )}
               </div>
             </div>
-          </article>
+          </Card>
         ))}
       </div>
     </ToolLayout>

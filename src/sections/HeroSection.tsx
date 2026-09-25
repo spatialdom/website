@@ -29,7 +29,7 @@ function HeroSection() {
 
           <motion.p
             variants={fadeUp(Boolean(reducedMotion), 0.04)}
-            className="mt-8 max-w-[720px] text-[clamp(3rem,8vw,6.2rem)] font-semibold leading-[0.92] tracking-[-0.085em] text-text-primary"
+            className="mt-8 max-w-[720px] text-[clamp(3rem,8vw,6.2rem)] font-bold leading-[0.92] tracking-[-0.085em] text-text-primary"
           >
             {hero.lead}
           </motion.p>

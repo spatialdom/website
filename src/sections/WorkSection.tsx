@@ -16,7 +16,7 @@ function WorkSection() {
       </p>
 
       <div className="relative mt-14 pl-8 sm:pl-12">
-        <div className="absolute left-0 top-0 h-full w-px bg-[linear-gradient(to_bottom,var(--color-accent),var(--color-border),transparent)]" />
+        <div className="absolute left-0 top-0 h-full w-px bg-border-subtle" />
         {workItems.map((item, index) => (
           <Reveal
             key={item.name}

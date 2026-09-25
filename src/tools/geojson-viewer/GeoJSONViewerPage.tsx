@@ -262,7 +262,7 @@ function GeoJSONViewerPage() {
   const [geojsonData, setGeojsonData] = useState<GeoJSONFeatureCollection>(EMPTY_COLLECTION);
 
   const mapClassName = useMemo(
-    () => 'overflow-hidden rounded-[1.75rem] border border-border-strong',
+    () => 'overflow-hidden rounded-xl border border-border-strong',
     []
   );
 
@@ -507,7 +507,7 @@ function GeoJSONViewerPage() {
       intro="Upload GeoJSON, validate the structure instantly, inspect feature properties, and visualize data on a fast browser map with mobile-friendly controls."
     >
       <div className="mx-auto grid max-w-6xl gap-6">
-        <section className="panel rounded-[2rem] p-5 sm:p-6">
+        <section className="panel rounded-xl p-5 sm:p-6">
           <div className="space-y-5">
             <div className="space-y-2">
               <p className="section-label">Upload</p>
@@ -543,8 +543,8 @@ function GeoJSONViewerPage() {
               }}
               className={
                 dragActive
-                  ? 'rounded-[1.75rem] border border-border-hover bg-surface-hover px-5 py-10 text-center transition'
-                  : 'rounded-[1.75rem] border border-dashed border-border-strong bg-surface-soft px-5 py-10 text-center transition'
+                  ? 'rounded-xl border border-border-hover bg-surface-hover px-5 py-10 text-center transition'
+                  : 'rounded-xl border border-dashed border-border-strong bg-surface-soft px-5 py-10 text-center transition'
               }
             >
               <div className="mx-auto flex max-w-xl flex-col items-center gap-4">
@@ -567,19 +567,19 @@ function GeoJSONViewerPage() {
             />
 
             <div className="grid gap-4 sm:grid-cols-3">
-              <div className="theme-card rounded-3xl p-4">
+              <div className="theme-card rounded-xl p-4">
                 <p className="text-sm text-text-secondary">Loaded file</p>
                 <p className="mt-2 break-words text-base font-medium text-text-primary">
                   {fileName || 'No file loaded'}
                 </p>
               </div>
-              <div className="theme-card rounded-3xl p-4">
+              <div className="theme-card rounded-xl p-4">
                 <p className="text-sm text-text-secondary">Features</p>
                 <p className="mt-2 text-base font-medium text-text-primary">
                   {info ? info.featureCount : 0}
                 </p>
               </div>
-              <div className="theme-card rounded-3xl p-4">
+              <div className="theme-card rounded-xl p-4">
                 <p className="text-sm text-text-secondary">Geometry types</p>
                 <p className="mt-2 break-words text-base font-medium text-text-primary">
                   {info && info.geometryTypes.length > 0 ? info.geometryTypes.join(', ') : 'None'}
@@ -588,14 +588,14 @@ function GeoJSONViewerPage() {
             </div>
 
             {error ? (
-              <div className="rounded-3xl border border-red-400/30 bg-red-500/10 p-4 text-sm leading-6 text-red-200">
+              <div role="alert" className="rounded-lg border border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-4 text-sm leading-6 text-[var(--color-danger)]">
                 {error}
               </div>
             ) : null}
           </div>
         </section>
 
-        <section className="panel rounded-[2rem] p-5 sm:p-6">
+        <section className="panel rounded-xl p-5 sm:p-6">
           <div className="space-y-5">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="space-y-2">
@@ -612,7 +612,7 @@ function GeoJSONViewerPage() {
                   <select
                     value={basemap}
                     onChange={(event) => setBasemap(event.target.value as BasemapMode)}
-                    className="w-full rounded-2xl border border-border-strong bg-surface-soft px-4 py-3 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                    className="form-control"
                   >
                     {basemapOptions.map((option) => (
                       <option key={option.value} value={option.value}>

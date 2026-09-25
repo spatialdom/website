@@ -59,7 +59,7 @@ function SystemsSection() {
               }
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               className={cn(
-                'system-node min-h-[18rem] rounded-[1.6rem] px-6 pb-7 pt-10 sm:px-7 xl:col-span-6',
+                'system-node min-h-[18rem] rounded-xl px-6 pb-7 pt-10 sm:px-7 xl:col-span-6',
                 index === 1 && 'xl:translate-y-10'
               )}
             >
@@ -100,7 +100,7 @@ function SystemsSection() {
               }
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               className={cn(
-                'system-node rounded-[1.4rem] px-5 pb-6 pt-9 sm:px-6 xl:col-span-4',
+                'system-node rounded-xl px-5 pb-6 pt-9 sm:px-6 xl:col-span-4',
                 index === 1 && 'xl:translate-y-8'
               )}
             >

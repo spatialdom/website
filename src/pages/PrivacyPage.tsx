@@ -14,12 +14,12 @@ function PrivacyPage() {
   return (
     <main className="pb-16 pt-32 sm:pt-36">
       <Container className="max-w-4xl">
-        <section className="panel rounded-[2rem] p-6 sm:p-8 lg:p-10">
+        <section className="panel rounded-xl p-6 sm:p-8 lg:p-10">
           <div className="space-y-8">
             <header className="space-y-4">
               <p className="section-label">Privacy</p>
               <div className="space-y-3">
-                <h1 className="text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
+                <h1 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
                   Privacy policy
                 </h1>
                 <p className="max-w-2xl text-sm leading-7 text-text-body sm:text-base">

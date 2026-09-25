@@ -257,7 +257,7 @@ function CoordinateConverterPage() {
       showAds
     >
       <div className="mx-auto grid max-w-5xl gap-6">
-        <section className="panel rounded-[2rem] p-4 sm:p-6">
+        <section className="panel rounded-xl p-4 sm:p-6">
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:items-end">
             <div className="space-y-1">
               <p className="section-label">Conversion Type</p>
@@ -267,9 +267,10 @@ function CoordinateConverterPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 rounded-2xl border border-border-strong bg-surface-soft p-1">
+            <div className="grid grid-cols-2 gap-2 rounded-xl border border-border-strong bg-surface-soft p-1">
               <button
                 type="button"
+                aria-pressed={mode === 'geographic-to-grid'}
                 onClick={() => setMode('geographic-to-grid')}
                 className={
                   mode === 'geographic-to-grid'
@@ -281,6 +282,7 @@ function CoordinateConverterPage() {
               </button>
               <button
                 type="button"
+                aria-pressed={mode === 'grid-to-geographic'}
                 onClick={() => setMode('grid-to-geographic')}
                 className={
                   mode === 'grid-to-geographic'
@@ -297,7 +299,7 @@ function CoordinateConverterPage() {
               <select
                 value={zone}
                 onChange={(event) => setZone(event.target.value as Luzon1911Zone)}
-                className="w-full rounded-2xl border border-border-strong bg-surface-soft px-4 py-3 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                className="form-control"
               >
                 {LUZON_1911_ZONES.map((item) => (
                   <option key={item.code} value={item.code}>
@@ -317,7 +319,7 @@ function CoordinateConverterPage() {
         </section>
 
         {mode === 'geographic-to-grid' ? (
-          <section className="panel rounded-[2rem] p-5 sm:p-6">
+          <section className="panel rounded-xl p-5 sm:p-6">
             <div className="space-y-5">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div className="space-y-2">
@@ -329,9 +331,10 @@ function CoordinateConverterPage() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 rounded-2xl border border-border-strong bg-surface-soft p-1">
+                <div className="grid grid-cols-2 gap-2 rounded-xl border border-border-strong bg-surface-soft p-1">
                   <button
                     type="button"
+                    aria-pressed={angularFormat === 'dd'}
                     onClick={() => setAngularFormat('dd')}
                     className={angularFormat === 'dd' ? 'interactive-accent px-4 py-2.5' : 'interactive-outline px-4 py-2.5'}
                   >
@@ -339,6 +342,7 @@ function CoordinateConverterPage() {
                   </button>
                   <button
                     type="button"
+                    aria-pressed={angularFormat === 'dms'}
                     onClick={() => setAngularFormat('dms')}
                     className={angularFormat === 'dms' ? 'interactive-accent px-4 py-2.5' : 'interactive-outline px-4 py-2.5'}
                   >
@@ -356,7 +360,7 @@ function CoordinateConverterPage() {
                       onChange={(event) =>
                         setDecimalGeo((current) => ({ ...current, longitude: event.target.value }))
                       }
-                      className="w-full rounded-2xl border border-border-strong bg-surface-soft px-4 py-3 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                      className="form-control"
                       inputMode="decimal"
                       placeholder="e.g. 121.0244"
                     />
@@ -369,7 +373,7 @@ function CoordinateConverterPage() {
                       onChange={(event) =>
                         setDecimalGeo((current) => ({ ...current, latitude: event.target.value }))
                       }
-                      className="w-full rounded-2xl border border-border-strong bg-surface-soft px-4 py-3 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                      className="form-control"
                       inputMode="decimal"
                       placeholder="e.g. 14.5547"
                     />
@@ -381,7 +385,7 @@ function CoordinateConverterPage() {
                     { label: 'Longitude', value: longitudeDms, axis: 'longitude' as const, directions: ['E', 'W'] },
                     { label: 'Latitude', value: latitudeDms, axis: 'latitude' as const, directions: ['N', 'S'] }
                   ].map((item) => (
-                    <div key={item.axis} className="theme-card rounded-3xl p-4">
+                    <div key={item.axis} className="theme-card rounded-xl p-4">
                       <p className="mb-4 text-sm font-medium text-text-secondary">{item.label}</p>
                       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                         <label className="space-y-2">
@@ -389,7 +393,7 @@ function CoordinateConverterPage() {
                           <input
                             value={item.value.degrees}
                             onChange={handleDmsChange(item.axis, 'degrees')}
-                            className="w-full rounded-2xl border border-border-strong bg-surface px-3 py-2.5 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                            className="form-control"
                             inputMode="numeric"
                           />
                         </label>
@@ -398,7 +402,7 @@ function CoordinateConverterPage() {
                           <input
                             value={item.value.minutes}
                             onChange={handleDmsChange(item.axis, 'minutes')}
-                            className="w-full rounded-2xl border border-border-strong bg-surface px-3 py-2.5 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                            className="form-control"
                             inputMode="numeric"
                           />
                         </label>
@@ -407,7 +411,7 @@ function CoordinateConverterPage() {
                           <input
                             value={item.value.seconds}
                             onChange={handleDmsChange(item.axis, 'seconds')}
-                            className="w-full rounded-2xl border border-border-strong bg-surface px-3 py-2.5 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                            className="form-control"
                             inputMode="decimal"
                           />
                         </label>
@@ -416,7 +420,7 @@ function CoordinateConverterPage() {
                           <select
                             value={item.value.direction}
                             onChange={handleDmsChange(item.axis, 'direction')}
-                            className="w-full rounded-2xl border border-border-strong bg-surface px-3 py-2.5 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                            className="form-control"
                           >
                             {item.directions.map((direction) => (
                               <option key={direction} value={direction}>
@@ -443,7 +447,7 @@ function CoordinateConverterPage() {
             </div>
           </section>
         ) : (
-          <section className="panel rounded-[2rem] p-5 sm:p-6">
+          <section className="panel rounded-xl p-5 sm:p-6">
             <div className="space-y-5">
               <div className="space-y-2">
                 <p className="section-label">Luzon 1911 Grid</p>
@@ -459,7 +463,7 @@ function CoordinateConverterPage() {
                   <input
                     value={gridValues.x}
                     onChange={(event) => setGridValues((current) => ({ ...current, x: event.target.value }))}
-                    className="w-full rounded-2xl border border-border-strong bg-surface-soft px-4 py-3 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                    className="form-control"
                     inputMode="decimal"
                     placeholder="e.g. 502658.309"
                   />
@@ -470,7 +474,7 @@ function CoordinateConverterPage() {
                   <input
                     value={gridValues.y}
                     onChange={(event) => setGridValues((current) => ({ ...current, y: event.target.value }))}
-                    className="w-full rounded-2xl border border-border-strong bg-surface-soft px-4 py-3 text-sm text-text-primary outline-none transition focus:border-border-hover"
+                    className="form-control"
                     inputMode="decimal"
                     placeholder="e.g. 1609221.604"
                   />
@@ -490,7 +494,7 @@ function CoordinateConverterPage() {
           </section>
         )}
 
-        <section className="panel rounded-[2rem] p-5 sm:p-6">
+        <section className="panel rounded-xl p-5 sm:p-6">
           <div className="space-y-5">
             <div className="space-y-2">
               <p className="section-label">Output</p>
@@ -503,14 +507,14 @@ function CoordinateConverterPage() {
 
             {result.ok ? (
               <>
-                <div className="theme-card rounded-3xl p-4 sm:p-5">
+                <div className="theme-card rounded-xl p-4 sm:p-5">
                   <p className="text-sm text-text-secondary">Primary output</p>
                   <p className="mt-2 break-words text-lg font-medium text-text-primary sm:text-xl">{result.text}</p>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                   {result.detail.map((item) => (
-                    <div key={item.label} className="theme-card rounded-3xl p-4">
+                    <div key={item.label} className="theme-card rounded-xl p-4">
                       <p className="text-sm text-text-secondary">{item.label}</p>
                       <p className="mt-2 text-base font-medium text-text-primary">{item.value}</p>
                     </div>
@@ -518,7 +522,7 @@ function CoordinateConverterPage() {
                 </div>
               </>
             ) : (
-              <div className="rounded-3xl border border-red-400/30 bg-red-500/10 p-4 text-sm leading-6 text-red-200">
+              <div role="alert" className="rounded-lg border border-[var(--color-danger)] bg-[var(--color-danger-soft)] p-4 text-sm leading-6 text-[var(--color-danger)]">
                 {result.error}
               </div>
             )}
@@ -529,7 +533,7 @@ function CoordinateConverterPage() {
                   type="button"
                   onClick={() => handleCopy(result.ok ? result.text : '', 'Copied compact result.')}
                   disabled={!result.ok}
-                  className="interactive-accent inline-flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-50"
+                  className="interactive-accent inline-flex items-center justify-center "
                 >
                   Copy result
                 </button>
@@ -537,12 +541,12 @@ function CoordinateConverterPage() {
                   type="button"
                   onClick={() => handleCopy(result.ok ? result.detailText : '', 'Copied detailed values.')}
                   disabled={!result.ok}
-                  className="interactive-outline inline-flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-50"
+                  className="interactive-outline inline-flex items-center justify-center "
                 >
                   Copy details
                 </button>
               </div>
-              {copyStatus ? <p className="text-sm text-text-body">{copyStatus}</p> : null}
+              {copyStatus ? <p role="status" className="text-sm text-text-body">{copyStatus}</p> : null}
             </div>
           </div>
         </section>

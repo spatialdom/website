@@ -31,7 +31,7 @@ const config: Config = {
         'border-hover': 'var(--color-border-hover)'
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif']
+        sans: ['Source Sans 3', 'system-ui', 'sans-serif']
       },
       maxWidth: {
         content: '1100px',
@@ -41,12 +41,15 @@ const config: Config = {
       boxShadow: {
         panel: 'var(--shadow-panel)'
       },
+      borderRadius: {
+        xs: 'var(--radius-xs)',
+        sm: 'var(--radius-sm)',
+        md: 'var(--radius-md)',
+        lg: 'var(--radius-lg)',
+        xl: 'var(--radius-xl)'
+      },
       transitionTimingFunction: {
         refined: 'cubic-bezier(0.22, 1, 0.36, 1)'
-      },
-      backgroundImage: {
-        'grid-fade':
-          'linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)'
       }
     }
   },
