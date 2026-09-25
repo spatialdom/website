@@ -56,11 +56,6 @@
     --radius-lg: 12px;
     --radius-xl: 16px;
     --shadow-panel: 0 12px 32px rgba(23, 32, 42, 0.12);
-    --motif-line-1: #c7d0d9;
-    --motif-line-2: #8297aa;
-    --motif-line-3: #dce2e8;
-    --motif-dot-1: #8297aa;
-    --motif-dot-2: #123b5d;
   }
 
   html {
@@ -72,6 +67,7 @@
     margin: 0;
     min-width: 320px;
     background-color: var(--color-background);
+    font-family: 'Source Sans 3', system-ui, sans-serif;
   }
 
   :focus-visible {
@@ -236,38 +232,6 @@
   .status-danger { background: var(--color-danger-soft); color: var(--color-danger); }
   .status-info { background: var(--color-info-soft); color: var(--color-info); }
   .status-neutral { background: var(--color-surface-soft); color: var(--color-text-secondary); }
-
-  .definition-frame {
-    position: relative;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .system-node {
-    @apply panel relative overflow-hidden;
-  }
-
-  .system-node::after {
-    content: '';
-    position: absolute;
-    top: 18px;
-    right: 22px;
-    width: 42px;
-    height: 42px;
-    border-top: 1px solid var(--color-border-medium);
-    border-right: 1px solid var(--color-border-medium);
-    opacity: 0.7;
-  }
-
-  .contact-frame {
-    position: relative;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .manifesto-line {
-    border-top: 1px solid var(--color-border);
-  }
 
   .geojson-popup {
     @apply min-w-[180px] space-y-2 text-sm;

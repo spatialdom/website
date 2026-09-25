@@ -1,28 +1,9 @@
-# Homepage outline — draft 0
+# Homepage outline
 
-## Hero
+**First thought:** Spatialdom builds practical spatial systems for land, property, and communities.
 
-**Spatialdom**
+**First action:** Identify the product path that matches my problem.
 
-Land. Spatial data. Systems.
+The homepage leads with the approved headline and a direct jump to three paths: landowners and buyers to Parcel Plotter, LGU property record teams to SPARTA, and teams needing household and resident data to RBIM Cloud. Each path has one action.
 
-Spatialdom builds practical technology for understanding and managing land and spatial information.
-
-Primary CTA: **Try Parcel Plotter** (once public)
-Secondary CTA: **Explore PTR**
-
-## What we are building first
-
-### Parcel Plotter
-A simple way to plot and inspect parcel technical descriptions.
-
-### Parcel Truth Records
-An evolving open foundation for representing parcel information, sources, computation, and history.
-
-## Long-term direction
-
-Spatialdom is being built as one ecosystem, not a collection of unrelated apps. Tools, professional software, organizational systems, government platforms, and future land intelligence should share reusable spatial foundations.
-
-## Early-stage note
-
-Spatialdom is in active development. Early tools and specifications may change significantly as they are tested against real workflows.
+After product routing, the page explains the coined name, four operating principles, three practical insight articles, and direct contact options. Keep future products and unsupported proof claims off the homepage.

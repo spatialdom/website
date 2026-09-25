@@ -1,63 +1,25 @@
-import { useState } from 'react';
 import Section from '../components/layout/Section';
-import Reveal from '../components/ui/Reveal';
-import Button from '../components/ui/Button';
-import { contact, trustLine } from '../data/siteContent';
+import { productPaths } from '../data/homeContent';
 
 function ContactSection() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(contact.email);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1600);
-    } catch {
-      setCopied(false);
-    }
-  };
-
   return (
-    <Section id="contact" className="pb-24 sm:pb-28">
-      <div className="contact-frame grid gap-10 py-10 sm:py-12 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-14">
-        <Reveal>
-          <div className="max-w-[220px]">
-            <p className="section-label">Contact</p>
-            <p className="mt-5 text-sm uppercase tracking-[0.2em] text-text-faint">{contact.label}</p>
-            <p className="mt-4 text-sm leading-7 text-text-body">{contact.context}</p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <div className="relative pl-0 sm:pl-10" data-cursor="card">
-            <div className="mb-8 hidden h-[72px] w-[72px] border-l border-t border-border-subtle sm:block" />
-            <a
-              href={`mailto:${contact.email}`}
-              className="block text-[clamp(1.55rem,3vw,2.45rem)] font-semibold tracking-[-0.06em] text-text-primary transition-colors duration-300 hover:text-text-strong"
-              data-cursor="link"
-            >
-              {contact.email}
-            </a>
-            <p className="mt-5 max-w-[520px] text-base leading-7 text-text-body">
-              For collaborations, systems, and inquiries, a direct line is enough.
-            </p>
-            <p className="mt-4 text-sm uppercase tracking-[0.2em] text-text-faint">{trustLine}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-              <Button className="max-w-max" onClick={handleCopy}>
-                {copied ? 'Email copied' : 'Copy email'}
-              </Button>
-              <a
-                href={contact.github}
-                target="_blank"
-                rel="noreferrer"
-                className="theme-text-link"
-                data-cursor="link"
-              >
-                GitHub
-              </a>
-            </div>
-          </div>
-        </Reveal>
+    <Section id="contact" tone="soft" className="py-14 sm:py-20">
+      <p className="section-label">Contact</p>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">Tell us what you're working on.</h2>
+      <a className="text-link mt-5 inline-block break-all text-xl font-semibold sm:text-2xl" href="mailto:spatialdom@gmail.com">
+        spatialdom@gmail.com
+      </a>
+      <p className="mt-8 text-sm font-medium text-text-secondary">Choose a topic to start the conversation:</p>
+      <div className="mt-3 flex flex-wrap gap-3">
+        {productPaths.map((product) => (
+          <a
+            key={product.name}
+            className="interactive-outline"
+            href={`mailto:spatialdom@gmail.com?subject=${encodeURIComponent(product.name === 'SPARTA' ? 'SPARTA / Tax Mapping' : product.name)}`}
+          >
+            {product.name === 'SPARTA' ? 'SPARTA / Tax Mapping' : product.name}
+          </a>
+        ))}
       </div>
     </Section>
   );

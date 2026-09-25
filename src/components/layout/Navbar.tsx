@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { navItems, portfolioUrl } from '../../data/siteContent';
+import { navItems } from '../../data/siteContent';
 import { cn } from '../../lib/cn';
 import { fadeUp } from '../../lib/motion';
 import { useScrolled } from '../../hooks/useScrolled';
@@ -44,7 +44,7 @@ function Navbar() {
           <Link
             to="/"
             className="inline-flex items-center gap-3 rounded-md text-sm font-medium text-text-primary transition-colors duration-300 hover:text-text-strong"
-            aria-label="Go to Spatialdom hero section"
+            aria-label="Spatialdom home"
           >
             <BrandMark />
             <span className="text-sm uppercase tracking-[0.18em] text-text-strong">Spatialdom</span>
@@ -53,23 +53,11 @@ function Navbar() {
           <div className="hidden items-center gap-4 md:flex">
             <nav className="flex items-center gap-7" aria-label="Primary">
               {navItems.map((item) => (
-                <a key={item.href} href={getSectionHref(item.href)} className="nav-link">
+                <Link key={item.href} to={getSectionHref(item.href)} className="nav-link">
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <Link to="/tools" className="nav-link" aria-current={location.pathname.startsWith('/tools') ? 'page' : undefined}>
-                Tools
-              </Link>
             </nav>
-
-            <a
-              href={portfolioUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="interactive-outline inline-flex items-center"
-            >
-              Portfolio
-            </a>
           </div>
 
           <IconButton
@@ -114,27 +102,15 @@ function Navbar() {
               aria-label="Mobile navigation"
             >
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
-                  href={getSectionHref(item.href)}
+                  to={getSectionHref(item.href)}
                   className="theme-mobile-link px-4 py-3"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <Link to="/tools" className="theme-mobile-link px-4 py-3" aria-current={location.pathname.startsWith('/tools') ? 'page' : undefined} onClick={() => setMenuOpen(false)}>
-                Tools
-              </Link>
-              <a
-                href={portfolioUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="theme-mobile-link px-4 py-3"
-                onClick={() => setMenuOpen(false)}
-              >
-                Portfolio
-              </a>
             </motion.nav>
           ) : null}
         </AnimatePresence>

@@ -6,20 +6,14 @@ Spatialdom is the master technology brand for an ecosystem centered on land, spa
 
 The ecosystem may eventually include service arms such as Spatialdom Surveying, Spatialdom Realty, Spatialdom Solutions, and Spatialdom Academy, alongside technology products including Parcel Plotter, Parcel Truth Records (PTR), SPARTA, Asset Registry, Survey Kit, and Mohon Finder.
 
-These should not evolve as disconnected products. Shared technology, data models, identity, spatial foundations, and deployment infrastructure should compound across the portfolio.
+These should share technology, data models, identity, spatial foundations, and deployment infrastructure rather than evolve as disconnected products.
 
-## 2026 priority
+## Current website focus
 
-The website should communicate the long-term direction without implying that future products already exist.
+The public homepage offers three paths: Parcel Plotter early access for landowners and buyers, a SPARTA tax mapping discussion for LGU property teams, and an RBIM Cloud demo request for teams working with household and resident data. These calls to action state their availability without implying that future products are already live.
 
-For August–December 2026, the public technology story is intentionally narrow:
-
-1. Spatialdom as the master brand.
-2. PTR as the foundational parcel technology.
-3. Parcel Plotter as the first public product.
-
-Everything else remains future-facing until there is enough product evidence to justify development.
+PTR remains foundational parcel technology. Other ideas in the long-term structure stay off the homepage until there is product evidence to support them.
 
 ## Product-led principle
 
-Spatialdom should increasingly be discovered through useful products rather than generic consulting claims. The main website should therefore point users toward live tools, documentation, and products as they become available.
+Spatialdom should increasingly be discovered through useful products. The main website points users toward products, tools, and explanations as they become available.

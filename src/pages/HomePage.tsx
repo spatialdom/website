@@ -1,20 +1,20 @@
 import ContactSection from '../sections/ContactSection';
 import DefinitionSection from '../sections/DefinitionSection';
 import HeroSection from '../sections/HeroSection';
-import InterpretationSection from '../sections/InterpretationSection';
-import PhilosophySection from '../sections/PhilosophySection';
-import SystemsSection from '../sections/SystemsSection';
-import WorkSection from '../sections/WorkSection';
+import InsightsSection from '../sections/InsightsSection';
+import PrinciplesSection from '../sections/PrinciplesSection';
+import ProductPathsSection from '../sections/ProductPathsSection';
 
+// First thought: Spatialdom builds practical spatial systems for land, property, and communities.
+// First action: identify the product path that matches the visitor's problem.
 function HomePage() {
   return (
     <main>
       <HeroSection />
+      <ProductPathsSection />
       <DefinitionSection />
-      <InterpretationSection />
-      <SystemsSection />
-      <WorkSection />
-      <PhilosophySection />
+      <PrinciplesSection />
+      <InsightsSection />
       <ContactSection />
     </main>
   );
