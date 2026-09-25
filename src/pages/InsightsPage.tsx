@@ -54,6 +54,11 @@ function InsightsPage() {
               {article.paragraphs.map((paragraph) => (
                 <p key={paragraph} className="mt-4 leading-7 text-text-secondary">{paragraph}</p>
               ))}
+              {article.id === 'land-title-technical-description' ? (
+                <Link className="text-link mt-5 inline-block" to="/plot-land-title-technical-description/">
+                  Learn how to plot a technical description
+                </Link>
+              ) : null}
               <a className="text-link mt-6 inline-block text-sm" href={article.source.href} target="_blank" rel="noopener noreferrer">
                 Source: {article.source.label}<span className="sr-only"> (opens in a new tab)</span>
               </a>

@@ -10,7 +10,10 @@ function Footer() {
         </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
           <p>Everything happens somewhere.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
+            <Link to="/parcel-plotter/" className="theme-text-link">
+              Parcel Plotter
+            </Link>
             <Link to="/contact" className="theme-text-link">
               Contact
             </Link>

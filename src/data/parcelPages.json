@@ -1,0 +1,112 @@
+[
+  {
+    "slug": "parcel-plotter",
+    "title": "Parcel Plotter | Understand the Land Behind the Title | Spatialdom",
+    "description": "Plot a land title technical description in the Philippines and inspect the parcel it describes. Try Parcel Plotter early access and learn where professional review still matters.",
+    "heading": "Understand the land behind the title.",
+    "intro": "Enter or paste a technical description, plot the bearings and distances, inspect the parcel geometry, and better understand the property before making your next decision.",
+    "sections": [
+      {
+        "heading": "What does Parcel Plotter help you see?",
+        "paragraphs": [
+          "A land title or survey document can describe a lot through a sequence of lines. Each line has a direction and a distance. Reading the list alone can make it hard to picture the parcel. Plotting those lines turns the description into a shape you can inspect.",
+          "Parcel Plotter is for landowners and property buyers who want a clearer first look at that shape. It can help you notice questions about the source description before speaking with the people who can verify the property."
+        ]
+      },
+      {
+        "heading": "A simple way to start",
+        "paragraphs": [
+          "Keep the title or approved plan beside you. Enter the lines in the order shown, check each bearing and distance against the source, then inspect the plotted result. If a line looks unexpected, return to the document and check the entry rather than assuming the picture is correct.",
+          "The plot is a reading aid. It does not tell you whether the title is valid, whether the lot is free of disputes, or where a boundary lies on the ground."
+        ]
+      },
+      {
+        "heading": "Learn the terms before you plot",
+        "paragraphs": [
+          "New to technical descriptions? The guides below explain how a sequence of title lines becomes a parcel and what bearing and distance entries mean."
+        ]
+      }
+    ],
+    "related": [
+      { "label": "How to plot a land title technical description", "slug": "plot-land-title-technical-description" },
+      { "label": "How to read bearings and distances", "slug": "how-to-read-bearings-and-distances-land-title" }
+    ],
+    "sources": [
+      { "label": "Land Registration Authority: survey plans and technical descriptions", "url": "https://lra.gov.ph/frequently-asked-questions/" },
+      { "label": "LMB: standard format for technical descriptions", "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/68545" }
+    ]
+  },
+  {
+    "slug": "plot-land-title-technical-description",
+    "title": "How to Plot a Land Title Technical Description in the Philippines | Spatialdom",
+    "description": "Learn how a Philippine land title technical description becomes a parcel plot, what to check as you enter its lines, and when to seek a geodetic professional.",
+    "heading": "How to plot a land title technical description",
+    "intro": "A technical description can be read as a set of connected boundary lines. Plotting it helps you see the parcel those lines describe and spot questions to take to a professional.",
+    "sections": [
+      {
+        "heading": "What information do you need?",
+        "paragraphs": [
+          "Start with a clear copy of the title's technical description or the relevant approved survey document. Look for the lot and plan identifiers, the starting point or tie point, and the ordered lines that give bearings and distances. A tie point connects a lot corner to a known reference point; the boundary lines then describe the lot itself.",
+          "Philippine survey guidance uses bearings and distances to compute lot corners. The reference information matters if you need to place the shape in a wider map; a shape drawn without a reliable reference is still useful for reading the lines, but it cannot by itself establish the lot's location on the ground."
+        ]
+      },
+      {
+        "heading": "Plot the lines in order",
+        "paragraphs": [
+          "Read each entry as a movement from one corner to the next. Enter its bearing and distance exactly as shown, keeping the same units and point order. After the final line, compare the resulting shape with the source document or plan and check whether the sequence returns to its starting corner.",
+          "If the plot does not look right, check for copied digits, reversed directions, missing lines, or a different reference convention. A mismatch is a reason to investigate, not proof that a title or survey is wrong."
+        ]
+      },
+      {
+        "heading": "What can a plot tell you?",
+        "paragraphs": [
+          "A plot can make the parcel's described shape easier to understand. It can also make a confusing line or incomplete sequence more visible. It cannot verify ownership, confirm a boundary marker, or resolve a discrepancy between records. For decisions about a property, use the official records and seek a licensed geodetic engineer or the appropriate office when needed."
+        ]
+      }
+    ],
+    "related": [
+      { "label": "Read bearings and distances", "slug": "how-to-read-bearings-and-distances-land-title" },
+      { "label": "About Parcel Plotter", "slug": "parcel-plotter" }
+    ],
+    "sources": [
+      { "label": "DENR: conversion of lot bearings and distances", "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49164" },
+      { "label": "Land Registration Authority: title and plan documents", "url": "https://lra.gov.ph/frequently-asked-questions/" }
+    ]
+  },
+  {
+    "slug": "how-to-read-bearings-and-distances-land-title",
+    "title": "How to Read Bearings and Distances on a Land Title | Spatialdom",
+    "description": "A plain-language guide to bearings and distances in a Philippine land title technical description, with a simple line example and practical plotting checks.",
+    "heading": "How to read bearings and distances on a land title",
+    "intro": "A bearing tells you which way a boundary line runs. A distance tells you how far it runs. Together, they describe one step from one parcel corner to the next.",
+    "sections": [
+      {
+        "heading": "Read one line at a time",
+        "paragraphs": [
+          "A line might read “1–2, N 30° E, 20 m.” This means the line from corner 1 to corner 2 runs 30 degrees east of north for 20 meters. The next entry starts at corner 2 and continues to corner 3. Follow the listed order to trace the boundary.",
+          "In quadrant bearings, the first letter is north or south and the last letter is east or west. The angle between them may include degrees, minutes, and seconds. The distance is usually stated in meters in Philippine technical descriptions. Copy all parts carefully: changing a letter, digit, or unit can change the plotted line."
+        ]
+      },
+      {
+        "heading": "What is a tie point?",
+        "paragraphs": [
+          "A tie point is a reference used to relate a lot corner to a known point. It helps position the parcel in a larger survey framework. The lot's boundary lines describe its shape; the tie information helps place that shape. Check the document or approved plan for the reference and coordinate system actually used."
+        ]
+      },
+      {
+        "heading": "What if the lines do not meet?",
+        "paragraphs": [
+          "If the final plotted line does not return to the starting corner, first check the transcription and the order of the entries. An open plot may have several causes and cannot by itself establish an error in the title. Keep the source document and ask a qualified geodetic professional to review any discrepancy that matters to a property decision."
+        ]
+      }
+    ],
+    "related": [
+      { "label": "Plot a technical description", "slug": "plot-land-title-technical-description" },
+      { "label": "About Parcel Plotter", "slug": "parcel-plotter" }
+    ],
+    "sources": [
+      { "label": "DENR: technical description guidance", "url": "https://elibrary.bmb.gov.ph/elibrary/wp-content/uploads/2023/05/tb2019-01.pdf" },
+      { "label": "Geoportal Philippines: lot plotter input fields", "url": "https://www.geoportal.gov.ph/gpapps/lotplotter" }
+    ]
+  }
+]

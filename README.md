@@ -25,7 +25,7 @@ npm run build
 npm run preview
 ```
 
-`npm run build` now prepares GitHub Pages output by copying `dist/index.html` to `dist/404.html` so React Router routes can resolve on direct refresh.
+`npm run build` copies `dist/index.html` to `dist/404.html` for SPA fallback routes. It also generates static HTML entries with page-specific metadata and readable content for the three Parcel Plotter routes, plus `sitemap.xml` and `robots.txt`.
 
 ## Deploy to GitHub Pages
 
@@ -78,7 +78,7 @@ VITE_BASE_PATH=/repo-name/ npm run build
 1. Push to `master` or run the Pages workflow manually.
 2. Confirm GitHub Pages is set to `GitHub Actions`.
 3. Confirm `public/CNAME` contains `spatialdom.xyz`.
-4. After deploy, verify `/`, `/privacy`, `/tools`, and `/tools/coordinate-converter`.
+4. After deploy, verify `/`, `/privacy`, `/tools`, `/tools/coordinate-converter`, and the three Parcel Plotter routes listed in `docs/parcel-plotter-pages.md`.
 5. If a deep route fails on refresh, confirm `404.html` is present in the deployed Pages artifact and that the custom domain is still attached in the GitHub Pages settings.
 
 ## Micro Tools Foundation
@@ -92,11 +92,11 @@ The app now uses React Router with a split between the existing homepage and a s
 
 Architecture choices:
 
-- `src/shared/layout/MainLayout.tsx` wraps the site-wide shell, navigation, cursor, and footer.
+- `src/shared/layout/MainLayout.tsx` wraps the site-wide shell, navigation, and footer.
 - `src/shared/layout/ToolLayout.tsx` provides a reusable tool-page structure without forcing ads onto every tool page.
 - `src/shared/ads/ToolAdSlot.tsx` is reserved for tool pages only; the homepage remains ad-free.
 - `src/lib/coordinates.ts` contains reusable coordinate conversion and validation logic for future geospatial tools.
-- `scripts/prepare-pages.mjs` copies `dist/index.html` to `dist/404.html` during builds so BrowserRouter routes work on GitHub Pages refreshes.
+- `scripts/prepare-pages.mjs` prepares the SPA fallback and the static Parcel Plotter discovery pages from `src/data/parcelPages.json`.
 
 Extending the tools system:
 
@@ -128,5 +128,5 @@ scripts/
 
 ## Notes
 
-- The homepage content still lives in `src/data/siteContent.ts` and the existing section files.
+- Homepage product paths and supporting content live in `src/data/homeContent.ts`; Parcel Plotter guides live in `src/data/parcelPages.json`.
 - The site remains frontend only: no backend, no database, and no server-side rendering.
