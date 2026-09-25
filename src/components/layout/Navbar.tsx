@@ -32,6 +32,22 @@ function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        document.getElementById('mobile-menu-toggle')?.focus();
+      }
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [menuOpen]);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <Container
@@ -43,7 +59,7 @@ function Navbar() {
         <div className="flex items-center justify-between gap-4">
           <Link
             to="/"
-            className="inline-flex items-center gap-3 rounded-md text-sm font-medium text-text-primary transition-colors duration-300 hover:text-text-strong"
+            className="inline-flex min-h-11 items-center gap-3 rounded-md text-sm font-medium text-text-primary transition-colors duration-300 hover:text-text-strong"
             aria-label="Spatialdom home"
           >
             <BrandMark />
@@ -61,6 +77,7 @@ function Navbar() {
           </div>
 
           <IconButton
+            id="mobile-menu-toggle"
             className="md:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"

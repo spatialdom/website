@@ -75,11 +75,13 @@ VITE_BASE_PATH=/repo-name/ npm run build
 
 ## Deployment checklist
 
-1. Push to `master` or run the Pages workflow manually.
-2. Confirm GitHub Pages is set to `GitHub Actions`.
-3. Confirm `public/CNAME` contains `spatialdom.xyz`.
-4. After deploy, verify `/`, `/privacy`, `/tools`, `/tools/coordinate-converter`, and the three Parcel Plotter routes listed in `docs/parcel-plotter-pages.md`.
-5. If a deep route fails on refresh, confirm `404.html` is present in the deployed Pages artifact and that the custom domain is still attached in the GitHub Pages settings.
+1. Run `npm ci && npm run build`. Confirm `dist/CNAME` is `spatialdom.xyz`, `dist/404.html` exists, and `dist/sitemap.xml` and `dist/robots.txt` include the intended public URLs. The build validates all generated route pages.
+2. Confirm `Settings > Pages > Source` is `GitHub Actions`, the custom domain is `spatialdom.xyz`, and **Enforce HTTPS** is enabled. Keep `VITE_BASE_PATH=/` for this domain.
+3. Push to `master` or run the Pages workflow manually. Wait for both the build and deploy jobs to succeed, then confirm the published site reflects that commit.
+4. On `https://spatialdom.xyz/`, check the home page, one product page (`/parcel-plotter/`, `/sparta/`, or `/rbim-cloud/`), an Insights article, an SEO guide, `/privacy/`, `/tools/coordinate-converter/`, and `/tools/geojson-viewer/`. Open each URL directly and refresh it. Confirm the page, title, and navigation load after refresh.
+5. Check `https://spatialdom.xyz/sitemap.xml` and `https://spatialdom.xyz/robots.txt`, and confirm the sitemap lists the published routes. Check a missing route returns the generated `404.html` fallback rather than a GitHub default error page.
+6. Smoke test the main product and contact CTAs: mail links address `spatialdom@gmail.com`, and Parcel Plotter opens `https://parcel.spatialdom.xyz/` outside React Router. Check the mobile menu and both micro tools.
+7. To roll back, revert the release commit on `master` and let the same workflow redeploy. If a direct route fails, inspect the Pages artifact for its `index.html`, `404.html`, and `CNAME` files before changing routing.
 
 ## Micro Tools Foundation
 

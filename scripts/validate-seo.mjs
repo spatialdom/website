@@ -54,5 +54,9 @@ for (const page of pages) {
 const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
 if (sitemapUrls.length !== pages.length || sitemapUrls.some((url) => !seenUrls.has(url))) throw new Error('Sitemap has missing or unexpected URLs.');
 if (!existsSync(resolve('dist/404.html')) || !existsSync(resolve('dist/CNAME'))) throw new Error('GitHub Pages fallback or CNAME is missing.');
+if (readFileSync(resolve('dist/CNAME'), 'utf8').trim() !== 'spatialdom.xyz') throw new Error('GitHub Pages custom domain must be spatialdom.xyz.');
+const fallbackHtml = readFileSync(resolve('dist/404.html'), 'utf8');
+if (!fallbackHtml.includes('<div id="root"></div>') || !fallbackHtml.includes('src="/assets/')) throw new Error('GitHub Pages SPA fallback is missing the app entry.');
+if (!readFileSync(resolve('dist/index.html'), 'utf8').includes('src="/assets/')) throw new Error('Vite assets must use the custom-domain root base path.');
 if (!readFileSync(resolve('dist/robots.txt'), 'utf8').includes('Allow: /')) throw new Error('robots.txt does not allow public content.');
 console.log(`Validated ${pages.length} canonical pages, metadata, sitemap, and structured data.`);

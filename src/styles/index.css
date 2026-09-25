@@ -132,7 +132,7 @@
   }
 
   .nav-link {
-    @apply text-sm font-medium text-text-secondary transition-colors duration-300 hover:text-accent;
+    @apply inline-flex min-h-11 items-center text-sm font-medium text-text-secondary transition-colors duration-300 hover:text-accent;
   }
   .nav-link[aria-current='page'], .theme-mobile-link[aria-current='page'] {
     color: var(--color-accent);
@@ -206,7 +206,7 @@
   }
 
   .theme-text-link {
-    @apply text-sm font-medium text-accent transition-colors duration-300 hover:text-text-primary;
+    @apply inline-flex min-h-11 items-center text-sm font-medium text-accent transition-colors duration-300 hover:text-text-primary;
   }
 
   .text-link { color: var(--color-accent-link); text-decoration: underline; text-underline-offset: 3px; }
@@ -252,41 +252,43 @@
   .geojson-popup-empty {
     @apply text-sm text-text-body;
   }
+}
 
-  .maplibregl-popup-content {
+  .app-shell .maplibregl-popup-content {
     @apply rounded-xl border border-border-strong bg-surface-elevated text-text-primary shadow-panel;
     padding: 0.9rem 1rem;
   }
 
-  .maplibregl-popup-tip {
+  .app-shell .maplibregl-popup-tip {
     border-top-color: var(--color-surface-elevated) !important;
     border-bottom-color: var(--color-surface-elevated) !important;
   }
 
-  .maplibregl-ctrl-group {
+  .app-shell .maplibregl-ctrl-group {
     overflow: hidden;
     border: 1px solid var(--color-border-strong);
     background: var(--color-surface-nav);
     box-shadow: var(--shadow-panel);
   }
 
-  .maplibregl-ctrl-group button {
+  .app-shell .maplibregl-ctrl-group button {
     background: transparent;
   }
 
-  .maplibregl-ctrl-group button:hover {
+  .app-shell .maplibregl-ctrl-group button:hover {
     background: var(--color-surface-hover);
   }
 
-  .maplibregl-ctrl-attrib {
+  .app-shell .maplibregl-ctrl-attrib {
     background: color-mix(in srgb, var(--color-background) 88%, transparent);
     color: var(--color-text-secondary);
   }
 
-  .maplibregl-ctrl-attrib a {
+  .app-shell .maplibregl-ctrl-attrib a {
     color: var(--color-text-primary);
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
   }
-}
 
 @media (prefers-reduced-motion: reduce) {
   html {

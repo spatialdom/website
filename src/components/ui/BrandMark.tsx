@@ -1,9 +1,8 @@
+import logo from '../../assets/logo.svg';
+
 function BrandMark() {
   return (
-    <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong bg-surface-strong">
-      <span className="absolute inset-[7px] rounded-full border border-border-strong" />
-      <span className="absolute inset-[13px] rounded-full bg-accent" />
-    </span>
+    <img src={logo} alt="" aria-hidden="true" width="40" height="40" className="h-10 w-10 object-contain" />
   );
 }
 
