@@ -259,6 +259,7 @@ function GeoJSONViewerPage() {
   const page = getToolPage('tools/geojson-viewer');
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const fileReadIdRef = useRef(0);
   const mapRef = useRef<Map | null>(null);
   const popupRef = useRef<Popup | null>(null);
   const userMarkerRef = useRef<Marker | null>(null);
@@ -410,7 +411,7 @@ function GeoJSONViewerPage() {
       setError('');
       emitToolEvent('geojson-viewer', 'completed');
     } catch (parseError) {
-      setError(parseError instanceof Error ? parseError.message : 'Unable to read the uploaded file.');
+      setError(parseError instanceof Error ? parseError.message : 'Unable to read the selected file.');
       setInfo(null);
       setGeojsonData(EMPTY_COLLECTION);
       setFileName(name);
@@ -424,29 +425,38 @@ function GeoJSONViewerPage() {
     }
 
     const file = files[0];
+    const fileReadId = ++fileReadIdRef.current;
     const lowerName = file.name.toLowerCase();
 
     if (!lowerName.endsWith('.geojson') && !lowerName.endsWith('.json')) {
-      setError('Unsupported file format. Upload a .geojson or .json file.');
+      setError('Unsupported file format. Choose a .geojson or .json file.');
       setInfo(null);
+      setGeojsonData(EMPTY_COLLECTION);
+      setFileName(file.name);
       return;
     }
 
     if (file.size === 0) {
-      setError('The uploaded file is empty.');
+      setError('The selected file is empty.');
       setInfo(null);
+      setGeojsonData(EMPTY_COLLECTION);
+      setFileName(file.name);
       return;
     }
 
     const reader = new FileReader();
 
     reader.onload = () => {
+      if (fileReadId !== fileReadIdRef.current) return;
       handleParsedGeoJSON(String(reader.result ?? ''), file.name);
     };
 
     reader.onerror = () => {
+      if (fileReadId !== fileReadIdRef.current) return;
       setError('The file could not be read.');
       setInfo(null);
+      setGeojsonData(EMPTY_COLLECTION);
+      setFileName(file.name);
     };
 
     reader.readAsText(file);
@@ -516,11 +526,11 @@ function GeoJSONViewerPage() {
         <section className="panel rounded-xl p-5 sm:p-6">
           <div className="space-y-5">
             <div className="space-y-2">
-              <p className="section-label">Upload</p>
+              <p className="section-label">Open locally</p>
               <h2 className="text-2xl font-semibold text-text-primary">Drag, drop, or browse a GeoJSON file</h2>
               <p className="text-sm leading-6 text-text-body">
                 Accepted formats: <span className="text-text-secondary">.geojson</span> and{' '}
-                <span className="text-text-secondary">.json</span>.
+                <span className="text-text-secondary">.json</span>. Your file stays in this browser; the map requests basemap tiles separately.
               </p>
             </div>
 
@@ -560,7 +570,10 @@ function GeoJSONViewerPage() {
               type="file"
               accept=".geojson,.json,application/json"
               className="hidden"
-              onChange={(event) => handleFiles(event.target.files)}
+              onChange={(event) => {
+                handleFiles(event.target.files);
+                event.target.value = '';
+              }}
             />
 
             <div className="grid gap-4 sm:grid-cols-3">

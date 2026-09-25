@@ -215,13 +215,13 @@ export function parseGeoJSON(text: string): unknown {
   const trimmed = text.trim();
 
   if (!trimmed) {
-    throw new Error('The uploaded file is empty.');
+    throw new Error('The selected file is empty.');
   }
 
   try {
     return JSON.parse(trimmed);
   } catch {
-    throw new Error('The uploaded file is not valid JSON.');
+    throw new Error('The selected file is not valid JSON.');
   }
 }
 

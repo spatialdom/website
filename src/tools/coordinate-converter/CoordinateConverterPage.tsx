@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   decimalDegreesToDms,
   dmsToDecimalDegrees,
@@ -191,6 +191,7 @@ function CoordinateConverterPage() {
   const [latitudeDms, setLatitudeDms] = useState(defaultLatitudeDms);
   const [gridValues, setGridValues] = useState(defaultGrid);
   const [copyStatus, setCopyStatus] = useState('');
+  const hasInteracted = useRef(false);
 
   useEffect(() => { emitToolEvent('coordinate-converter', 'opened'); }, []);
 
@@ -211,6 +212,12 @@ function CoordinateConverterPage() {
         })
       : getGridToGeographicResult(zone, gridValues);
 
+  useEffect(() => {
+    if (!hasInteracted.current || !result.ok) return;
+    const timeoutId = window.setTimeout(() => emitToolEvent('coordinate-converter', 'completed'), 500);
+    return () => window.clearTimeout(timeoutId);
+  }, [mode, angularFormat, zone, decimalGeo, longitudeDms, latitudeDms, gridValues]);
+
   const handleCopy = async (value: string, successMessage: string) => {
     if (!result.ok) {
       return;
@@ -226,6 +233,7 @@ function CoordinateConverterPage() {
   };
 
   const handleReset = () => {
+    hasInteracted.current = false;
     setZone(defaultZone);
     setDecimalGeo(defaultDecimalGeo);
     setLongitudeDms(defaultLongitudeDms);
@@ -238,6 +246,7 @@ function CoordinateConverterPage() {
   const handleDmsChange =
     (field: 'longitude' | 'latitude', key: keyof DmsAngle) =>
     (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      hasInteracted.current = true;
       const value = event.target.value;
       const setter = field === 'longitude' ? setLongitudeDms : setLatitudeDms;
 
@@ -270,7 +279,7 @@ function CoordinateConverterPage() {
               <button
                 type="button"
                 aria-pressed={mode === 'geographic-to-grid'}
-                onClick={() => setMode('geographic-to-grid')}
+                onClick={() => { hasInteracted.current = true; setMode('geographic-to-grid'); }}
                 className={
                   mode === 'geographic-to-grid'
                     ? 'interactive-accent px-4 py-2.5'
@@ -282,7 +291,7 @@ function CoordinateConverterPage() {
               <button
                 type="button"
                 aria-pressed={mode === 'grid-to-geographic'}
-                onClick={() => setMode('grid-to-geographic')}
+                onClick={() => { hasInteracted.current = true; setMode('grid-to-geographic'); }}
                 className={
                   mode === 'grid-to-geographic'
                     ? 'interactive-accent px-4 py-2.5'
@@ -297,7 +306,7 @@ function CoordinateConverterPage() {
               <span className="text-sm text-text-secondary">Zone</span>
               <select
                 value={zone}
-                onChange={(event) => setZone(event.target.value as Luzon1911Zone)}
+                onChange={(event) => { hasInteracted.current = true; setZone(event.target.value as Luzon1911Zone); }}
                 className="form-control"
               >
                 {LUZON_1911_ZONES.map((item) => (
@@ -334,7 +343,7 @@ function CoordinateConverterPage() {
                   <button
                     type="button"
                     aria-pressed={angularFormat === 'dd'}
-                    onClick={() => setAngularFormat('dd')}
+                    onClick={() => { hasInteracted.current = true; setAngularFormat('dd'); }}
                     className={angularFormat === 'dd' ? 'interactive-accent px-4 py-2.5' : 'interactive-outline px-4 py-2.5'}
                   >
                     Decimal Degrees
@@ -342,7 +351,7 @@ function CoordinateConverterPage() {
                   <button
                     type="button"
                     aria-pressed={angularFormat === 'dms'}
-                    onClick={() => setAngularFormat('dms')}
+                    onClick={() => { hasInteracted.current = true; setAngularFormat('dms'); }}
                     className={angularFormat === 'dms' ? 'interactive-accent px-4 py-2.5' : 'interactive-outline px-4 py-2.5'}
                   >
                     DMS
@@ -356,9 +365,10 @@ function CoordinateConverterPage() {
                     <span className="text-sm text-text-secondary">Longitude</span>
                     <input
                       value={decimalGeo.longitude}
-                      onChange={(event) =>
-                        setDecimalGeo((current) => ({ ...current, longitude: event.target.value }))
-                      }
+                      onChange={(event) => {
+                        hasInteracted.current = true;
+                        setDecimalGeo((current) => ({ ...current, longitude: event.target.value }));
+                      }}
                       className="form-control"
                       inputMode="decimal"
                       placeholder="e.g. 121.0244"
@@ -369,9 +379,10 @@ function CoordinateConverterPage() {
                     <span className="text-sm text-text-secondary">Latitude</span>
                     <input
                       value={decimalGeo.latitude}
-                      onChange={(event) =>
-                        setDecimalGeo((current) => ({ ...current, latitude: event.target.value }))
-                      }
+                      onChange={(event) => {
+                        hasInteracted.current = true;
+                        setDecimalGeo((current) => ({ ...current, latitude: event.target.value }));
+                      }}
                       className="form-control"
                       inputMode="decimal"
                       placeholder="e.g. 14.5547"
@@ -461,7 +472,7 @@ function CoordinateConverterPage() {
                   <span className="text-sm text-text-secondary">PTM X</span>
                   <input
                     value={gridValues.x}
-                    onChange={(event) => setGridValues((current) => ({ ...current, x: event.target.value }))}
+                    onChange={(event) => { hasInteracted.current = true; setGridValues((current) => ({ ...current, x: event.target.value })); }}
                     className="form-control"
                     inputMode="decimal"
                     placeholder="e.g. 502658.309"
@@ -472,7 +483,7 @@ function CoordinateConverterPage() {
                   <span className="text-sm text-text-secondary">PTM Y</span>
                   <input
                     value={gridValues.y}
-                    onChange={(event) => setGridValues((current) => ({ ...current, y: event.target.value }))}
+                    onChange={(event) => { hasInteracted.current = true; setGridValues((current) => ({ ...current, y: event.target.value })); }}
                     className="form-control"
                     inputMode="decimal"
                     placeholder="e.g. 1609221.604"
