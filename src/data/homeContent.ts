@@ -50,16 +50,16 @@ export const insights = [
   {
     title: 'What is a land title technical description?',
     summary: 'A plain-language guide to the measurements and directions that describe a parcel.',
-    href: '/insights#land-title-technical-description'
+    href: '/insights/plot-land-title-technical-description/'
   },
   {
     title: 'What is tax mapping for an LGU?',
     summary: 'How maps and property records can support the day-to-day work of an Assessor’s Office.',
-    href: '/insights#lgu-tax-mapping'
+    href: '/insights/tax-mapping-philippine-lgu/'
   },
   {
     title: 'What is a household information system?',
     summary: 'Why current local records matter for planning and community services.',
-    href: '/insights#household-information-system'
+    href: '/insights/household-profiling-systems-lgu/'
   }
 ] as const;

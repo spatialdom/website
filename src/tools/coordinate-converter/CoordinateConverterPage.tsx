@@ -14,7 +14,7 @@ import {
 } from '../../shared/utils/coordinates';
 import ToolLayout from '../../shared/layout/ToolLayout';
 import ToolGuide from '../../shared/layout/ToolGuide';
-import { getToolPage, useToolMetadata } from '../../shared/utils/toolPage';
+import { getToolPage } from '../../shared/utils/toolPage';
 import { emitToolEvent } from '../../shared/utils/toolEvents';
 
 type ConversionMode = 'geographic-to-grid' | 'grid-to-geographic';
@@ -181,7 +181,6 @@ function getGridToGeographicResult(
 }
 
 function CoordinateConverterPage() {
-  useToolMetadata('tools/coordinate-converter');
   const page = getToolPage('tools/coordinate-converter');
   const [mode, setMode] = useState<ConversionMode>('geographic-to-grid');
   const [angularFormat, setAngularFormat] = useState<AngularFormat>('dd');

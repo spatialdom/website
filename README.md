@@ -25,7 +25,7 @@ npm run build
 npm run preview
 ```
 
-`npm run build` copies `dist/index.html` to `dist/404.html` for SPA fallback routes. It also generates static HTML entries with page-specific metadata and readable content for the three Parcel Plotter routes, plus `sitemap.xml` and `robots.txt`.
+`npm run build` copies the Vite entry to `dist/404.html` for SPA fallback routes. It also generates indexable HTML with route-specific metadata for Home, Contact, Privacy, Insights and its articles, Parcel Plotter pages, and tools, plus `sitemap.xml` and `robots.txt`. See `docs/seo-and-insights.md` for the content workflow and Search Console handoff.
 
 ## Deploy to GitHub Pages
 

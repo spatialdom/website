@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import ToolLayout from '../shared/layout/ToolLayout';
 import Badge from '../components/ui/Badge';
 import Card from '../components/ui/Card';
-import { getToolPage, useToolMetadata } from '../shared/utils/toolPage';
+import { getToolPage } from '../shared/utils/toolPage';
 
 const liveTools = [
   { title: 'Coordinate Converter', description: 'Convert Luzon 1911 longitude and latitude to PTM grid coordinates, or back again.', href: '/tools/coordinate-converter/', icon: 'coordinates' },
@@ -16,7 +16,6 @@ const plannedTools = [
 ];
 
 function ToolsPage() {
-  useToolMetadata('tools');
   const page = getToolPage('tools');
 
   return (

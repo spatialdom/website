@@ -1,17 +1,7 @@
-import { useEffect } from 'react';
 import Container from '../components/layout/Container';
 import { contactEmail, mailtoFor } from '../data/contact';
 
 function PrivacyPage() {
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = 'Privacy Policy | Spatialdom';
-
-    return () => {
-      document.title = previousTitle;
-    };
-  }, []);
-
   return (
     <main className="pb-16 pt-32 sm:pt-36">
       <Container className="max-w-4xl">

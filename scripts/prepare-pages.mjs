@@ -6,6 +6,8 @@ const indexFile = resolve(distDir, 'index.html');
 const fallbackFile = resolve(distDir, '404.html');
 const pages = JSON.parse(readFileSync(resolve('src/data/parcelPages.json'), 'utf8'));
 const toolPages = JSON.parse(readFileSync(resolve('src/data/toolPages.json'), 'utf8'));
+const sitePages = JSON.parse(readFileSync(resolve('src/data/sitePages.json'), 'utf8'));
+const insightArticles = JSON.parse(readFileSync(resolve('src/data/insightArticles.json'), 'utf8'));
 const appUrl = 'https://parcel.spatialdom.xyz/';
 const siteUrl = 'https://spatialdom.xyz';
 
@@ -32,7 +34,7 @@ function renderPageBody(page) {
   const cta = `<a class="interactive-accent mt-7" href="${appUrl}" target="_blank" rel="noopener noreferrer">Try Early Access<span class="sr-only"> (opens in a new tab)</span></a>`;
   const breadcrumb = page.slug === 'parcel-plotter'
     ? '<span aria-current="page">Parcel Plotter</span>'
-    : '<a class="text-link" href="/parcel-plotter/">Parcel Plotter</a><span aria-hidden="true">/</span><span aria-current="page">Guide</span>';
+    : `<a class="text-link" href="/parcel-plotter/">Parcel Plotter</a><span aria-hidden="true">/</span><span aria-current="page">${heading}</span>`;
   const sections = page.sections.map((section) => `
     <section class="border-b border-border-subtle py-8 sm:py-10">
       <h2 class="text-2xl font-semibold text-text-primary">${escapeHtml(section.heading)}</h2>
@@ -62,21 +64,7 @@ function renderPageBody(page) {
 }
 
 function renderPageHtml(page) {
-  const url = `${siteUrl}/${page.slug}/`;
-  const title = escapeHtml(page.title);
-  const description = escapeHtml(page.description);
-  let html = indexHtml;
-  html = replaceTag(html, /<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
-  html = replaceTag(html, /<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${description}" />`);
-  html = replaceTag(html, /<meta\s+property="og:type"[\s\S]*?\/>/, `<meta property="og:type" content="${page.slug === 'parcel-plotter' ? 'website' : 'article'}" />`);
-  html = replaceTag(html, /<meta\s+property="og:url"[\s\S]*?\/>/, `<meta property="og:url" content="${url}" />`);
-  html = replaceTag(html, /<meta\s+property="og:title"[\s\S]*?\/>/, `<meta property="og:title" content="${title}" />`);
-  html = replaceTag(html, /<meta\s+property="og:description"[\s\S]*?\/>/, `<meta property="og:description" content="${description}" />`);
-  html = replaceTag(html, /<link\s+rel="canonical"[\s\S]*?\/>/, `<link rel="canonical" href="${url}" />`);
-  html = replaceTag(html, /<meta\s+name="twitter:title"[\s\S]*?\/>/, `<meta name="twitter:title" content="${title}" />`);
-  html = replaceTag(html, /<meta\s+name="twitter:description"[\s\S]*?\/>/, `<meta name="twitter:description" content="${description}" />`);
-  html = replaceTag(html, /<div id="root"><\/div>/, renderPageBody(page));
-  return html;
+  return replaceTag(indexHtml, /<div id="root"><\/div>/, renderPageBody(page));
 }
 
 function renderToolBody(page) {
@@ -95,37 +83,109 @@ function renderToolBody(page) {
 }
 
 function renderToolHtml(page) {
-  const url = `${siteUrl}/${page.slug}/`;
+  return replaceTag(indexHtml, /<div id="root"><\/div>/, renderToolBody(page));
+}
+
+function structuredData(page, slug, url, article = false) {
+  const graph = [];
+  if (article) {
+    graph.push({ '@type': 'Article', headline: page.heading, description: page.description, mainEntityOfPage: url,
+      author: { '@type': 'Organization', name: 'Spatialdom' }, publisher: { '@type': 'Organization', name: 'Spatialdom' } });
+  }
+  if (slug) {
+    const parent = slug.startsWith('insights/')
+      ? [{ '@type': 'ListItem', position: 2, name: 'Insights', item: `${siteUrl}/insights/` }]
+      : pages.some((item) => item.slug === slug && slug !== 'parcel-plotter')
+        ? [{ '@type': 'ListItem', position: 2, name: 'Parcel Plotter', item: `${siteUrl}/parcel-plotter/` }]
+        : [];
+    graph.push({ '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+      ...parent,
+      { '@type': 'ListItem', position: parent.length + 2, name: page.heading, item: url }
+    ] });
+  }
+  return graph.length ? `<script id="route-jsonld" type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')}</script>` : '';
+}
+
+function finalizePageHtml(html, page, slug, article = false) {
+  const url = `${siteUrl}/${slug ? `${slug}/` : ''}`;
   const title = escapeHtml(page.title);
   const description = escapeHtml(page.description);
-  let html = indexHtml;
   html = replaceTag(html, /<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
   html = replaceTag(html, /<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${description}" />`);
-  html = replaceTag(html, /<meta\s+property="og:type"[\s\S]*?\/>/, '<meta property="og:type" content="website" />');
+  html = replaceTag(html, /<meta\s+property="og:type"[\s\S]*?\/>/, `<meta property="og:type" content="${article ? 'article' : 'website'}" />`);
   html = replaceTag(html, /<meta\s+property="og:url"[\s\S]*?\/>/, `<meta property="og:url" content="${url}" />`);
   html = replaceTag(html, /<meta\s+property="og:title"[\s\S]*?\/>/, `<meta property="og:title" content="${title}" />`);
   html = replaceTag(html, /<meta\s+property="og:description"[\s\S]*?\/>/, `<meta property="og:description" content="${description}" />`);
   html = replaceTag(html, /<link\s+rel="canonical"[\s\S]*?\/>/, `<link rel="canonical" href="${url}" />`);
   html = replaceTag(html, /<meta\s+name="twitter:title"[\s\S]*?\/>/, `<meta name="twitter:title" content="${title}" />`);
   html = replaceTag(html, /<meta\s+name="twitter:description"[\s\S]*?\/>/, `<meta name="twitter:description" content="${description}" />`);
-  html = replaceTag(html, /<div id="root"><\/div>/, renderToolBody(page));
-  return html;
+  html = replaceTag(html, /<meta\s+name="twitter:url"[\s\S]*?\/>/, `<meta name="twitter:url" content="${url}" />`);
+  return html.replace('</head>', `${structuredData(page, slug, url, article)}</head>`);
+}
+
+function renderInsightBody(page) {
+  const sections = page.sections.map((section) => `<section id="${escapeHtml(section.id)}" class="scroll-mt-32 border-b border-border-subtle py-8 sm:py-10"><h2 class="text-2xl font-semibold text-text-primary">${escapeHtml(section.heading)}</h2><div class="mt-4 max-w-prose space-y-4 leading-8 text-text-secondary">${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div></section>`).join('');
+  const related = page.related.map((slug) => insightArticles.find((item) => item.slug === slug)).filter(Boolean).map((item) => `<li><a class="text-link" href="/insights/${escapeHtml(item.slug)}/">${escapeHtml(item.heading)}</a></li>`).join('');
+  const sources = page.sources.map((source) => `<li><a class="text-link" href="${escapeHtml(source.url)}">${escapeHtml(source.label)}</a></li>`).join('');
+  return `<div id="root"><main class="pb-16 pt-32 sm:pt-40"><div class="container-shell max-w-4xl"><nav aria-label="Breadcrumb" class="text-sm"><a href="/">Home</a> / <a href="/insights/">Insights</a> / ${escapeHtml(page.heading)}</nav><article><header class="mt-8 max-w-prose"><p class="section-label">Spatialdom Insights</p><h1 class="mt-3 text-3xl font-bold text-text-primary sm:text-5xl">${escapeHtml(page.heading)}</h1><p class="mt-5 text-lg leading-8 text-text-secondary">${escapeHtml(page.intro)}</p></header><nav aria-label="On this page" class="mt-8 rounded-xl border border-border-subtle bg-surface-soft p-5"><h2 class="font-semibold">On this page</h2><ol>${page.sections.map((section) => `<li><a class="text-link" href="#${escapeHtml(section.id)}">${escapeHtml(section.heading)}</a></li>`).join('')}</ol></nav><div class="mt-8 border-t border-border-subtle">${sections}</div><aside class="mt-9 rounded-xl border border-border-strong bg-surface-soft p-5"><h2 class="text-xl font-semibold">Related product: ${escapeHtml(page.product.name)}</h2><p>If this is part of your ongoing work, see how Spatialdom supports the workflow.</p><a class="interactive-accent mt-4" href="${escapeHtml(page.product.href)}">${escapeHtml(page.product.label)}</a></aside><nav class="mt-10" aria-label="Related articles"><h2 class="text-xl font-semibold">Keep reading</h2><ul>${related}</ul></nav><div class="mt-10 text-sm"><h2 class="font-semibold">Sources and further reading</h2><ul>${sources}</ul></div></article></div></main></div>`;
+}
+
+function renderInsightsIndexBody() {
+  const clusters = [
+    { key: 'land', label: 'Land & Titles' },
+    { key: 'tax', label: 'Tax Mapping & Property Administration' },
+    { key: 'community', label: 'Local Data & Communities' }
+  ];
+  return `<div id="root"><main class="pb-16 pt-32 sm:pt-40"><div class="container-shell max-w-5xl"><header><p class="section-label">Insights</p><h1 class="mt-3 text-4xl font-bold">Practical spatial questions</h1><p>Guides for reading land records, managing property maps, and working responsibly with local household data.</p></header>${clusters.map((cluster) => `<section id="${cluster.key}" class="mt-12"><h2 class="text-2xl font-semibold">${cluster.label}</h2><ul>${insightArticles.filter((article) => article.cluster === cluster.key).map((article) => `<li class="mt-4"><h3 class="text-xl font-semibold"><a class="text-link" href="/insights/${escapeHtml(article.slug)}/">${escapeHtml(article.heading)}</a></h3><p>${escapeHtml(article.intro)}</p></li>`).join('')}</ul></section>`).join('')}<section class="mt-12"><h2>Coordinates & map data</h2><h3 id="coordinate-systems">Why coordinate systems and zones matter</h3><p>Confirm the datum and zone before converting coordinates.</p><a href="/tools/coordinate-converter/">Use the coordinate converter</a><h3 id="geojson-basics">How to read GeoJSON coordinates</h3><p>Standard GeoJSON uses WGS 84 longitude, then latitude.</p><a href="/tools/geojson-viewer/">Open the GeoJSON viewer</a></section></div></main></div>`;
+}
+
+function renderSiteBody(page) {
+  if (page.slug === 'insights') return renderInsightsIndexBody();
+  if (page.slug === 'contact') return `<div id="root"><main class="pb-16 pt-32"><div class="container-shell"><h1 class="text-4xl font-bold">Contact Spatialdom</h1><p class="mt-4">Ask about Parcel Plotter, SPARTA tax mapping, RBIM Cloud, or another spatial workflow.</p><p class="mt-5"><a class="text-link" href="mailto:spatialdom@gmail.com">spatialdom@gmail.com</a></p></div></main></div>`;
+  if (page.slug === 'privacy') return `<div id="root"><main class="pb-16 pt-32"><div class="container-shell"><h1 class="text-4xl font-bold">Privacy policy</h1><p class="mt-4">This frontend-only site does not ask users to create accounts or submit personal profiles.</p><h2>Cookies and advertising</h2><p>Cookies or similar technologies may support site functionality and advertising on eligible tool pages.</p><h2>Privacy questions</h2><p>Email <a href="mailto:spatialdom@gmail.com">spatialdom@gmail.com</a>.</p></div></main></div>`;
+  return `<div id="root"><main class="pb-16 pt-32"><div class="container-shell"><h1 class="text-4xl font-bold">${escapeHtml(page.heading)}</h1><p>${escapeHtml(page.description)}</p><nav aria-label="Explore Spatialdom"><a href="/parcel-plotter/">Parcel Plotter</a> · <a href="/tools/">Free tools</a> · <a href="/insights/">Insights</a> · <a href="/contact/">Contact</a></nav></div></main></div>`;
 }
 
 for (const page of pages) {
   if (!/^[a-z0-9-]+$/.test(page.slug)) throw new Error(`Invalid page slug: ${page.slug}`);
   const pageDir = resolve(distDir, page.slug);
   mkdirSync(pageDir, { recursive: true });
-  writeFileSync(resolve(pageDir, 'index.html'), renderPageHtml(page));
+  writeFileSync(resolve(pageDir, 'index.html'), finalizePageHtml(renderPageHtml(page), page, page.slug, page.slug !== 'parcel-plotter'));
 }
 
 for (const page of toolPages) {
   if (!/^tools(?:\/[a-z0-9-]+)?$/.test(page.slug)) throw new Error(`Invalid tool page slug: ${page.slug}`);
   const pageDir = resolve(distDir, page.slug);
   mkdirSync(pageDir, { recursive: true });
-  writeFileSync(resolve(pageDir, 'index.html'), renderToolHtml(page));
+  writeFileSync(resolve(pageDir, 'index.html'), finalizePageHtml(renderToolHtml(page), page, page.slug));
 }
 
-const urls = [`${siteUrl}/`, ...pages.map((page) => `${siteUrl}/${page.slug}/`), ...toolPages.map((page) => `${siteUrl}/${page.slug}/`)];
+for (const page of sitePages) {
+  if (page.slug && !/^[a-z0-9-]+$/.test(page.slug)) throw new Error(`Invalid site page slug: ${page.slug}`);
+  const pageDir = resolve(distDir, page.slug);
+  mkdirSync(pageDir, { recursive: true });
+  const html = indexHtml.replace('<div id="root"></div>', renderSiteBody(page));
+  writeFileSync(resolve(pageDir, 'index.html'), finalizePageHtml(html, page, page.slug));
+}
+
+const insightSlugs = new Set();
+for (const page of insightArticles) {
+  if (!/^[a-z0-9-]+$/.test(page.slug) || insightSlugs.has(page.slug)) throw new Error(`Invalid or duplicate insight slug: ${page.slug}`);
+  insightSlugs.add(page.slug);
+  if (page.related.some((slug) => !insightArticles.some((article) => article.slug === slug))) throw new Error(`Broken related article on ${page.slug}`);
+  const slug = `insights/${page.slug}`;
+  const pageDir = resolve(distDir, slug);
+  mkdirSync(pageDir, { recursive: true });
+  const html = indexHtml.replace('<div id="root"></div>', renderInsightBody(page));
+  writeFileSync(resolve(pageDir, 'index.html'), finalizePageHtml(html, page, slug, true));
+}
+
+const urls = [
+  ...sitePages.map((page) => `${siteUrl}/${page.slug ? `${page.slug}/` : ''}`),
+  ...pages.map((page) => `${siteUrl}/${page.slug}/`),
+  ...toolPages.map((page) => `${siteUrl}/${page.slug}/`),
+  ...insightArticles.map((page) => `${siteUrl}/insights/${page.slug}/`)
+];
 writeFileSync(resolve(distDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${url}</loc></url>`).join('')}</urlset>\n`);
 writeFileSync(resolve(distDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);

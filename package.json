@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && node scripts/prepare-pages.mjs",
+    "build": "tsc --noEmit && vite build && node scripts/prepare-pages.mjs && node scripts/validate-seo.mjs",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
-    "validate:tiepoints": "node scripts/validate-coordinate-tiepoints.mjs"
+    "validate:tiepoints": "node scripts/validate-coordinate-tiepoints.mjs",
+    "validate:seo": "node scripts/validate-seo.mjs"
   },
   "dependencies": {
     "@fontsource/source-sans-3": "^5.3.0",

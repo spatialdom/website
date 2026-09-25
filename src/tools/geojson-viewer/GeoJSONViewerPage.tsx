@@ -11,7 +11,7 @@ import maplibregl, {
 import 'maplibre-gl/dist/maplibre-gl.css';
 import ToolLayout from '../../shared/layout/ToolLayout';
 import ToolGuide from '../../shared/layout/ToolGuide';
-import { getToolPage, useToolMetadata } from '../../shared/utils/toolPage';
+import { getToolPage } from '../../shared/utils/toolPage';
 import { emitToolEvent } from '../../shared/utils/toolEvents';
 import {
   getBounds,
@@ -255,7 +255,6 @@ function ensureDataLayers(map: Map) {
 }
 
 function GeoJSONViewerPage() {
-  useToolMetadata('tools/geojson-viewer');
   const page = getToolPage('tools/geojson-viewer');
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);

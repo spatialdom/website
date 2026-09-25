@@ -1,45 +1,11 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../components/layout/Container';
 import parcelPages from '../data/parcelPages.json';
 
-const siteUrl = 'https://spatialdom.xyz';
 const appUrl = 'https://parcel.spatialdom.xyz/';
-const homeDescription = 'Spatialdom builds practical spatial systems for land, property, and communities. Explore Parcel Plotter, SPARTA, and RBIM Cloud.';
-
-function setMeta(selector: string, attribute: string, value: string) {
-  document.querySelector<HTMLMetaElement>(selector)?.setAttribute(attribute, value);
-}
 
 function ParcelPage({ slug }: { slug: string }) {
   const page = parcelPages.find((item) => item.slug === slug);
-
-  useEffect(() => {
-    if (!page) return;
-
-    const url = `${siteUrl}/${page.slug}/`;
-    document.title = page.title;
-    setMeta('meta[name="description"]', 'content', page.description);
-    setMeta('meta[property="og:type"]', 'content', page.slug === 'parcel-plotter' ? 'website' : 'article');
-    setMeta('meta[property="og:title"]', 'content', page.title);
-    setMeta('meta[property="og:description"]', 'content', page.description);
-    setMeta('meta[property="og:url"]', 'content', url);
-    setMeta('meta[name="twitter:title"]', 'content', page.title);
-    setMeta('meta[name="twitter:description"]', 'content', page.description);
-    document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.setAttribute('href', url);
-
-    return () => {
-      document.title = 'Spatialdom';
-      setMeta('meta[name="description"]', 'content', homeDescription);
-      setMeta('meta[property="og:type"]', 'content', 'website');
-      setMeta('meta[property="og:title"]', 'content', 'Spatialdom');
-      setMeta('meta[property="og:description"]', 'content', 'Practical spatial systems for land, property, and communities. Find the Spatialdom product path for your work.');
-      setMeta('meta[property="og:url"]', 'content', `${siteUrl}/`);
-      setMeta('meta[name="twitter:title"]', 'content', 'Spatialdom');
-      setMeta('meta[name="twitter:description"]', 'content', 'Practical spatial systems for land, property, and communities.');
-      document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.setAttribute('href', `${siteUrl}/`);
-    };
-  }, [page]);
 
   if (!page) return null;
 
@@ -55,7 +21,7 @@ function ParcelPage({ slug }: { slug: string }) {
             <>
               <Link className="text-link" to="/parcel-plotter/">Parcel Plotter</Link>
               <span aria-hidden="true">/</span>
-              <span aria-current="page">Guide</span>
+              <span aria-current="page">{page.heading}</span>
             </>
           )}
         </nav>
