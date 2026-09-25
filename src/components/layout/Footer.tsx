@@ -11,6 +11,9 @@ function Footer() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
           <p>Everything happens somewhere.</p>
           <div className="flex items-center gap-4">
+            <Link to="/contact" className="theme-text-link">
+              Contact
+            </Link>
             <Link to="/tools" className="theme-text-link">
               Tools
             </Link>

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Container from '../components/layout/Container';
+import { contactEmail, mailtoFor } from '../data/contact';
 
 function PrivacyPage() {
   useEffect(() => {
@@ -60,8 +61,10 @@ function PrivacyPage() {
               <section className="space-y-2">
                 <h2 className="text-lg font-semibold text-text-primary">Contact</h2>
                 <p>
-                  For privacy-related questions, use the published Spatialdom contact details on the main site. A
-                  dedicated privacy contact method may be added later as the product ecosystem expands.
+                  For privacy-related questions, email{' '}
+                  <a className="text-link" href={mailtoFor('Privacy Question')}>
+                    {contactEmail}
+                  </a>.
                 </p>
               </section>
             </div>

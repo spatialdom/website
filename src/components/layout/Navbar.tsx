@@ -16,7 +16,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const isHome = location.pathname === '/';
 
-  const getSectionHref = (href: string) => (isHome ? href : `/${href}`);
+  const getSectionHref = (href: string) => (href.startsWith('#') && !isHome ? `/${href}` : href);
 
   useEffect(() => {
     const handleResize = () => {
@@ -53,7 +53,7 @@ function Navbar() {
           <div className="hidden items-center gap-4 md:flex">
             <nav className="flex items-center gap-7" aria-label="Primary">
               {navItems.map((item) => (
-                <Link key={item.href} to={getSectionHref(item.href)} className="nav-link">
+                <Link key={item.href} to={getSectionHref(item.href)} className="nav-link" aria-current={location.pathname === item.href ? 'page' : undefined}>
                   {item.label}
                 </Link>
               ))}
@@ -106,6 +106,7 @@ function Navbar() {
                   key={item.href}
                   to={getSectionHref(item.href)}
                   className="theme-mobile-link px-4 py-3"
+                  aria-current={location.pathname === item.href ? 'page' : undefined}
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}

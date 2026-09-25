@@ -2,6 +2,7 @@ import { MotionConfig } from 'framer-motion';
 import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import ContactPage from './pages/ContactPage';
 import InsightsPage from './pages/InsightsPage';
 import PrivacyPage from './pages/PrivacyPage';
 import ToolsPage from './pages/ToolsPage';
@@ -30,6 +31,7 @@ function App() {
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/insights" element={<InsightsPage />} />
             <Route path="/tools" element={<ToolsPage />} />

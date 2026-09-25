@@ -1,3 +1,5 @@
+import { inquirySubjects, mailtoFor } from './contact';
+
 export const productPaths = [
   {
     audience: "I own or I'm buying land",
@@ -12,7 +14,7 @@ export const productPaths = [
     name: 'SPARTA',
     description: "Build and maintain a parcel and tax mapping system around the real work of the Assessor's Office.",
     action: 'Discuss Tax Mapping',
-    href: 'mailto:spatialdom@gmail.com?subject=SPARTA%20Tax%20Mapping',
+    href: mailtoFor(inquirySubjects.sparta),
     external: false
   },
   {
@@ -20,7 +22,7 @@ export const productPaths = [
     name: 'RBIM Cloud',
     description: 'Help your LGU maintain local household information for planning, targeting programs, and community services.',
     action: 'Request a Demo',
-    href: 'mailto:spatialdom@gmail.com?subject=RBIM%20Cloud%20Demo',
+    href: mailtoFor(inquirySubjects.rbim),
     external: false
   }
 ] as const;

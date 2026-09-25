@@ -1,4 +1,5 @@
 import Container from '../components/layout/Container';
+import { Link } from 'react-router-dom';
 
 function HeroSection() {
   return (
@@ -15,7 +16,7 @@ function HeroSection() {
           <p className="mt-5 text-base font-semibold text-text-primary">Everything happens somewhere.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#products" className="interactive-accent">Explore products</a>
-            <a href="#contact" className="interactive-outline">Talk to Spatialdom</a>
+            <Link to="/contact" className="interactive-outline">Talk to Spatialdom</Link>
           </div>
         </div>
       </Container>
