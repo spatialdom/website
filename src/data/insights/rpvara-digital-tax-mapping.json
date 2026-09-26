@@ -1,0 +1,57 @@
+{
+    "slug":  "rpvara-digital-tax-mapping",
+    "cluster":  "tax",
+    "title":  "RPVARA and digital tax mapping for LGUs | Spatialdom Insights",
+    "description":  "A practical explanation of how the Real Property Valuation and Assessment Reform Act relates to property records, valuation data, and digital tax mapping.",
+    "heading":  "RPVARA and digital tax mapping",
+    "intro":  "The Real Property Valuation and Assessment Reform Act concerns valuation standards and property information. For an LGU, reliable parcel links and records are useful groundwork for digital workflows.",
+    "sections":  [
+                     {
+                         "id":  "what-law-does",
+                         "heading":  "What the law addresses",
+                         "paragraphs":  [
+                                            "Republic Act No. 12001 establishes reforms to real property valuation and assessment. It calls for standards based on Philippine Valuation Standards, a real property information system, and wider use of digital technology in local property administration. The law and its implementing rules, rather than a map vendor, determine an LGU\u0027s formal obligations.",
+                                            "A digital tax map can help staff locate and reconcile property records. It does not calculate a compliant value merely because a parcel appears on a screen. Valuation requires the applicable standards, data, review, and authorized decisions."
+                                        ]
+                     },
+                     {
+                         "id":  "prepare-data",
+                         "heading":  "Prepare records before automating",
+                         "paragraphs":  [
+                                            "Start by checking identifiers across tax declarations, parcel maps, and supporting documents. Record the origin and status of each geometry, then list records with no confident match. This makes errors visible before they are carried into a new system.",
+                                            "Design for updates: divisions, consolidations, new improvements, and corrections should leave an understandable history. Limit access to personal or sensitive data to the people and purposes authorized by the LGU\u0027s policies and applicable privacy rules."
+                                        ]
+                     },
+                     {
+                         "id":  "implementation",
+                         "heading":  "Treat the map as one part of the workflow",
+                         "paragraphs":  [
+                                            "A useful implementation joins map review, assessment records, valuation work, and staff responsibilities. Ask how a disputed match will be resolved, who approves a change, and how the office can audit it later. Check current BLGF guidance when planning formal compliance work."
+                                        ]
+                     }
+                 ],
+    "related":  [
+                    "tax-mapping-philippine-lgu",
+                    "digitize-cadastral-tax-maps"
+                ],
+    "product":  {
+                    "name":  "SPARTA",
+                    "href":  "/sparta/",
+                    "label":  "Explore SPARTA for LGU parcel workflows"
+                },
+    "sources":  [
+                    {
+                        "label":  "Republic Act No. 12001",
+                        "url":  "https://lawphil.net/statutes/repacts/ra2024/ra_12001_2024.html"
+                    },
+                    {
+                        "label":  "BLGF implementing rules for RA 12001",
+                        "url":  "https://blgf.gov.ph/wp-content/uploads/2025/03/BLGF-MC-No.-001.2025-IRR-of-RA-No.-12001-or-the-RPVARA-Reform-Act-6-Jan-2025-Approved-3.pdf"
+                    }
+                ],
+    "state":  "published",
+    "publishedAt":  null,
+    "lastReviewed":  null,
+    "disclaimer":  "This guide is educational and does not replace current legal guidance or an LGU assessment decision.",
+    "legacy":  true
+}

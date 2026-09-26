@@ -2,12 +2,12 @@
 
 ## Publishing an Insight
 
-1. Add one entry to `src/data/insightArticles.json`. Use a unique descriptive `slug`, clear `title` and `description`, a short `intro`, and sections with unique IDs. Keep claims tied to the listed sources.
-2. Choose one cluster: `land`, `tax`, or `community`. Give the article exactly one primary `product` path. Add related article slugs that exist in the same file.
-3. Run `npm run build`. `src/App.tsx` creates the React routes; `scripts/prepare-pages.mjs` writes indexable HTML, metadata, Article and breadcrumb JSON-LD, and sitemap entries from the same data.
+1. Follow [the editorial workflow](insights-editorial-workflow.md) and add one `src/data/insights/<slug>.json` file. Use a unique descriptive `slug`, clear `title` and `description`, a short `intro`, and sections with unique IDs. Keep claims tied to the listed sources.
+2. Choose a content cluster. Give the article exactly one primary `product` path. Related article slugs must point to published articles.
+3. After Dominic approves the issue, the weekly publisher promotes its article state. Run `npm run build` to regenerate the public manifest. `src/App.tsx` creates routes only for published Insights; `scripts/prepare-pages.mjs` writes indexable HTML, metadata, Article and breadcrumb JSON-LD, and sitemap entries from the same public data.
 4. Review the generated `dist/insights/<slug>/index.html` and open the route on a phone-sized viewport. Check the source links and the product CTA before publishing.
 
-The Insights index and article pages use data-driven layouts. Existing `/insights/#coordinate-systems` and `/insights/#geojson-basics` links remain available for the tools. Do not add a publication date unless there is a verified publication date to display.
+The Insights index and article pages use data-driven layouts. Existing `/insights/#coordinate-systems` and `/insights/#geojson-basics` links remain available for the tools. Do not add a publication or review date unless it is verified.
 
 ## Metadata for other routes
 

@@ -1,0 +1,57 @@
+{
+    "slug":  "barangay-household-information-system",
+    "cluster":  "community",
+    "title":  "Barangay household information systems | Spatialdom Insights",
+    "description":  "How a barangay can organize household records for local services while handling updates, access, and personal data carefully.",
+    "heading":  "Barangay household information systems",
+    "intro":  "A barangay household information system helps authorized workers find and maintain local records. Its value comes from accuracy, clear responsibilities, and respect for residents\u0027 data.",
+    "sections":  [
+                     {
+                         "id":  "record",
+                         "heading":  "Define a useful household record",
+                         "paragraphs":  [
+                                            "Choose fields tied to a concrete service or planning task. Keep a stable identifier, location reference, update status, and enough information to distinguish households without copying every document into one database. Write down where each field comes from and who can correct it.",
+                                            "CPD\u0027s RBIM guidance describes a barangay management team, household data collection, encoding, validation, analysis, and use of the results. Assign those responsibilities locally so records remain useful after the initial profiling work."
+                                        ]
+                     },
+                     {
+                         "id":  "workflow",
+                         "heading":  "Plan for change",
+                         "paragraphs":  [
+                                            "Households move, split, and change membership. Give staff a consistent way to record these changes, verify uncertain entries, and avoid duplicate records. A date and source for each important update help the next worker understand what remains reliable.",
+                                            "Map views can help identify areas with service gaps, but named household locations should be visible only to people with an authorized need. Aggregate counts are often enough for public reporting."
+                                        ]
+                     },
+                     {
+                         "id":  "trust",
+                         "heading":  "Build trust into the process",
+                         "paragraphs":  [
+                                            "Explain why data is collected, who will use it, how residents can ask for a correction, and when records will be reviewed or removed. National Privacy Commission guidance emphasizes clear notice, proportional collection, and safeguards in local-government processing."
+                                        ]
+                     }
+                 ],
+    "related":  [
+                    "household-profiling-systems-lgu",
+                    "why-lgus-maintain-household-data"
+                ],
+    "product":  {
+                    "name":  "RBIM Cloud",
+                    "href":  "/rbim-cloud/",
+                    "label":  "Explore RBIM Cloud for barangay records"
+                },
+    "sources":  [
+                    {
+                        "label":  "CPD RBIM barangay implementation guidance",
+                        "url":  "https://ncr.cpd.gov.ph/wp-content/uploads/2025/03/Approved-CPD-DTP-dated-16-March-2022.pdf"
+                    },
+                    {
+                        "label":  "National Privacy Commission: LGU privacy compliance",
+                        "url":  "https://privacy.gov.ph/npc-commends-new-dilg-issuance-enhancing-data-privacy-compliance-among-lgus/"
+                    }
+                ],
+    "state":  "published",
+    "publishedAt":  null,
+    "lastReviewed":  null,
+    "disclaimer":  "This guide is educational and does not replace an LGU privacy review or legal advice.",
+    "legacy":  true
+}

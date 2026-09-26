@@ -1,11 +1,11 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { allInsights, publishedInsights as insightArticles } from './insights-data.mjs';
 
 const data = (name) => JSON.parse(readFileSync(resolve('src/data', name), 'utf8'));
 const sitePages = data('sitePages.json');
 const parcelPages = data('parcelPages.json');
 const toolPages = data('toolPages.json');
-const insightArticles = data('insightArticles.json');
 const lguProductPages = data('lguProductPages.json');
 const pages = [
   ...sitePages,
@@ -52,6 +52,9 @@ for (const page of pages) {
 }
 
 const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
+for (const article of allInsights.filter((item) => item.state !== 'published')) {
+  if (existsSync(resolve('dist/insights', article.slug, 'index.html')) || sitemap.includes(`/insights/${article.slug}/`)) throw new Error(`Unpublished Insight was made public: ${article.slug}`);
+}
 if (sitemapUrls.length !== pages.length || sitemapUrls.some((url) => !seenUrls.has(url))) throw new Error('Sitemap has missing or unexpected URLs.');
 if (!existsSync(resolve('dist/404.html')) || !existsSync(resolve('dist/CNAME'))) throw new Error('GitHub Pages fallback or CNAME is missing.');
 if (readFileSync(resolve('dist/CNAME'), 'utf8').trim() !== 'spatialdom.xyz') throw new Error('GitHub Pages custom domain must be spatialdom.xyz.');

@@ -1,0 +1,57 @@
+{
+    "slug":  "household-profiling-systems-lgu",
+    "cluster":  "community",
+    "title":  "Household profiling systems for LGUs | Spatialdom Insights",
+    "description":  "What an LGU household profiling system should help staff do, how to keep records current, and why privacy and access controls matter.",
+    "heading":  "Household profiling systems for LGUs",
+    "intro":  "A household profile is useful when an LGU can maintain it responsibly and use it for a defined service or planning purpose. A large form alone is not a working system.",
+    "sections":  [
+                     {
+                         "id":  "purpose",
+                         "heading":  "Begin with the decision the data supports",
+                         "paragraphs":  [
+                                            "List the questions staff need to answer, such as where services are missing or which households need follow-up. Define the unit of record, the responsible office, and the update cycle before selecting fields. This helps avoid collecting personal details that have no clear use.",
+                                            "The Commission on Population and Development (CPD) describes the Registry of Barangay Inhabitants and Migrants (RBIM) as a database of household demographic and socioeconomic information and a way to track population movement at the community level. Plan the local workflow around that purpose, including who collects, checks, updates, and uses the records."
+                                        ]
+                     },
+                     {
+                         "id":  "operations",
+                         "heading":  "Make updates and corrections routine",
+                         "paragraphs":  [
+                                            "Assign who may create, verify, edit, and retire a record. Keep a way to flag moves, duplicate households, changed contact details, and uncertain locations. Staff should be able to see when a record was last checked and which source supports it.",
+                                            "Prefer aggregate views for planning when named records are unnecessary. If staff need identifiable information for service delivery, give access according to role and document the purpose of that access."
+                                        ]
+                     },
+                     {
+                         "id":  "privacy",
+                         "heading":  "Protect residents\u0027 information",
+                         "paragraphs":  [
+                                            "Provide a clear privacy notice, collect only data needed for the stated purpose, set retention and correction procedures, and plan secure sharing before exchange with another office. The Data Privacy Act and guidance from the National Privacy Commission apply to LGU processing of personal information."
+                                        ]
+                     }
+                 ],
+    "related":  [
+                    "barangay-household-information-system",
+                    "why-lgus-maintain-household-data"
+                ],
+    "product":  {
+                    "name":  "RBIM Cloud",
+                    "href":  "/rbim-cloud/",
+                    "label":  "Explore RBIM Cloud for household records"
+                },
+    "sources":  [
+                    {
+                        "label":  "CPD progress report on RBIM",
+                        "url":  "https://region10.cpd.gov.ph/wp-content/uploads/2025/08/2-CPD_PPDPOA-2023-2024-PROGRESS-REPORT_092524_FA_compressed.pdf"
+                    },
+                    {
+                        "label":  "National Privacy Commission: Data Privacy Act",
+                        "url":  "https://privacy.gov.ph/data-privacy-act/"
+                    }
+                ],
+    "state":  "published",
+    "publishedAt":  null,
+    "lastReviewed":  null,
+    "disclaimer":  "This guide is educational and does not replace an LGU privacy review or legal advice.",
+    "legacy":  true
+}

@@ -1,0 +1,57 @@
+{
+    "slug":  "plot-land-title-technical-description",
+    "cluster":  "land",
+    "title":  "How to plot a land title technical description | Spatialdom Insights",
+    "description":  "A practical reading workflow for plotting bearings and distances from a Philippine land title, checking closure, and knowing when to ask a geodetic engineer.",
+    "heading":  "How to plot a land title technical description",
+    "intro":  "A plot turns a list of boundary calls into a shape you can inspect. Start with the source document, follow the lines in order, and treat any mismatch as a question to investigate.",
+    "sections":  [
+                     {
+                         "id":  "prepare",
+                         "heading":  "Prepare the source",
+                         "paragraphs":  [
+                                            "Use a legible technical description and, if available, the approved survey plan. Record the lot and plan identifiers, the point of beginning, each line\u0027s bearing and distance, and the unit shown. Keep the source beside the plot so every entry can be checked.",
+                                            "Separate the tie line from the parcel boundary. A tie point helps locate the lot relative to a reference; the boundary calls describe the lot\u0027s shape. Drawing only the boundary can help you understand the shape, but it does not establish its position on the ground."
+                                        ]
+                     },
+                     {
+                         "id":  "plot",
+                         "heading":  "Trace and check the lines",
+                         "paragraphs":  [
+                                            "Begin at the first lot corner. Enter each bearing and distance in the order written, moving from the end of one line to the start of the next. Check the quadrant letters, degrees, minutes, seconds, decimal places, and units before proceeding.",
+                                            "After the final line, compare the drawing with the plan and check whether the path returns to its starting point. If it does not, first recheck transcription, omitted lines, and point order. A mismatch in a quick plot is not proof that the title or survey is wrong."
+                                        ]
+                     },
+                     {
+                         "id":  "limits",
+                         "heading":  "Know what the plot can answer",
+                         "paragraphs":  [
+                                            "A plot can expose an unexpected shape or a line that deserves a closer look. It cannot confirm ownership, title validity, physical monuments, or an official boundary. For a decision about a property, compare the relevant official records and ask a licensed geodetic engineer to review material discrepancies."
+                                        ]
+                     }
+                 ],
+    "related":  [
+                    "read-bearings-and-distances-land-title",
+                    "technical-description-does-not-close"
+                ],
+    "product":  {
+                    "name":  "Parcel Plotter",
+                    "href":  "/parcel-plotter/",
+                    "label":  "Explore Parcel Plotter for a first look at the parcel"
+                },
+    "sources":  [
+                    {
+                        "label":  "Land Registration Authority: frequently asked questions",
+                        "url":  "https://lra.gov.ph/frequently-asked-questions/"
+                    },
+                    {
+                        "label":  "DENR technical description guidance",
+                        "url":  "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49164"
+                    }
+                ],
+    "state":  "published",
+    "publishedAt":  null,
+    "lastReviewed":  null,
+    "disclaimer":  "This guide is educational and does not replace title verification, an official survey, or advice from a licensed geodetic engineer.",
+    "legacy":  true
+}

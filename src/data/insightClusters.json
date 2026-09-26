@@ -1,0 +1,11 @@
+[
+  { "key": "land", "label": "Land & Titles", "description": "Understand land records and what they can tell you." },
+  { "key": "buying", "label": "Buying & Selling Land", "description": "Questions to work through before a property decision." },
+  { "key": "surveying", "label": "Surveying & Parcel Geometry", "description": "Read measurements, plans, and parcel locations." },
+  { "key": "tax", "label": "Tax Mapping & Property Administration", "description": "Connect parcel maps and assessment records in LGU workflows." },
+  { "key": "community", "label": "Households, Census & Local Data", "description": "Maintain useful household information with clear privacy safeguards." },
+  { "key": "gis", "label": "GIS & Spatial Thinking", "description": "Use maps and spatial data with the right context." },
+  { "key": "smart-cities", "label": "Smart Cities", "description": "Make sense of city technology and practical use cases." },
+  { "key": "digital-twins", "label": "Digital Twins", "description": "Understand connected models of places and systems." },
+  { "key": "ai-land", "label": "AI & Land", "description": "Consider where AI helps land work and where human review matters." }
+]

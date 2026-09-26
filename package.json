@@ -4,11 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-public-insights.mjs",
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && node scripts/prepare-pages.mjs && node scripts/validate-seo.mjs",
+    "build": "node scripts/generate-public-insights.mjs && tsc --noEmit && vite build && node scripts/prepare-pages.mjs && node scripts/validate-seo.mjs",
     "preview": "vite preview",
     "validate:tiepoints": "node scripts/validate-coordinate-tiepoints.mjs",
-    "validate:seo": "node scripts/validate-seo.mjs"
+    "validate:seo": "node scripts/validate-seo.mjs",
+    "test:insights": "node --test scripts/insights-plan.test.mjs"
   },
   "dependencies": {
     "@fontsource/source-sans-3": "^5.3.0",
