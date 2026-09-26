@@ -1,5 +1,6 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { publishedInsights as insightArticles, readingMinutes } from './insights-data.mjs';
 
 const distDir = resolve('dist');
 const indexFile = resolve(distDir, 'index.html');
@@ -7,7 +8,7 @@ const fallbackFile = resolve(distDir, '404.html');
 const pages = JSON.parse(readFileSync(resolve('src/data/parcelPages.json'), 'utf8'));
 const toolPages = JSON.parse(readFileSync(resolve('src/data/toolPages.json'), 'utf8'));
 const sitePages = JSON.parse(readFileSync(resolve('src/data/sitePages.json'), 'utf8'));
-const insightArticles = JSON.parse(readFileSync(resolve('src/data/insightArticles.json'), 'utf8'));
+const insightClusters = JSON.parse(readFileSync(resolve('src/data/insightClusters.json'), 'utf8'));
 const lguProductPages = JSON.parse(readFileSync(resolve('src/data/lguProductPages.json'), 'utf8'));
 const appUrl = 'https://parcel.spatialdom.xyz/';
 const siteUrl = 'https://spatialdom.xyz';
@@ -91,7 +92,8 @@ function structuredData(page, slug, url, article = false) {
   const graph = [];
   if (article) {
     graph.push({ '@type': 'Article', headline: page.heading, description: page.description, mainEntityOfPage: url,
-      author: { '@type': 'Organization', name: 'Spatialdom' }, publisher: { '@type': 'Organization', name: 'Spatialdom' } });
+      author: { '@type': 'Organization', name: 'Spatialdom' }, publisher: { '@type': 'Organization', name: 'Spatialdom' },
+      ...(page.publishedAt ? { datePublished: page.publishedAt } : {}), ...(page.lastReviewed ? { dateModified: page.lastReviewed } : {}) });
   }
   if (slug) {
     const lguPage = lguProductPages.find((item) => item.slug === slug);
@@ -132,15 +134,13 @@ function renderInsightBody(page) {
   const sections = page.sections.map((section) => `<section id="${escapeHtml(section.id)}" class="scroll-mt-32 border-b border-border-subtle py-8 sm:py-10"><h2 class="text-2xl font-semibold text-text-primary">${escapeHtml(section.heading)}</h2><div class="mt-4 max-w-prose space-y-4 leading-8 text-text-secondary">${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div></section>`).join('');
   const related = page.related.map((slug) => insightArticles.find((item) => item.slug === slug)).filter(Boolean).map((item) => `<li><a class="text-link" href="/insights/${escapeHtml(item.slug)}/">${escapeHtml(item.heading)}</a></li>`).join('');
   const sources = page.sources.map((source) => `<li><a class="text-link" href="${escapeHtml(source.url)}">${escapeHtml(source.label)}</a></li>`).join('');
-  return `<div id="root"><main class="pb-16 pt-32 sm:pt-40"><div class="container-shell max-w-4xl"><nav aria-label="Breadcrumb" class="text-sm"><a href="/">Home</a> / <a href="/insights/">Insights</a> / ${escapeHtml(page.heading)}</nav><article><header class="mt-8 max-w-prose"><p class="section-label">Spatialdom Insights</p><h1 class="mt-3 text-3xl font-bold text-text-primary sm:text-5xl">${escapeHtml(page.heading)}</h1><p class="mt-5 text-lg leading-8 text-text-secondary">${escapeHtml(page.intro)}</p></header><nav aria-label="On this page" class="mt-8 rounded-xl border border-border-subtle bg-surface-soft p-5"><h2 class="font-semibold">On this page</h2><ol>${page.sections.map((section) => `<li><a class="text-link" href="#${escapeHtml(section.id)}">${escapeHtml(section.heading)}</a></li>`).join('')}</ol></nav><div class="mt-8 border-t border-border-subtle">${sections}</div><aside class="mt-9 rounded-xl border border-border-strong bg-surface-soft p-5"><h2 class="text-xl font-semibold">Related product: ${escapeHtml(page.product.name)}</h2><p>If this is part of your ongoing work, see how Spatialdom supports the workflow.</p><a class="interactive-accent mt-4" href="${escapeHtml(page.product.href)}">${escapeHtml(page.product.label)}</a></aside><nav class="mt-10" aria-label="Related articles"><h2 class="text-xl font-semibold">Keep reading</h2><ul>${related}</ul></nav><div class="mt-10 text-sm"><h2 class="font-semibold">Sources and further reading</h2><ul>${sources}</ul></div></article></div></main></div>`;
+  const toc = page.sections.length >= 5 ? `<nav aria-label="On this page" class="mt-8 rounded-xl border border-border-subtle bg-surface-soft p-5"><h2 class="font-semibold">On this page</h2><ol>${page.sections.map((section) => `<li><a class="text-link" href="#${escapeHtml(section.id)}">${escapeHtml(section.heading)}</a></li>`).join('')}</ol></nav>` : '';
+  const reviewed = page.lastReviewed ? new Date(`${page.lastReviewed}T00:00:00Z`).toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : 'Date not recorded';
+  return `<div id="root"><main class="pb-16 pt-32 sm:pt-40"><div class="container-shell max-w-4xl"><nav aria-label="Breadcrumb" class="text-sm"><a href="/">Home</a> / <a href="/insights/">Insights</a> / ${escapeHtml(page.heading)}</nav><article><header class="mt-8 max-w-prose"><p class="section-label">Spatialdom Insights</p><h1 class="mt-3 text-3xl font-bold text-text-primary sm:text-5xl">${escapeHtml(page.heading)}</h1><p class="mt-5 text-lg leading-8 text-text-secondary">${escapeHtml(page.intro)}</p><p class="mt-4 text-sm text-text-secondary">${readingMinutes(page)} min read · Written and reviewed by Spatialdom · Last reviewed: ${reviewed}</p></header>${toc}<div class="mt-8 border-t border-border-subtle">${sections}</div>${page.disclaimer ? `<p class="mt-8 max-w-prose text-sm leading-6 text-text-secondary">${escapeHtml(page.disclaimer)}</p>` : ''}<aside class="mt-9 rounded-xl border border-border-strong bg-surface-soft p-5"><h2 class="text-xl font-semibold">Related product: ${escapeHtml(page.product.name)}</h2><p>If this is part of your ongoing work, see how Spatialdom supports the workflow.</p><a class="interactive-accent mt-4" href="${escapeHtml(page.product.href)}">${escapeHtml(page.product.label)}</a></aside><nav class="mt-10" aria-label="Related articles"><h2 class="text-xl font-semibold">Keep reading</h2><ul>${related}</ul></nav><div class="mt-10 text-sm"><h2 class="font-semibold">Sources and further reading</h2><ul>${sources}</ul></div></article></div></main></div>`;
 }
 
 function renderInsightsIndexBody() {
-  const clusters = [
-    { key: 'land', label: 'Land & Titles' },
-    { key: 'tax', label: 'Tax Mapping & Property Administration' },
-    { key: 'community', label: 'Local Data & Communities' }
-  ];
+  const clusters = insightClusters.filter((cluster) => insightArticles.some((article) => article.cluster === cluster.key));
   return `<div id="root"><main class="pb-16 pt-32 sm:pt-40"><div class="container-shell max-w-5xl"><header><p class="section-label">Insights</p><h1 class="mt-3 text-4xl font-bold">Practical spatial questions</h1><p>Guides for reading land records, managing property maps, and working responsibly with local household data.</p></header>${clusters.map((cluster) => `<section id="${cluster.key}" class="mt-12"><h2 class="text-2xl font-semibold">${cluster.label}</h2><ul>${insightArticles.filter((article) => article.cluster === cluster.key).map((article) => `<li class="mt-4"><h3 class="text-xl font-semibold"><a class="text-link" href="/insights/${escapeHtml(article.slug)}/">${escapeHtml(article.heading)}</a></h3><p>${escapeHtml(article.intro)}</p></li>`).join('')}</ul></section>`).join('')}<section class="mt-12"><h2>Coordinates & map data</h2><h3 id="coordinate-systems">Why coordinate systems and zones matter</h3><p>Confirm the datum and zone before converting coordinates.</p><a href="/tools/coordinate-converter/">Use the coordinate converter</a><h3 id="geojson-basics">How to read GeoJSON coordinates</h3><p>Standard GeoJSON uses WGS 84 longitude, then latitude.</p><a href="/tools/geojson-viewer/">Open the GeoJSON viewer</a></section></div></main></div>`;
 }
 

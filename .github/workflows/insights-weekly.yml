@@ -1,0 +1,87 @@
+name: Insights weekly publication
+
+on:
+  schedule:
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
+    inputs:
+      relaunch:
+        description: 'Use the one-time legacy relaunch limit of six'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: insights-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Report drafting capacity
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo '## Insights weekly plan' >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          node scripts/insights-editorial.mjs plan >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+      - name: Plan and publish approved articles
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELAUNCH: ${{ inputs.relaunch }}
+        run: |
+          if [ "$RELAUNCH" = "true" ]; then
+            node scripts/insights-editorial.mjs publish --relaunch
+          else
+            node scripts/insights-editorial.mjs publish
+          fi
+      - name: Validate generated site
+        run: npm run build
+      - name: Commit published articles
+        id: commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add src/data/insights
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish approved Insights'
+          git push
+          echo 'published=true' >> "$GITHUB_OUTPUT"
+      - name: Upload Pages artifact
+        if: steps.commit.outputs.published == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+      - name: Deploy Pages
+        if: steps.commit.outputs.published == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Mark issues published
+        if: steps.commit.outputs.published == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          jq -r '.[] | "\(.number) \(.previousState)"' insights-publication-result.json | while read -r number state; do
+            gh issue edit "$number" --remove-label "insight:$state" --add-label insight:published
+          done

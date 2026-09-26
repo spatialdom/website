@@ -11,7 +11,7 @@ import ParcelPage from './pages/ParcelPage';
 import ToolsPage from './pages/ToolsPage';
 import MainLayout from './shared/layout/MainLayout';
 import RouteMetadata from './shared/utils/RouteMetadata';
-import insightArticles from './data/insightArticles.json';
+import { publishedInsights } from './data/insights';
 import lguProductPages from './data/lguProductPages.json';
 
 const CoordinateConverterPage = lazy(() => import('./tools/coordinate-converter/CoordinateConverterPage'));
@@ -48,7 +48,7 @@ function App() {
             <Route path="/how-to-read-bearings-and-distances-land-title" element={<ParcelPage slug="how-to-read-bearings-and-distances-land-title" />} />
             {lguProductPages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LguProductPage slug={page.slug} />} />)}
             <Route path="/insights" element={<InsightsPage />} />
-            {insightArticles.map((article) => <Route key={article.slug} path={`/insights/${article.slug}`} element={<InsightArticlePage slug={article.slug} />} />)}
+            {publishedInsights.map((article) => <Route key={article.slug} path={`/insights/${article.slug}`} element={<InsightArticlePage slug={article.slug} />} />)}
             <Route path="/tools" element={<ToolsPage />} />
             <Route path="/tools/coordinate-converter" element={<CoordinateConverterPage />} />
             <Route path="/tools/geojson-viewer" element={<GeoJSONViewerPage />} />

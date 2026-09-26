@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import sitePages from '../../data/sitePages.json';
 import parcelPages from '../../data/parcelPages.json';
 import toolPages from '../../data/toolPages.json';
-import insightArticles from '../../data/insightArticles.json';
+import { publishedInsights as insightArticles } from '../../data/insights';
 import lguProductPages from '../../data/lguProductPages.json';
 
 const siteUrl = 'https://spatialdom.xyz';
@@ -42,7 +42,7 @@ function RouteMetadata() {
     document.getElementById('route-jsonld')?.remove();
     const graph: Record<string, unknown>[] = [];
     if (article) {
-      graph.push({ '@type': 'Article', headline: article.heading, description: article.description, mainEntityOfPage: url, author: { '@type': 'Organization', name: 'Spatialdom' }, publisher: { '@type': 'Organization', name: 'Spatialdom' } });
+      graph.push({ '@type': 'Article', headline: article.heading, description: article.description, mainEntityOfPage: url, author: { '@type': 'Organization', name: 'Spatialdom' }, publisher: { '@type': 'Organization', name: 'Spatialdom' }, ...(article.publishedAt ? { datePublished: article.publishedAt } : {}), ...(article.lastReviewed ? { dateModified: article.lastReviewed } : {}) });
     }
     if (slug) {
       const parent = article ? [{ name: 'Insights', url: `${siteUrl}/insights/` }]

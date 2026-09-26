@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
 import Container from '../components/layout/Container';
-import articles from '../data/insightArticles.json';
+import { publishedInsights as articles } from '../data/insights';
+import clusters from '../data/insightClusters.json';
 
-const clusters = [
-  { key: 'land', label: 'Land & Titles', description: 'Read the lines in a land title and understand what a plot can show.' },
-  { key: 'tax', label: 'Tax Mapping & Property Administration', description: 'Connect parcel maps and assessment records in LGU workflows.' },
-  { key: 'community', label: 'Local Data & Communities', description: 'Maintain useful household information with clear privacy safeguards.' }
-] as const;
+const activeClusters = clusters.filter((cluster) => articles.some((article) => article.cluster === cluster.key));
 
 function InsightsPage() {
   return (
@@ -18,10 +15,10 @@ function InsightsPage() {
           <p className="mt-4 text-lg leading-8 text-text-secondary">Guides for reading land records, managing property maps, and working responsibly with local household data.</p>
         </header>
         <nav aria-label="Insight topics" className="mt-8 flex flex-wrap gap-3">
-          {clusters.map((cluster) => <a key={cluster.key} className="interactive-outline" href={`#${cluster.key}`}>{cluster.label}</a>)}
+          {activeClusters.map((cluster) => <a key={cluster.key} className="interactive-outline" href={`#${cluster.key}`}>{cluster.label}</a>)}
         </nav>
         <div className="mt-12 space-y-14">
-          {clusters.map((cluster) => (
+          {activeClusters.map((cluster) => (
             <section key={cluster.key} id={cluster.key} className="scroll-mt-32" aria-labelledby={`${cluster.key}-heading`}>
               <h2 id={`${cluster.key}-heading`} className="text-2xl font-semibold text-text-primary">{cluster.label}</h2>
               <p className="mt-2 max-w-prose text-text-secondary">{cluster.description}</p>
