@@ -1,57 +1,146 @@
 {
-    "slug":  "technical-description-does-not-close",
-    "cluster":  "land",
-    "title":  "Why a land title technical description may not close | Spatialdom Insights",
-    "description":  "Learn what an open parcel plot means, the transcription checks to make first, and why closure alone does not verify a land title.",
-    "heading":  "Why a technical description may not close",
-    "intro":  "A parcel plot closes when its last boundary line returns to its starting point. An open plot is a signal to review the input and source, not a verdict on the document.",
-    "sections":  [
-                     {
-                         "id":  "what-closure-means",
-                         "heading":  "What closure measures",
-                         "paragraphs":  [
-                                            "When bearings and distances are drawn in sequence, the last point can be compared with the first. A visible gap means those entered lines did not return to the start. The size and direction of a gap can help locate a copied or interpreted line that needs checking.",
-                                            "A closed shape is not proof that the parcel is correctly located or that a title is valid. A sequence can close while using the wrong starting reference, swapped lines, or a different coordinate convention."
-                                        ]
-                     },
-                     {
-                         "id":  "first-checks",
-                         "heading":  "Check the common input problems first",
-                         "paragraphs":  [
-                                            "Compare every call with the source, especially north/south and east/west letters, degree and minute marks, decimal points, units, and point order. Make sure no line was skipped or entered twice and that a tie line was not treated as a parcel edge.",
-                                            "If the entry matches the copy you have but the plot remains open, compare it with the approved plan and other relevant records. Do not silently adjust a bearing or distance just to force a neat drawing."
-                                        ]
-                     },
-                     {
-                         "id":  "next-step",
-                         "heading":  "Escalate a material discrepancy",
-                         "paragraphs":  [
-                                            "Survey records can involve conventions and adjustments that a simple browser plot does not reproduce. Preserve the exact source and your entered sequence, then ask the appropriate office or a licensed geodetic engineer to review a discrepancy that matters to a property decision."
-                                        ]
-                     }
-                 ],
-    "related":  [
-                    "plot-land-title-technical-description",
-                    "read-bearings-and-distances-land-title"
-                ],
-    "product":  {
-                    "name":  "Parcel Plotter",
-                    "href":  "/parcel-plotter/",
-                    "label":  "Inspect the entered lines in Parcel Plotter"
-                },
-    "sources":  [
-                    {
-                        "label":  "Land Registration Authority: frequently asked questions",
-                        "url":  "https://lra.gov.ph/frequently-asked-questions/"
-                    },
-                    {
-                        "label":  "DENR technical description guidance",
-                        "url":  "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49164"
-                    }
-                ],
-    "state":  "published",
-    "publishedAt":  null,
-    "lastReviewed":  null,
-    "disclaimer":  "This guide is educational and does not replace title verification, an official survey, or advice from a licensed geodetic engineer.",
-    "legacy":  true
+  "slug": "technical-description-does-not-close",
+  "cluster": "land",
+  "title": "Why a land title technical description may not close | Spatialdom Insights",
+  "description": "Learn what an open parcel plot means, the transcription checks to make first, and why closure alone does not verify a land title.",
+  "heading": "Why a technical description may not close",
+  "intro": "A parcel plot closes when its last boundary line returns to its starting point. An open plot is a signal to review the input and source, not a verdict on the document.",
+  "sections": [
+    {
+      "id": "what-closure-means",
+      "heading": "What closure measures",
+      "paragraphs": [
+        "When bearings and distances are drawn in sequence, the last point can be compared with the first. A visible gap means those entered lines did not return to the start. The size and direction of a gap can help locate a copied or interpreted line that needs checking.",
+        "A closed shape is not proof that the parcel is correctly located or that a title is valid. A sequence can close while using the wrong starting reference, swapped lines, or a different coordinate convention."
+      ]
+    },
+    {
+      "id": "first-checks",
+      "heading": "Check the common input problems first",
+      "paragraphs": [
+        "Compare every call with the source, especially north/south and east/west letters, degree and minute marks, decimal points, units, and point order. Make sure no line was skipped or entered twice and that a tie line was not treated as a parcel edge.",
+        "If the entry matches the copy you have but the plot remains open, compare it with the approved plan and other relevant records. Do not silently adjust a bearing or distance just to force a neat drawing."
+      ]
+    },
+    {
+      "id": "next-step",
+      "heading": "Escalate a material discrepancy",
+      "paragraphs": [
+        "Survey records can involve conventions and adjustments that a simple browser plot does not reproduce. Preserve the exact source and your entered sequence, then ask the appropriate office or a licensed geodetic engineer to review a discrepancy that matters to a property decision."
+      ]
+    }
+  ],
+  "related": [
+    "plot-land-title-technical-description",
+    "read-bearings-and-distances-land-title"
+  ],
+  "product": {
+    "name": "Parcel Plotter",
+    "href": "/parcel-plotter/",
+    "label": "Inspect the entered lines in Parcel Plotter"
+  },
+  "sources": [
+    {
+      "label": "Land Registration Authority: frequently asked questions",
+      "url": "https://lra.gov.ph/frequently-asked-questions/"
+    },
+    {
+      "label": "DENR technical description guidance",
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49164"
+    }
+  ],
+  "state": "published",
+  "publishedAt": null,
+  "lastReviewed": null,
+  "disclaimer": "This guide is educational and does not replace title verification, an official survey, or advice from a licensed geodetic engineer.",
+  "legacy": true,
+  "candidate": {
+    "slug": "technical-description-does-not-close",
+    "cluster": "land",
+    "title": "Why a land title technical description may not close | Spatialdom Insights",
+    "description": "An open parcel plot is a diagnostic signal, not an automatic defect in the title. Here is how to check transcription, source records, and survey context before drawing conclusions.",
+    "heading": "Why a land title technical description may not close",
+    "intro": "When the last plotted boundary line does not return to the starting corner, the parcel is 'open.' That gap is useful information—but it does not tell you, by itself, whether the mistake is in your encoding, the copy you received, an older record, or the underlying survey data.",
+    "state": "review",
+    "publishedAt": null,
+    "lastReviewed": "2026-09-26",
+    "sections": [
+      {
+        "id": "meaning",
+        "heading": "First, understand what closure is checking",
+        "paragraphs": [
+          "Plotting bearings and distances is a traverse computation. Each line produces the next corner. Ideally, after the final call, the computed endpoint coincides with the starting point. The remaining difference is the closure error or misclosure.",
+          "This is an internal consistency test. It asks whether the sequence you entered returns to where it began. It does not authenticate the title, prove the lot is in the right place, or confirm that every monument on the ground agrees with the record."
+        ]
+      },
+      {
+        "id": "encoding-errors",
+        "heading": "Most first checks should be boring—and exact",
+        "paragraphs": [
+          "Before looking for a complicated explanation, compare the plot line by line with the source. Check N versus S, E versus W, degrees, minutes, seconds, decimal points, units, and the order of the points. Look for a line entered twice, a skipped line, or a tie line accidentally included as a parcel edge.",
+          "If you typed from OCR or from someone else's transcription, go back to the image or certified source. A single character can rotate a line into another quadrant. Never change a bearing or distance merely because a small adjustment makes the polygon close."
+        ]
+      },
+      {
+        "id": "source-record",
+        "heading": "If your encoding matches, the next question is which record you are looking at",
+        "paragraphs": [
+          "Survey information can exist in several related records: the title, approved plan, lot data computation, lot description sheet, cadastral map, and original field notes. DENR rules for reconciling and reconstructing survey records explicitly allow these materials—and even adjoining lot information—to be compared when cadastral data are missing or damaged.",
+          "That is an important clue for users: a discrepancy in one copy should trigger comparison, not silent repair. If the matter is important, preserve the exact version you received, note where it came from, and compare it with authoritative survey records."
+        ]
+      },
+      {
+        "id": "precision-and-history",
+        "heading": "Older records may carry rounding, conversion, or reconstruction history",
+        "paragraphs": [
+          "Historical cadastral records were produced under different instruments, computational methods, and reference systems. Later government programs transformed and integrated cadastral data into PRS92. DENR procedures instruct offices to compare computed bearings and distances with technical descriptions and to reconstruct missing lot data when necessary.",
+          "This does not mean every open parcel is caused by datum transformation. It means the survey record has a history, and that history can matter. A browser tool should make the mismatch visible rather than pretending to know which value ought to be changed."
+        ]
+      },
+      {
+        "id": "closed-can-still-be-wrong",
+        "heading": "A closed parcel can still be wrong",
+        "paragraphs": [
+          "The inverse is also true: perfect closure is not proof of correctness. You can enter the wrong parcel, use the wrong tie point, swap a complete set of lines, or construct a geometrically closed figure that is not the property you intended.",
+          "So the useful question is not simply 'Does it close?' but 'Does this plotted result faithfully represent the authoritative source, and is it being used for the right purpose?'"
+        ]
+      },
+      {
+        "id": "when-to-escalate",
+        "heading": "Escalate discrepancies that affect real decisions",
+        "paragraphs": [
+          "For curiosity or preliminary review, an open plot can tell you exactly where to start checking. For a purchase, subdivision, construction, boundary dispute, titling transaction, or other consequential use, keep the original description unchanged and ask a licensed Geodetic Engineer to examine the relevant survey records.",
+          "A good plotting tool should help you detect uncertainty—not hide it. If Parcel Plotter shows a closure problem, treat that as a reason to inspect the source more closely, not as a button invitation to force the parcel shut."
+        ]
+      }
+    ],
+    "related": [
+      "plot-land-title-technical-description",
+      "read-bearings-and-distances-land-title"
+    ],
+    "product": {
+      "name": "Parcel Plotter",
+      "href": "/parcel-plotter/",
+      "label": "Check the parcel and closure in Parcel Plotter"
+    },
+    "sources": [
+      {
+        "label": "DENR Memorandum Circular No. 2010-06 — cadastral data transformation and verification procedures",
+        "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49164"
+      },
+      {
+        "label": "DENR Administrative Order No. 2010-19 — reconciliation, indexing and reconstruction of survey records",
+        "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/55922"
+      },
+      {
+        "label": "LMB Memorandum Circular No. 2015-002 — standard technical description format",
+        "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/68545"
+      },
+      {
+        "label": "Republic Act No. 9200 — scope of Geodetic Engineering practice",
+        "url": "https://lawphil.net/statutes/repacts/ra2003/ra_9200_2003.html"
+      }
+    ],
+    "disclaimer": "For educational and preliminary diagnostic use only. A closure result does not verify title validity or establish a legal boundary, and material discrepancies should be reviewed using the appropriate survey records by a licensed Geodetic Engineer."
+  }
 }
