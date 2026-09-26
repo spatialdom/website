@@ -24,3 +24,45 @@ Use one `src/data/insights/<slug>.json` file per Insight. For a new article, fil
 ```
 
 Before `insight:review`, check current primary sources, source links, Philippine context where relevant, claims and caveats, internal links, product fit, spelling, and mobile reading. Set `lastReviewed` to the date of the actual editorial and source review. Add `Article file: \`src/data/insights/<slug>.json\`` to the GitHub issue body for new articles. Do not set a publication date in advance.
+---
+id: INSIGHT-XXX
+title: ""
+slug: ""
+description: ""
+cluster: ""
+status: insight:idea
+legacy: false
+legacy_slug: null
+created: null
+last_reviewed: null
+published: null
+author: "Spatialdom"
+reviewed_by: null
+primary_product:
+  name: ""
+  href: ""
+related: []
+sources: []
+---
+
+# Article title
+
+Concise standfirst.
+
+<!--
+PRIVATE REVIEW NOTES
+Remove or keep outside the rendered article.
+
+- Where could Dominic add a practical example?
+- Is there a GE / LGU / landowner perspective missing?
+- Does Spatialdom have a point of view worth stating?
+- Which claims need especially careful verification?
+-->
+
+## Article body
+
+Write the article naturally. Do not force a fixed heading count or FAQ structure.
+
+---
+
+For educational purposes only. Add a more specific legal, surveying, tax, valuation, privacy, or professional disclaimer when the topic requires it.

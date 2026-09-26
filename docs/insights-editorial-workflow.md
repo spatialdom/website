@@ -1,25 +1,122 @@
-# Insights editorial workflow
+# Spatialdom Insights Editorial Workflow
 
-The [topic bank](../content/insights/topic-bank.md) lists 45 seed topics. Nine are rewrites of existing public articles, preserving their slugs; 36 are future topics. The bank is not a quota. Each topic has a GitHub issue with exactly one `insight:*` label. Article content lives in one JSON file per slug under `src/data/insights/`.
+## Purpose
 
-## States and approval
+Spatialdom Insights is the long-form knowledge and organic acquisition layer of spatialdom.xyz. It is not a generic company blog. Each article should answer a real question, teach something useful, preserve professional boundaries, and connect naturally to the relevant Spatialdom product or capability.
 
-`insight:idea` → `insight:drafting` → `insight:review` → `insight:approved` → `insight:scheduled` → `insight:published`.
+GitHub is the editorial system of record.
 
-The writer researches and drafts, then moves a complete article to `insight:review`. Dominic (`kingd0mz`) alone changes the issue from review to approved. The publication script checks the approving GitHub actor and requires that approval happened after the article file's last commit. A later edit requires a fresh approval. `insight:scheduled` is optional for planning; the weekly publisher selects approved or scheduled issues only after verifying the approval event.
+## Editorial states
 
-For a new article, its JSON file carries the current state. For a rewrite of an existing public article, the file keeps the currently published article and a `candidate` object carrying the next complete article and its state. Only the published fields go into the site manifest. The publication script promotes the candidate in the same file after approval. No draft or review text is included in the site bundle or sitemap.
+Every Insight topic/article must be in exactly one of these states:
 
-## Weekly run
+- `insight:idea` — approved topic in the backlog, not yet being drafted.
+- `insight:drafting` — active research and writing are underway.
+- `insight:review` — draft is complete and waiting for Dominic's review.
+- `insight:approved` — Dominic has reviewed the article and approved it for publication.
+- `insight:scheduled` — approved and assigned to a publication slot.
+- `insight:published` — live on spatialdom.xyz/insights.
 
-The Monday GitHub Action prints a plan and publishes at most one approved article. If none is approved, it publishes nothing. The plan selects at most five ideas for drafting and limits that selection to `20 - number of review issues`; at a review count of 20, it selects zero. This is a writer capacity plan: writers still research and create complete drafts before moving issues to review. Run `node scripts/insights-editorial.mjs plan` locally to inspect it.
+Human approval is mandatory. No article may move from `insight:review` to `insight:approved` automatically.
 
-For the initial legacy relaunch, manually dispatch the workflow with `relaunch` enabled. That run selects only approved issues 001–009 and releases at most six in that week. Further weeks use the normal limit of one. The action checks article data, builds and validates the site, commits published files, and then labels the corresponding issues `insight:published`. It does not bypass Dominic's approval.
+## Review queue backpressure
 
-## Dates and legacy content
+The review queue has a hard ceiling of 20 articles.
 
-The nine migrated public articles have no known original publication or last review dates. Their pages state that the review date is not recorded. Do not infer a date from a Git commit. A new article needs an actual review date before publication. The weekly action records the release date when it publishes; a legacy rewrite keeps its original publication date unknown and records its new review and release dates.
+The weekly writer may prepare up to five articles, but only enough to keep `insight:review` at or below 20.
 
-## Writing and release checks
+Examples:
 
-Use the [article template](../content/insights/_template.md) and the topic issue brief. Answer a real reader's question, verify current primary sources, use concrete Philippine examples where relevant, and describe professional limits. Keep one relevant product path near the end, related links to published Insights, and a disclaimer where appropriate. Reading time is calculated from the final text. The build supplies unique metadata, canonical and social URLs, Article structured data, and sitemap entries for published articles only. Run `npm run build` before requesting review.
+- 20 in review → draft 0.
+- 18 in review → draft at most 2.
+- 15 in review → draft at most 5.
+- 8 in review → draft at most 5.
+
+Articles in `insight:approved`, `insight:scheduled`, and `insight:published` do not count against the review ceiling.
+
+## Publishing cadence
+
+### Relaunch
+Rewrite the current legacy Insights first. Once Dominic has approved them, the initial relaunch may publish up to six approved legacy rewrites in the first launch batch/week.
+
+### Normal cadence
+After the relaunch, publish at most one approved article per week.
+
+If no article is approved, skip publication. Never publish an unapproved article to preserve cadence.
+
+## Writer behavior
+
+For every article:
+
+1. Research from current authoritative sources.
+2. Prioritize Philippine primary sources when the topic is Philippine-specific.
+3. Use community discussions only as demand signals or examples of common confusion, not as authoritative evidence.
+4. Answer the user's likely question early.
+5. Write naturally, without keyword stuffing, filler introductions, fake anecdotes, or repeated SEO-template structures.
+6. Vary article depth to match the question.
+7. Explain professional, legal, surveying, tax, privacy, or regulatory limits where relevant.
+8. Add useful internal links and one appropriate primary Spatialdom product path.
+9. Add reviewer notes for Dominic pointing out places where lived experience, professional practice, opinion, examples, or Spatialdom's point of view could improve the draft.
+10. Stop at `insight:review`.
+
+## Article presentation
+
+Published articles should show:
+
+- article title
+- concise standfirst/description
+- calculated `X min read`
+- `Last reviewed: [date]`
+- `Written and reviewed by Spatialdom`
+- appropriate educational/professional disclaimer where relevant
+- related Insights
+- relevant product CTA
+
+Reading time should be calculated from the final article body rather than manually authored.
+
+## Writing standard
+
+The publication should sound like a knowledgeable practitioner explaining something to a real reader.
+
+Prefer:
+- concrete Philippine context
+- examples when they clarify the idea
+- nuanced statements such as "this depends" when appropriate
+- clear explanations of technical terms
+- practical limits: what a map, title, survey, dataset, model, or AI system can and cannot establish
+
+Avoid:
+- "In today's rapidly evolving world..."
+- padded introductions
+- rigid "What is / Benefits / 5 Things / Conclusion / FAQ" templates for every article
+- generic AI phrasing
+- pretending Spatialdom is equally authoritative on law, taxation, surveying, valuation, and policy
+- fabricated case studies, statistics, or personal experience
+
+## Topic strategy
+
+The seed bank is intentionally land-heavy, with occasional articles about:
+- land titles and parcel transactions
+- surveying and parcel geometry
+- tax mapping and property administration
+- households, census, and local data
+- GIS and spatial thinking
+- smart cities
+- digital twins
+- AI and land
+
+The bank is not a fixed project size. New topics may be added based on reader questions, Search Console data, product usage, support questions, and new Spatialdom work.
+
+## Legacy rewrite rule
+
+The existing Insights are topic briefs, not sacred copy. Rewrites should preserve useful concepts and URLs where possible, but perform fresh research and rewrite each article to the current editorial standard.
+
+Existing slugs should normally remain unchanged to avoid unnecessary URL churn.
+
+## Dominic's required action
+
+Dominic's only required workflow action is:
+
+`insight:review` → `insight:approved`
+
+He may edit the draft before approval to add his own knowledge, experience, opinion, examples, or phrasing.
