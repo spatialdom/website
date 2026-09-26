@@ -1,57 +1,150 @@
 {
-    "slug":  "household-profiling-systems-lgu",
-    "cluster":  "community",
-    "title":  "Household profiling systems for LGUs | Spatialdom Insights",
-    "description":  "What an LGU household profiling system should help staff do, how to keep records current, and why privacy and access controls matter.",
-    "heading":  "Household profiling systems for LGUs",
-    "intro":  "A household profile is useful when an LGU can maintain it responsibly and use it for a defined service or planning purpose. A large form alone is not a working system.",
-    "sections":  [
-                     {
-                         "id":  "purpose",
-                         "heading":  "Begin with the decision the data supports",
-                         "paragraphs":  [
-                                            "List the questions staff need to answer, such as where services are missing or which households need follow-up. Define the unit of record, the responsible office, and the update cycle before selecting fields. This helps avoid collecting personal details that have no clear use.",
-                                            "The Commission on Population and Development (CPD) describes the Registry of Barangay Inhabitants and Migrants (RBIM) as a database of household demographic and socioeconomic information and a way to track population movement at the community level. Plan the local workflow around that purpose, including who collects, checks, updates, and uses the records."
-                                        ]
-                     },
-                     {
-                         "id":  "operations",
-                         "heading":  "Make updates and corrections routine",
-                         "paragraphs":  [
-                                            "Assign who may create, verify, edit, and retire a record. Keep a way to flag moves, duplicate households, changed contact details, and uncertain locations. Staff should be able to see when a record was last checked and which source supports it.",
-                                            "Prefer aggregate views for planning when named records are unnecessary. If staff need identifiable information for service delivery, give access according to role and document the purpose of that access."
-                                        ]
-                     },
-                     {
-                         "id":  "privacy",
-                         "heading":  "Protect residents\u0027 information",
-                         "paragraphs":  [
-                                            "Provide a clear privacy notice, collect only data needed for the stated purpose, set retention and correction procedures, and plan secure sharing before exchange with another office. The Data Privacy Act and guidance from the National Privacy Commission apply to LGU processing of personal information."
-                                        ]
-                     }
-                 ],
-    "related":  [
-                    "barangay-household-information-system",
-                    "why-lgus-maintain-household-data"
-                ],
-    "product":  {
-                    "name":  "RBIM Cloud",
-                    "href":  "/rbim-cloud/",
-                    "label":  "Explore RBIM Cloud for household records"
-                },
-    "sources":  [
-                    {
-                        "label":  "CPD progress report on RBIM",
-                        "url":  "https://region10.cpd.gov.ph/wp-content/uploads/2025/08/2-CPD_PPDPOA-2023-2024-PROGRESS-REPORT_092524_FA_compressed.pdf"
-                    },
-                    {
-                        "label":  "National Privacy Commission: Data Privacy Act",
-                        "url":  "https://privacy.gov.ph/data-privacy-act/"
-                    }
-                ],
-    "state":  "published",
-    "publishedAt":  null,
-    "lastReviewed":  null,
-    "disclaimer":  "This guide is educational and does not replace an LGU privacy review or legal advice.",
-    "legacy":  true
+  "slug": "household-profiling-systems-lgu",
+  "cluster": "community",
+  "title": "Household profiling systems for LGUs | Spatialdom Insights",
+  "description": "What an LGU household profiling system should help staff do, how to keep records current, and why privacy and access controls matter.",
+  "heading": "Household profiling systems for LGUs",
+  "intro": "A household profile is useful when an LGU can maintain it responsibly and use it for a defined service or planning purpose. A large form alone is not a working system.",
+  "sections": [
+    {
+      "id": "purpose",
+      "heading": "Begin with the decision the data supports",
+      "paragraphs": [
+        "List the questions staff need to answer, such as where services are missing or which households need follow-up. Define the unit of record, the responsible office, and the update cycle before selecting fields. This helps avoid collecting personal details that have no clear use.",
+        "The Commission on Population and Development (CPD) describes the Registry of Barangay Inhabitants and Migrants (RBIM) as a database of household demographic and socioeconomic information and a way to track population movement at the community level. Plan the local workflow around that purpose, including who collects, checks, updates, and uses the records."
+      ]
+    },
+    {
+      "id": "operations",
+      "heading": "Make updates and corrections routine",
+      "paragraphs": [
+        "Assign who may create, verify, edit, and retire a record. Keep a way to flag moves, duplicate households, changed contact details, and uncertain locations. Staff should be able to see when a record was last checked and which source supports it.",
+        "Prefer aggregate views for planning when named records are unnecessary. If staff need identifiable information for service delivery, give access according to role and document the purpose of that access."
+      ]
+    },
+    {
+      "id": "privacy",
+      "heading": "Protect residents' information",
+      "paragraphs": [
+        "Provide a clear privacy notice, collect only data needed for the stated purpose, set retention and correction procedures, and plan secure sharing before exchange with another office. The Data Privacy Act and guidance from the National Privacy Commission apply to LGU processing of personal information."
+      ]
+    }
+  ],
+  "related": [
+    "barangay-household-information-system",
+    "why-lgus-maintain-household-data"
+  ],
+  "product": {
+    "name": "RBIM Cloud",
+    "href": "/rbim-cloud/",
+    "label": "Explore RBIM Cloud for household records"
+  },
+  "sources": [
+    {
+      "label": "CPD progress report on RBIM",
+      "url": "https://region10.cpd.gov.ph/wp-content/uploads/2025/08/2-CPD_PPDPOA-2023-2024-PROGRESS-REPORT_092524_FA_compressed.pdf"
+    },
+    {
+      "label": "National Privacy Commission: Data Privacy Act",
+      "url": "https://privacy.gov.ph/data-privacy-act/"
+    }
+  ],
+  "state": "published",
+  "publishedAt": null,
+  "lastReviewed": null,
+  "disclaimer": "This guide is educational and does not replace an LGU privacy review or legal advice.",
+  "legacy": true,
+  "candidate": {
+    "slug": "household-profiling-systems-lgu",
+    "cluster": "community",
+    "title": "Household profiling systems for LGUs | Spatialdom Insights",
+    "description": "What makes an LGU household profiling system useful: clear purpose, reliable household records, regular updates, geographic context, access controls, and privacy by design.",
+    "heading": "Household profiling systems for LGUs",
+    "intro": "A household profiling system is useful only when the information can support real local decisions and remain current enough to trust. Collecting a large form once is easy; maintaining a responsible local information system is the harder part.",
+    "state": "review",
+    "publishedAt": null,
+    "lastReviewed": "2026-09-26",
+    "sections": [
+      {
+        "id": "purpose-first",
+        "heading": "Start with the decisions the LGU needs to make",
+        "paragraphs": [
+          "Before choosing fields, ask what the data is meant to support. Does the LGU need to identify communities with weak access to services, plan health or social programs, understand migration, prepare barangay development plans, or follow up with specific households? Different questions require different levels of detail.",
+          "This matters because household profiling can easily turn into 'collect everything just in case.' That creates more work, more stale data, and more privacy risk. A good system can explain why each major field exists and who actually needs to use it."
+        ]
+      },
+      {
+        "id": "define-household",
+        "heading": "Be precise about what a household is",
+        "paragraphs": [
+          "The Philippine Statistics Authority defines a household as a person living alone or a group of persons who sleep in the same housing unit and share arrangements for preparing and consuming food. A household is therefore not automatically the same as a family, an address, or a house.",
+          "That distinction becomes practical when several households share one structure, when relatives live at the same address but maintain separate food arrangements, or when household membership changes. If the unit of record is unclear, counts and follow-up activities become inconsistent."
+        ]
+      },
+      {
+        "id": "registry-not-snapshot",
+        "heading": "Design for change, not just for the baseline survey",
+        "paragraphs": [
+          "Local household data changes constantly. People are born, die, move in, move out, marry, separate, form new households, change occupations, or transfer to another barangay. CPD's Registry of Barangay Inhabitants and Migrants (RBIM) was designed specifically to capture demographic and household characteristics together with internal migration.",
+          "That suggests a better way to think about profiling: not as a finished census spreadsheet but as a maintained registry. Records need dates, update status, responsible users, correction procedures, and a way to preserve important changes rather than simply overwriting yesterday's information."
+        ]
+      },
+      {
+        "id": "location",
+        "heading": "Location makes household data more useful—but also more sensitive",
+        "paragraphs": [
+          "Knowing that a barangay has 300 households with a certain need is useful. Knowing where service gaps are concentrated can be even more useful for planning routes, facilities, disaster response, or targeted programs. Spatial context turns a list into a pattern that local planners can act on.",
+          "But household-level location can also make people easier to identify. Public dashboards rarely need names and exact household points. A responsible system separates operational access from aggregate planning views and exposes only the detail necessary for the task."
+        ]
+      },
+      {
+        "id": "roles-quality",
+        "heading": "Data quality is an organizational responsibility",
+        "paragraphs": [
+          "Software cannot decide on its own which household is duplicated, whether a person has truly transferred residence, or which office is authorized to correct a record. Assign clear roles for collection, review, approval, correction, and reporting. Record when information was last checked and, where appropriate, how it was obtained.",
+          "CPD guidance on RBIM describes a process that includes data collection, encoding, validation, analysis, and use. The important lesson is that the database is only one part of the system. People, procedures, training, and accountability determine whether the data stays useful."
+        ]
+      },
+      {
+        "id": "privacy-by-design",
+        "heading": "Privacy cannot be an afterthought",
+        "paragraphs": [
+          "Household databases can contain personal and sensitive personal information. The Data Privacy Act applies to government processing, and National Privacy Commission rules require government agencies, including LGUs, to establish safeguards appropriate to the risks. Recent NPC and DILG guidance has also reinforced privacy compliance across LGUs.",
+          "In practice, that means collecting only what serves a legitimate purpose, showing an appropriate privacy notice, controlling access by role, protecting stored and transmitted data, defining retention and correction processes, and documenting who is responsible for the system. If an LGU cannot explain why a field is needed or who should see it, that field deserves another look."
+        ]
+      }
+    ],
+    "related": [
+      "barangay-household-information-system",
+      "why-lgus-maintain-household-data"
+    ],
+    "product": {
+      "name": "RBIM Cloud",
+      "href": "/rbim-cloud/",
+      "label": "Explore RBIM Cloud for maintained household and community records"
+    },
+    "sources": [
+      {
+        "label": "Commission on Population and Development — What is RBIM?",
+        "url": "https://ncr.cpd.gov.ph/wp-content/uploads/2025/03/Approved-CPD-DTP-dated-16-March-2022.pdf"
+      },
+      {
+        "label": "Philippine Statistics Authority — Census terms and concepts",
+        "url": "https://psa.gov.ph/statistics/technical-notes/166428"
+      },
+      {
+        "label": "National Privacy Commission — Data Privacy Act of 2012",
+        "url": "https://privacy.gov.ph/data-privacy-act/"
+      },
+      {
+        "label": "NPC Circular 16-01 — Security of Personal Data in Government Agencies",
+        "url": "https://privacy.gov.ph/npc-circular-16-01-security-of-personal-data-in-government-agencies/"
+      },
+      {
+        "label": "NPC — DILG issuance enhancing data privacy compliance among LGUs",
+        "url": "https://privacy.gov.ph/npc-commends-new-dilg-issuance-enhancing-data-privacy-compliance-among-lgus/"
+      }
+    ],
+    "disclaimer": "For educational use. Actual LGU household profiling must follow the applicable legal mandate, data-sharing rules, privacy requirements, records policies, and authorized local procedures."
+  }
 }
