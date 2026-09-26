@@ -1,53 +1,130 @@
 {
-    "slug":  "tax-mapping-philippine-lgu",
-    "cluster":  "tax",
-    "title":  "What is tax mapping in a Philippine LGU? | Spatialdom Insights",
-    "description":  "Understand how tax maps, parcel identifiers, and assessment records fit together in an LGU assessor\u0027s workflow.",
-    "heading":  "What is tax mapping in a Philippine LGU?",
-    "intro":  "Tax mapping gives an assessor\u0027s office a geographic index to the properties it administers. Its usefulness depends on keeping map features and assessment records linked as changes occur.",
-    "sections":  [
-                     {
-                         "id":  "map-and-record",
-                         "heading":  "Connect the map to the record",
-                         "paragraphs":  [
-                                            "A tax map shows properties for assessment work and gives staff a way to find the corresponding record. The property identifier, location, and source map should agree with the assessment file. A drawn polygon without a dependable record link is only part of the job.",
-                                            "The Bureau of Local Government Finance\u0027s appraisal and assessment manual describes maintaining a real property identification system and tax maps. It distinguishes this administrative work from deciding ownership or conducting a boundary survey."
-                                        ]
-                     },
-                     {
-                         "id":  "daily-work",
-                         "heading":  "Support the work after the first map",
-                         "paragraphs":  [
-                                            "A practical workflow records the source of each map feature, reviews unmatched records, and tracks splits, consolidations, corrections, and new assessments. Staff need a clear way to tell which parcel version was used for a decision and which exceptions still need field or document review.",
-                                            "When digitizing older maps, align sheets and identifiers before assuming every line is authoritative. Disagreements between a tax map, cadastral source, and assessment record should be flagged for review, not erased by a quick edit."
-                                        ]
-                     },
-                     {
-                         "id":  "limits",
-                         "heading":  "Keep the purpose clear",
-                         "paragraphs":  [
-                                            "Tax mapping supports assessment administration and spatial review. A tax map does not by itself establish ownership or replace an approved survey. A useful system preserves the source and review status so an office can work with confidence about what each line represents."
-                                        ]
-                     }
-                 ],
-    "related":  [
-                    "rpvara-digital-tax-mapping",
-                    "digitize-cadastral-tax-maps"
-                ],
-    "product":  {
-                    "name":  "SPARTA",
-                    "href":  "/sparta/",
-                    "label":  "Explore SPARTA\u0027s tax mapping workflow"
-                },
-    "sources":  [
-                    {
-                        "label":  "BLGF Manual on Real Property Appraisal and Assessment Operations",
-                        "url":  "https://blgf.gov.ph/wp-content/uploads/2015/08/ManualRPAandAO.pdf"
-                    }
-                ],
-    "state":  "published",
-    "publishedAt":  null,
-    "lastReviewed":  null,
-    "disclaimer":  "This guide is educational and does not replace current legal guidance or an LGU assessment decision.",
-    "legacy":  true
+  "slug": "tax-mapping-philippine-lgu",
+  "cluster": "tax",
+  "title": "What is tax mapping in a Philippine LGU? | Spatialdom Insights",
+  "description": "Understand how tax maps, parcel identifiers, and assessment records fit together in an LGU assessor's workflow.",
+  "heading": "What is tax mapping in a Philippine LGU?",
+  "intro": "Tax mapping gives an assessor's office a geographic index to the properties it administers. Its usefulness depends on keeping map features and assessment records linked as changes occur.",
+  "sections": [
+    {
+      "id": "map-and-record",
+      "heading": "Connect the map to the record",
+      "paragraphs": [
+        "A tax map shows properties for assessment work and gives staff a way to find the corresponding record. The property identifier, location, and source map should agree with the assessment file. A drawn polygon without a dependable record link is only part of the job.",
+        "The Bureau of Local Government Finance's appraisal and assessment manual describes maintaining a real property identification system and tax maps. It distinguishes this administrative work from deciding ownership or conducting a boundary survey."
+      ]
+    },
+    {
+      "id": "daily-work",
+      "heading": "Support the work after the first map",
+      "paragraphs": [
+        "A practical workflow records the source of each map feature, reviews unmatched records, and tracks splits, consolidations, corrections, and new assessments. Staff need a clear way to tell which parcel version was used for a decision and which exceptions still need field or document review.",
+        "When digitizing older maps, align sheets and identifiers before assuming every line is authoritative. Disagreements between a tax map, cadastral source, and assessment record should be flagged for review, not erased by a quick edit."
+      ]
+    },
+    {
+      "id": "limits",
+      "heading": "Keep the purpose clear",
+      "paragraphs": [
+        "Tax mapping supports assessment administration and spatial review. A tax map does not by itself establish ownership or replace an approved survey. A useful system preserves the source and review status so an office can work with confidence about what each line represents."
+      ]
+    }
+  ],
+  "related": [
+    "rpvara-digital-tax-mapping",
+    "digitize-cadastral-tax-maps"
+  ],
+  "product": {
+    "name": "SPARTA",
+    "href": "/sparta/",
+    "label": "Explore SPARTA's tax mapping workflow"
+  },
+  "sources": [
+    {
+      "label": "BLGF Manual on Real Property Appraisal and Assessment Operations",
+      "url": "https://blgf.gov.ph/wp-content/uploads/2015/08/ManualRPAandAO.pdf"
+    }
+  ],
+  "state": "published",
+  "publishedAt": null,
+  "lastReviewed": null,
+  "disclaimer": "This guide is educational and does not replace current legal guidance or an LGU assessment decision.",
+  "legacy": true,
+  "candidate": {
+    "slug": "tax-mapping-philippine-lgu",
+    "cluster": "tax",
+    "title": "What is tax mapping in a Philippine LGU? | Spatialdom Insights",
+    "description": "Tax mapping links real property records to place. Here is what it does inside a Philippine assessor's office, why identifiers matter, and where a tax map's authority stops.",
+    "heading": "What is tax mapping in a Philippine LGU?",
+    "intro": "Tax mapping is the work of organizing real properties geographically so an assessor's office can connect parcels, improvements, tax declarations, and assessment records to the places they refer to. It is not just drawing polygons on a map.",
+    "state": "review",
+    "publishedAt": null,
+    "lastReviewed": "2026-09-26",
+    "sections": [
+      {
+        "id": "map-plus-records",
+        "heading": "A tax map is useful because it points back to records",
+        "paragraphs": [
+          "At its simplest, a tax map lets staff answer a practical question: where is the property represented by this assessment record? A parcel on the map should connect to a dependable identifier and to the records used for appraisal and assessment. Without that link, a polygon may look impressive on screen but still be difficult to use operationally.",
+          "Philippine assessment practice treats mapping as part of a larger property information system. BLGF materials on real property appraisal and assessment include tax mapping operations as a distinct part of local assessment work, while long-standing DOF assessment regulations describe working maps and tax maps as tools for organizing and comparing real property information."
+        ]
+      },
+      {
+        "id": "field-to-office",
+        "heading": "Tax mapping sits between field reality and office records",
+        "paragraphs": [
+          "A functioning tax map is maintained through repeated comparison. Staff encounter new buildings, subdivisions, consolidations, undeclared properties, changed land uses, corrected names, and parcels whose paper records do not line up neatly with the map. The work is therefore not a one-time digitization project; it is an ongoing reconciliation process.",
+          "This is why tax mapping often involves field inspection, document review, parcel identification, cross-referencing, and data cleanup. The map becomes most valuable when it helps staff see exceptions: a parcel with no matching assessment, two records apparently pointing to one property, a tax declaration with an unclear location, or a new subdivision that has not yet been reflected in the local map."
+        ]
+      },
+      {
+        "id": "identifiers",
+        "heading": "Stable parcel identifiers matter more than pretty cartography",
+        "paragraphs": [
+          "Property administration becomes fragile when records are linked only by owner names. Owners change, spellings differ, and one person may hold several properties. A useful tax mapping system relies on parcel or property identifiers that remain traceable across maps and assessment records.",
+          "The same principle applies when old maps are digitized. The important question is not only 'Can we trace the line?' but 'What record does this line represent, where did the geometry come from, and how confident are we in the match?' Those questions are what make a digital map auditable."
+        ]
+      },
+      {
+        "id": "not-a-title-map",
+        "heading": "A tax map is not a land title or a boundary survey",
+        "paragraphs": [
+          "Tax maps are made for property administration and taxation. They can be extremely useful for locating and organizing assessed properties, but they do not by themselves decide ownership or establish the legal position of a boundary on the ground.",
+          "When tax maps, cadastral records, titles, survey plans, and actual occupation disagree, the correct response is to preserve the discrepancy and examine the appropriate source records. A local assessor's office and a licensed Geodetic Engineer answer different questions, and a good information system should make those boundaries of responsibility clear."
+        ]
+      },
+      {
+        "id": "digital-tax-mapping",
+        "heading": "Digital tax mapping should make the office easier to operate",
+        "paragraphs": [
+          "Moving from paper sheets to GIS can improve search, visualization, cross-checking, reporting, and updating—but only if the underlying workflow improves with it. The strongest systems let staff trace each geometry to a source, see which records are unmatched, record changes over time, and review who changed what.",
+          "That is the idea behind tools such as SPARTA: the map is not the final product. The real product is a property administration workflow where spatial data, assessment records, history, and staff decisions stay connected."
+        ]
+      }
+    ],
+    "related": [
+      "rpvara-digital-tax-mapping",
+      "digitize-cadastral-tax-maps"
+    ],
+    "product": {
+      "name": "SPARTA",
+      "href": "/sparta/",
+      "label": "Explore SPARTA for LGU parcel and tax-mapping workflows"
+    },
+    "sources": [
+      {
+        "label": "DOF Local Assessment Regulations No. 1-92",
+        "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/47045"
+      },
+      {
+        "label": "BLGF — Manual on Real Property Appraisal and Assessment Operations 2nd Edition exposure workshop",
+        "url": "https://blgf.gov.ph/blgf-conducts-exposure-workshop-on-the-draft-manual-on-real-property-appraisal-and-assessment-operations-mrpaao-manual-2nd-edition/"
+      },
+      {
+        "label": "DENR Learning Guide 1 — Cadastral Index Mapping: Collecting and Organizing Data Information",
+        "url": "https://faspselib.denr.gov.ph/Materials/Detail/ab3d9ecd-5a32-417e-9724-d24394dcdaf7"
+      }
+    ],
+    "disclaimer": "For educational use. Tax maps and assessment records serve property administration and taxation; they do not by themselves establish ownership or replace an approved survey or official land registration record."
+  }
 }

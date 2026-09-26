@@ -1,57 +1,138 @@
 {
-    "slug":  "read-bearings-and-distances-land-title",
-    "cluster":  "land",
-    "title":  "How to read bearings and distances on a land title | Spatialdom Insights",
-    "description":  "Understand quadrant bearings, distances, and tie points in a Philippine land title technical description before plotting a parcel.",
-    "heading":  "How to read bearings and distances on a land title",
-    "intro":  "Each boundary call gives a direction and a length from one point to the next. Read one line at a time before trying to understand the full parcel.",
-    "sections":  [
-                     {
-                         "id":  "one-line",
-                         "heading":  "Read one boundary call",
-                         "paragraphs":  [
-                                            "For example, a call from point 1 to point 2 with bearing N 30Â° E and distance 20 m runs 30 degrees east of north for 20 meters. The following call begins at point 2. The example explains the notation; always use the values and units in your own document.",
-                                            "In a quadrant bearing, the first letter is north or south and the last is east or west. The angle may include degrees, minutes, and seconds. A changed direction letter or a missed minute can send the line in a different direction, so copy the notation exactly."
-                                        ]
-                     },
-                     {
-                         "id":  "tie-point",
-                         "heading":  "Distinguish tie information from boundary lines",
-                         "paragraphs":  [
-                                            "A tie line connects a lot corner to a reference point. Boundary lines then describe the lot itself. Check where the description says the parcel begins and whether a line is a tie or a boundary; mixing them can produce a convincing but incorrect sketch.",
-                                            "A bearing alone does not identify a coordinate system. To place a parcel on a wider map, confirm the reference point, datum, zone, and approved survey information rather than assuming that the drawing is georeferenced."
-                                        ]
-                     },
-                     {
-                         "id":  "check",
-                         "heading":  "Use the sequence as a check",
-                         "paragraphs":  [
-                                            "Follow the calls in their stated order and compare the final corner with the starting corner. If the lines do not meet, revisit the source before drawing a conclusion. Ask a licensed geodetic engineer to assess discrepancies that affect a purchase, boundary question, or official submission."
-                                        ]
-                     }
-                 ],
-    "related":  [
-                    "plot-land-title-technical-description",
-                    "technical-description-does-not-close"
-                ],
-    "product":  {
-                    "name":  "Parcel Plotter",
-                    "href":  "/parcel-plotter/",
-                    "label":  "See the line sequence in Parcel Plotter"
-                },
-    "sources":  [
-                    {
-                        "label":  "DENR technical description guidance",
-                        "url":  "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49164"
-                    },
-                    {
-                        "label":  "Geoportal Philippines lot plotter",
-                        "url":  "https://www.geoportal.gov.ph/gpapps/lotplotter"
-                    }
-                ],
-    "state":  "published",
-    "publishedAt":  null,
-    "lastReviewed":  null,
-    "disclaimer":  "This guide is educational and does not replace title verification, an official survey, or advice from a licensed geodetic engineer.",
-    "legacy":  true
+  "slug": "read-bearings-and-distances-land-title",
+  "cluster": "land",
+  "title": "How to read bearings and distances on a land title | Spatialdom Insights",
+  "description": "Understand quadrant bearings, distances, and tie points in a Philippine land title technical description before plotting a parcel.",
+  "heading": "How to read bearings and distances on a land title",
+  "intro": "Each boundary call gives a direction and a length from one point to the next. Read one line at a time before trying to understand the full parcel.",
+  "sections": [
+    {
+      "id": "one-line",
+      "heading": "Read one boundary call",
+      "paragraphs": [
+        "For example, a call from point 1 to point 2 with bearing N 30Â° E and distance 20 m runs 30 degrees east of north for 20 meters. The following call begins at point 2. The example explains the notation; always use the values and units in your own document.",
+        "In a quadrant bearing, the first letter is north or south and the last is east or west. The angle may include degrees, minutes, and seconds. A changed direction letter or a missed minute can send the line in a different direction, so copy the notation exactly."
+      ]
+    },
+    {
+      "id": "tie-point",
+      "heading": "Distinguish tie information from boundary lines",
+      "paragraphs": [
+        "A tie line connects a lot corner to a reference point. Boundary lines then describe the lot itself. Check where the description says the parcel begins and whether a line is a tie or a boundary; mixing them can produce a convincing but incorrect sketch.",
+        "A bearing alone does not identify a coordinate system. To place a parcel on a wider map, confirm the reference point, datum, zone, and approved survey information rather than assuming that the drawing is georeferenced."
+      ]
+    },
+    {
+      "id": "check",
+      "heading": "Use the sequence as a check",
+      "paragraphs": [
+        "Follow the calls in their stated order and compare the final corner with the starting corner. If the lines do not meet, revisit the source before drawing a conclusion. Ask a licensed geodetic engineer to assess discrepancies that affect a purchase, boundary question, or official submission."
+      ]
+    }
+  ],
+  "related": [
+    "plot-land-title-technical-description",
+    "technical-description-does-not-close"
+  ],
+  "product": {
+    "name": "Parcel Plotter",
+    "href": "/parcel-plotter/",
+    "label": "See the line sequence in Parcel Plotter"
+  },
+  "sources": [
+    {
+      "label": "DENR technical description guidance",
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49164"
+    },
+    {
+      "label": "Geoportal Philippines lot plotter",
+      "url": "https://www.geoportal.gov.ph/gpapps/lotplotter"
+    }
+  ],
+  "state": "published",
+  "publishedAt": null,
+  "lastReviewed": null,
+  "disclaimer": "This guide is educational and does not replace title verification, an official survey, or advice from a licensed geodetic engineer.",
+  "legacy": true,
+  "candidate": {
+    "slug": "read-bearings-and-distances-land-title",
+    "cluster": "land",
+    "title": "How to read bearings and distances on a land title | Spatialdom Insights",
+    "description": "Learn how quadrant bearings, distances, tie lines, and boundary sequences work in Philippine land title technical descriptions.",
+    "heading": "How to read bearings and distances on a land title",
+    "intro": "Bearings and distances are the instructions that describe one boundary line after another. Once you understand how a single call works, a technical description becomes much less intimidating.",
+    "state": "review",
+    "publishedAt": null,
+    "lastReviewed": "2026-09-26",
+    "sections": [
+      {
+        "id": "one-call",
+        "heading": "Think of one call as an instruction to move",
+        "paragraphs": [
+          "Suppose a description says: from Point 1 to Point 2, N 30° E, 20.00 m. Start at Point 1, face north, turn 30 degrees toward the east, and travel 20 meters. Point 2 is where you end. The following call begins there.",
+          "Philippine technical descriptions often use quadrant bearings: N or S first, an angle, then E or W. The first letter tells you whether the line starts from north or south; the last tells you which way it turns. The angle may include degrees, minutes, and seconds. Small-looking transcription changes can materially alter the direction, so preserve every letter, symbol, and decimal from the source."
+        ]
+      },
+      {
+        "id": "cardinal-lines",
+        "heading": "Due north, south, east, and west are the simple cases",
+        "paragraphs": [
+          "Not every line needs an angle. A boundary may simply run due north, due south, due east, or due west. These are useful anchor lines when you are checking a sketch because their direction is unambiguous.",
+          "The harder part is usually not the mathematics. It is making sure the line you typed is the line the document actually states. Old records can mix narrative and tabular formats, and scans can blur degree marks, minute marks, or letters. If something looks strange, compare the title with another reliable survey record before 'correcting' it by intuition."
+        ]
+      },
+      {
+        "id": "tie-line",
+        "heading": "The tie line is not just another side of the lot",
+        "paragraphs": [
+          "A technical description may begin from a Bureau of Lands Location Monument (BLLM), municipal monument, or another recognized reference point and give a bearing and distance to Corner 1. That is the tie line. It tells you how the parcel relates to a reference; the succeeding lines describe the parcel boundary itself.",
+          "This distinction is why a set of boundary calls can reconstruct a parcel shape even when you do not yet know its real-world coordinates. DENR procedures explicitly treat the tie line together with the individual lot data when converting cadastral records, while Geoportal's lot plotter requires a tie point when the goal is geographic placement."
+        ]
+      },
+      {
+        "id": "sequence",
+        "heading": "The sequence matters as much as the numbers",
+        "paragraphs": [
+          "Technical descriptions are ordered traverses. Point 1 goes to Point 2, Point 2 to Point 3, and so on until the final line returns to Point 1. Reordering otherwise correct calls changes the polygon. Omitting one line changes everything after it.",
+          "When you are checking a long description, use the point numbers as a checklist. Do not rely on the shape looking 'about right.' A neat polygon is not evidence that every call was entered correctly."
+        ]
+      },
+      {
+        "id": "what-bearing-does-not-tell",
+        "heading": "A bearing does not tell you the whole coordinate system",
+        "paragraphs": [
+          "A bearing describes direction relative to the reference basis used by the survey; it does not, by itself, tell you a map projection, datum, or absolute coordinate. Historical Philippine records may have been created under different reference systems and later transformed or integrated into PRS92.",
+          "For a simple shape check, you can work from the relative boundary calls. For actual map placement, survey reconstruction, or any decision that depends on where corners fall on the ground, use the approved records and professional geodetic context rather than assuming that a bearing-and-distance sketch is already georeferenced."
+        ]
+      }
+    ],
+    "related": [
+      "plot-land-title-technical-description",
+      "technical-description-does-not-close"
+    ],
+    "product": {
+      "name": "Parcel Plotter",
+      "href": "/parcel-plotter/",
+      "label": "Try the bearing-and-distance sequence in Parcel Plotter"
+    },
+    "sources": [
+      {
+        "label": "LMB Memorandum Circular No. 2015-002 — standard tabular format of technical descriptions",
+        "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/68545"
+      },
+      {
+        "label": "DENR Memorandum Circular No. 2010-06 — cadastral data and PRS92 procedures",
+        "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49164"
+      },
+      {
+        "label": "Geoportal Philippines — GP Lot Plotter",
+        "url": "https://www.geoportal.gov.ph/gpapps/lotplotter"
+      },
+      {
+        "label": "LRA — Encoded Technical Description accreditation process",
+        "url": "https://lra.gov.ph/etd-accreditation-process/"
+      }
+    ],
+    "disclaimer": "For educational use only. Reading or plotting a technical description does not establish an official boundary or replace review by a licensed Geodetic Engineer when professional surveying is required."
+  }
 }

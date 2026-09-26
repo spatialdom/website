@@ -1,57 +1,146 @@
 {
-    "slug":  "digitize-cadastral-tax-maps",
-    "cluster":  "tax",
-    "title":  "How to digitize cadastral and tax maps | Spatialdom Insights",
-    "description":  "A practical sequence for scanning, georeferencing, tracing, and reviewing legacy parcel maps without confusing a digital trace with an approved survey.",
-    "heading":  "How to digitize cadastral and tax maps",
-    "intro":  "Digitizing a paper map takes more than tracing lines. The result needs a known source, coordinate reference, identifiers, and a review path for uncertain boundaries.",
-    "sections":  [
-                     {
-                         "id":  "sources",
-                         "heading":  "Inventory the source sheets",
-                         "paragraphs":  [
-                                            "List the map title, sheet number, date or edition if shown, scale, source office, coordinate reference, and any parcel identifiers. Scan clearly enough to read labels and linework. Keep the original image alongside the digital version so reviewers can trace a feature back to its source.",
-                                            "Decide whether a sheet is a cadastral index, an assessment tax map, or another reference. Different maps may describe related parcels for different administrative purposes; do not combine their lines as though they had the same authority."
-                                        ]
-                     },
-                     {
-                         "id":  "geometry",
-                         "heading":  "Align and trace with checks",
-                         "paragraphs":  [
-                                            "Georeference the scan using reliable control information, then inspect residual alignment across the sheet. Trace parcels and shared edges consistently, attach identifiers, and record any line that cannot be read confidently. The DENR cadastral index mapping guides describe GIS construction and heads-up digitizing as parts of this workflow.",
-                                            "Validate topology and records: look for gaps, overlaps, duplicate identifiers, and polygons with no matching assessment record. Review edge matches between sheets and revisit the paper source when a line appears displaced."
-                                        ]
-                     },
-                     {
-                         "id":  "maintain",
-                         "heading":  "Keep the digital layer reviewable",
-                         "paragraphs":  [
-                                            "Mark which features are verified, provisional, or awaiting field or document review. Save corrections with their source and reviewer. A digital trace improves access and comparison, but it does not create an official boundary or replace the underlying approved records."
-                                        ]
-                     }
-                 ],
-    "related":  [
-                    "tax-mapping-philippine-lgu",
-                    "rpvara-digital-tax-mapping"
-                ],
-    "product":  {
-                    "name":  "SPARTA",
-                    "href":  "/sparta/",
-                    "label":  "Explore SPARTA for digitized parcel records"
-                },
-    "sources":  [
-                    {
-                        "label":  "DENR cadastral index mapping guide",
-                        "url":  "https://faspselib.denr.gov.ph/Materials/Detail/ab3d9ecd-5a32-417e-9724-d24394dcdaf7"
-                    },
-                    {
-                        "label":  "DENR GIS construction guide",
-                        "url":  "https://faspselib.denr.gov.ph/Materials/Detail/6e64fc57-842f-41b3-93b4-2843736be349"
-                    }
-                ],
-    "state":  "published",
-    "publishedAt":  null,
-    "lastReviewed":  null,
-    "disclaimer":  "This guide is educational and does not replace current legal guidance or an LGU assessment decision.",
-    "legacy":  true
+  "slug": "digitize-cadastral-tax-maps",
+  "cluster": "tax",
+  "title": "How to digitize cadastral and tax maps | Spatialdom Insights",
+  "description": "A practical sequence for scanning, georeferencing, tracing, and reviewing legacy parcel maps without confusing a digital trace with an approved survey.",
+  "heading": "How to digitize cadastral and tax maps",
+  "intro": "Digitizing a paper map takes more than tracing lines. The result needs a known source, coordinate reference, identifiers, and a review path for uncertain boundaries.",
+  "sections": [
+    {
+      "id": "sources",
+      "heading": "Inventory the source sheets",
+      "paragraphs": [
+        "List the map title, sheet number, date or edition if shown, scale, source office, coordinate reference, and any parcel identifiers. Scan clearly enough to read labels and linework. Keep the original image alongside the digital version so reviewers can trace a feature back to its source.",
+        "Decide whether a sheet is a cadastral index, an assessment tax map, or another reference. Different maps may describe related parcels for different administrative purposes; do not combine their lines as though they had the same authority."
+      ]
+    },
+    {
+      "id": "geometry",
+      "heading": "Align and trace with checks",
+      "paragraphs": [
+        "Georeference the scan using reliable control information, then inspect residual alignment across the sheet. Trace parcels and shared edges consistently, attach identifiers, and record any line that cannot be read confidently. The DENR cadastral index mapping guides describe GIS construction and heads-up digitizing as parts of this workflow.",
+        "Validate topology and records: look for gaps, overlaps, duplicate identifiers, and polygons with no matching assessment record. Review edge matches between sheets and revisit the paper source when a line appears displaced."
+      ]
+    },
+    {
+      "id": "maintain",
+      "heading": "Keep the digital layer reviewable",
+      "paragraphs": [
+        "Mark which features are verified, provisional, or awaiting field or document review. Save corrections with their source and reviewer. A digital trace improves access and comparison, but it does not create an official boundary or replace the underlying approved records."
+      ]
+    }
+  ],
+  "related": [
+    "tax-mapping-philippine-lgu",
+    "rpvara-digital-tax-mapping"
+  ],
+  "product": {
+    "name": "SPARTA",
+    "href": "/sparta/",
+    "label": "Explore SPARTA for digitized parcel records"
+  },
+  "sources": [
+    {
+      "label": "DENR cadastral index mapping guide",
+      "url": "https://faspselib.denr.gov.ph/Materials/Detail/ab3d9ecd-5a32-417e-9724-d24394dcdaf7"
+    },
+    {
+      "label": "DENR GIS construction guide",
+      "url": "https://faspselib.denr.gov.ph/Materials/Detail/6e64fc57-842f-41b3-93b4-2843736be349"
+    }
+  ],
+  "state": "published",
+  "publishedAt": null,
+  "lastReviewed": null,
+  "disclaimer": "This guide is educational and does not replace current legal guidance or an LGU assessment decision.",
+  "legacy": true,
+  "candidate": {
+    "slug": "digitize-cadastral-tax-maps",
+    "cluster": "tax",
+    "title": "How to digitize cadastral and tax maps | Spatialdom Insights",
+    "description": "A practical workflow for turning legacy cadastral and tax maps into usable GIS data while preserving source records, identifiers, accuracy limits, and review history.",
+    "heading": "How to digitize cadastral and tax maps",
+    "intro": "Digitizing a parcel map is not the same as tracing whatever lines appear on a scan. The useful output is a spatial dataset whose parcels can still be traced back to their source, identifiers, coordinate reference, and level of confidence.",
+    "state": "review",
+    "publishedAt": null,
+    "lastReviewed": "2026-09-26",
+    "sections": [
+      {
+        "id": "inventory-first",
+        "heading": "Begin with an inventory before opening GIS",
+        "paragraphs": [
+          "Collect the actual source sheets and record what each one is: cadastral map, cadastral index map, tax map, subdivision plan, survey plan, or another reference. Note the sheet number, scale, date or edition when available, coordinate or reference information, source office, physical condition, and visible parcel identifiers.",
+          "DENR's cadastral index mapping guidance begins with the same basic discipline: gather records from the agencies that hold them, inventory what exists, compare the records, and validate whether the material is suitable for use. This step sounds administrative, but it prevents an enormous amount of confusion later."
+        ]
+      },
+      {
+        "id": "scan-carefully",
+        "heading": "A good scan preserves information you may need later",
+        "paragraphs": [
+          "Scan at a resolution that keeps lot numbers, control marks, linework, notes, and marginal information legible. Do not crop away the map frame or reference information just to make the image look cleaner. Distortion from folded, stretched, torn, or photocopied sheets should be documented rather than hidden.",
+          "Keep the original scan as an immutable source file. Subsequent cleaned, georeferenced, or contrast-enhanced versions are working derivatives. If someone questions a traced boundary later, you should be able to return to the source image that was actually used."
+        ]
+      },
+      {
+        "id": "georeference",
+        "heading": "Georeference from defensible control, not from visual coincidence",
+        "paragraphs": [
+          "A scanned map has pixel coordinates until you relate it to a spatial reference. DENR learning guides for cadastral index mapping describe image registration using valid control points and the construction of GIS-based cadastral layers under prescribed mapping standards.",
+          "Avoid the tempting shortcut of stretching a cadastral sheet until roads or imagery 'look aligned' in a web basemap. Satellite imagery, road centerlines, old cadastral sheets, and tax maps can each have their own positional uncertainties. Use known control and documented reference information wherever possible, then inspect residuals and edge matches."
+        ]
+      },
+      {
+        "id": "vectorize",
+        "heading": "Trace parcels as a connected fabric",
+        "paragraphs": [
+          "When adjacent parcels share a boundary, digitize them consistently rather than drawing each polygon independently and hoping the edges line up. Maintain topology rules that can reveal gaps, overlaps, slivers, duplicate polygons, or parcels that fail to close.",
+          "At the same time, attach identifiers and source references. Geometry without identity is difficult to reconcile with tax declarations or assessment records; identity without source history makes corrections hard to audit."
+        ]
+      },
+      {
+        "id": "reconcile-records",
+        "heading": "The difficult part is usually record matching",
+        "paragraphs": [
+          "Legacy parcel data often contain duplicate lot numbers across surveys, changed parcel configurations, inconsistent owner names, missing sheets, subdivisions that appear in later records, and tax-map boundaries that do not perfectly match cadastral sources. These should become explicit review cases, not edits made quietly to produce a clean-looking layer.",
+          "DENR rules on reconstruction of cadastral records recognize this reality: technical descriptions, adjoining lots, titles, field notes, maps, and other records may need to be compared when data are incomplete. A modern GIS should preserve the same evidentiary trail."
+        ]
+      },
+      {
+        "id": "publish-status",
+        "heading": "Give every parcel a status, not a false sense of certainty",
+        "paragraphs": [
+          "Useful categories might distinguish a parcel traced from an official approved source, a parcel reconstructed from several records, a provisional tax-map geometry, or a feature still awaiting review. The exact vocabulary can vary, but users should be able to tell which lines are dependable for a given purpose and which are only working references.",
+          "Digitization improves access, search, analysis, and updating. It does not transform every old line into an official boundary. That distinction is essential when the dataset will support assessment, planning, transactions, or public-facing maps."
+        ]
+      }
+    ],
+    "related": [
+      "tax-mapping-philippine-lgu",
+      "rpvara-digital-tax-mapping"
+    ],
+    "product": {
+      "name": "SPARTA",
+      "href": "/sparta/",
+      "label": "Explore SPARTA for parcel-centered LGU mapping workflows"
+    },
+    "sources": [
+      {
+        "label": "DENR Learning Guide 1 — Cadastral Index Mapping: Collecting and Organizing Data Information",
+        "url": "https://faspselib.denr.gov.ph/Materials/Detail/ab3d9ecd-5a32-417e-9724-d24394dcdaf7"
+      },
+      {
+        "label": "DENR Learning Guide 4 — Structuring and Constructing CIM Using GIS Process",
+        "url": "https://faspselib.denr.gov.ph/Materials/Detail/9ad07266-c837-44ee-9fd2-e897b96cccc0"
+      },
+      {
+        "label": "DENR Learning Guide 5 — Structuring and Constructing CIM Using GIS System",
+        "url": "https://faspselib.denr.gov.ph/Materials/Detail/6e64fc57-842f-41b3-93b4-2843736be349"
+      },
+      {
+        "label": "DENR Administrative Order No. 2010-19 — reconciliation, indexing and reconstruction of survey records",
+        "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/55922"
+      }
+    ],
+    "disclaimer": "For educational use. Digitized cadastral or tax-map geometry should retain its source and accuracy limitations and should not be presented as an official boundary unless supported by the appropriate approved survey and professional process."
+  }
 }
