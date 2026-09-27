@@ -1,0 +1,69 @@
+{
+  "slug": "oct-tct-cct-difference",
+  "cluster": "land",
+  "title": "OCT, TCT and CCT: what is the difference? | Spatialdom Insights",
+  "description": "A plain-language guide to Original, Transfer and Condominium Certificates of Title in the Philippines.",
+  "heading": "OCT, TCT and CCT: what is the difference?",
+  "intro": "OCT, TCT and CCT are all certificates used in Philippine property registration, but they arise in different situations. An OCT is the first certificate for registered land, a TCT is a later certificate after a transfer or other transaction, and a CCT covers a condominium unit.",
+  "state": "review",
+  "publishedAt": null,
+  "lastReviewed": "2026-09-27",
+  "readingMinutes": 5,
+  "sections": [
+    {
+      "id": "oct",
+      "heading": "OCT: the first certificate after original registration",
+      "paragraphs": [
+        "The Property Registration Decree provides for an Original Certificate of Title after a final judgment directing original registration. Think of the OCT as the first Torrens certificate in that property's registered chain. Its being called “original” does not mean the paper in someone's hand is automatically the controlling registry record; what matters is the registration maintained by the Registry of Deeds."
+      ]
+    },
+    {
+      "id": "tct",
+      "heading": "TCT: a subsequent certificate in the chain",
+      "paragraphs": [
+        "When registered land is later conveyed or another transaction requires a new certificate, the Register of Deeds may issue a Transfer Certificate of Title. Section 43 of PD 1529 requires the TCT to refer back to the preceding certificate and the property's original registration.",
+        "A TCT is therefore not a weaker kind of title than an OCT. It is simply a later certificate in the registered history of the same land."
+      ]
+    },
+    {
+      "id": "cct",
+      "heading": "CCT: the certificate for a condominium unit",
+      "paragraphs": [
+        "A Condominium Certificate of Title is used for a condominium unit under the Condominium Act and the land-registration system. Condominium ownership combines the separate interest in the unit with an appurtenant interest in common areas, directly or indirectly, as the project's legal structure provides.",
+        "This is why condominium due diligence should include the CCT and relevant project documents and annotations, not just the unit number shown in a sales brochure."
+      ]
+    },
+    {
+      "id": "ctc",
+      "heading": "Do not confuse CCT with CTC",
+      "paragraphs": [
+        "CCT means Condominium Certificate of Title. CTC means Certified True Copy. A CTC is a government-issued copy of an existing title record, and LRA eSerbisyo accepts requests for CTCs of OCTs, TCTs and CCTs.",
+        "If you are checking a property transaction, ask for the correct title type and a current Certified True Copy rather than relying only on a seller's old photocopy."
+      ]
+    }
+  ],
+  "related": [
+    "what-is-a-land-title-philippines",
+    "read-bearings-and-distances-land-title"
+  ],
+  "product": {
+    "name": "Parcel Plotter",
+    "href": "/parcel-plotter/",
+    "label": "Explore Parcel Plotter for land-title technical descriptions"
+  },
+  "sources": [
+    {
+      "label": "Presidential Decree No. 1529 — Property Registration Decree",
+      "url": "https://lawphil.net/statutes/presdecs/pd1978/pd_1529_1978.html"
+    },
+    {
+      "label": "Republic Act No. 4726 — Condominium Act",
+      "url": "https://lawphil.net/statutes/repacts/ra1966/ra_4726_1966.html"
+    },
+    {
+      "label": "LRA eSerbisyo — Certified True Copy FAQ",
+      "url": "https://eserbisyo.lra.gov.ph/land-title-certified-true-copy-faq"
+    }
+  ],
+  "disclaimer": "For general educational use. Title type alone does not establish that a proposed transaction is safe or complete; verify the current registration record and obtain professional advice where appropriate."
+}
