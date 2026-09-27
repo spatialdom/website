@@ -1,0 +1,83 @@
+{
+  "slug": "how-to-read-philippine-land-title",
+  "cluster": "land",
+  "title": "How do you read a Philippine land title from top to bottom? | Spatialdom Insights",
+  "description": "A practical order for reading a Philippine certificate of title: registry details, owner, property description, technical description and annotations.",
+  "heading": "How do you read a Philippine land title from top to bottom?",
+  "intro": "Read a land title in layers. First confirm which Registry of Deeds and certificate you are looking at, then identify the registered owner and property, read the technical description, and finish by examining every annotation and continuation page.",
+  "state": "review",
+  "publishedAt": null,
+  "lastReviewed": "2026-09-27",
+  "readingMinutes": 8,
+  "sections": [
+    {
+      "id": "identity",
+      "heading": "1. Confirm the certificate before interpreting it",
+      "paragraphs": [
+        "Start with the Registry of Deeds, certificate type and title number. An OCT is the first certificate after original registration; a TCT is a subsequent certificate; a CCT is used for a condominium unit. If the document matters to a transaction, obtain a current Certified True Copy from the LRA rather than assuming a scan or seller-provided photocopy is current.",
+        "LRA's eSerbisyo request process itself asks for the Registry of Deeds, title type and title number. Those three fields are a useful first check that you are comparing the same registration record."
+      ]
+    },
+    {
+      "id": "owner",
+      "heading": "2. Read the registered owner carefully",
+      "paragraphs": [
+        "Check the name or names of the registered owner and how ownership is stated. Do not stop at a matching surname. For a sale, the person signing and the authority under which that person acts must make sense in relation to the registered ownership and transaction documents.",
+        "A title can also carry annotations affecting the owner's ability to deal with the property. That is one reason the ownership line and annotation pages must be read together."
+      ]
+    },
+    {
+      "id": "property",
+      "heading": "3. Identify the land described",
+      "paragraphs": [
+        "Look for lot and survey identifiers, location, area and technical description. The technical description traces the parcel using bearings and distances and may refer to a tie point. It is part of identifying what land the certificate covers.",
+        "A preliminary plot can make the description easier to inspect. Check sequence, quadrant letters, units and closure, but remember that reconstructing a shape from text does not establish the boundary on the ground."
+      ]
+    },
+    {
+      "id": "annotations",
+      "heading": "4. Read every memorandum and annotation",
+      "paragraphs": [
+        "Mortgages, adverse claims, restrictions, liens and other registered interests may be annotated on the certificate. Do not treat a title as “clean” merely because the front page looks normal. Read all pages of the current CTC and understand entries that remain effective.",
+        "PD 1529 treats registration as notice to third persons. If an annotation is unclear or the transaction has warning signs, obtain legal advice before proceeding."
+      ]
+    },
+    {
+      "id": "cross-check",
+      "heading": "5. Cross-check the title against the real transaction",
+      "paragraphs": [
+        "A title is central, but property due diligence is wider. Compare the parcel you were shown with survey information and actual possession; check access and relevant tax or land-use records; and confirm that the seller's identity and authority are genuine. The exact checklist depends on the property and transaction.",
+        "Use Parcel Plotter when you want to understand the technical description visually. Use the Registry of Deeds for title verification, and a licensed Geodetic Engineer when the parcel's actual location or boundaries need professional determination."
+      ]
+    }
+  ],
+  "related": [
+    "what-is-a-land-title-philippines",
+    "read-bearings-and-distances-land-title",
+    "plot-land-title-technical-description"
+  ],
+  "product": {
+    "name": "Parcel Plotter",
+    "href": "/parcel-plotter/",
+    "label": "Turn the technical description into a preliminary parcel plot"
+  },
+  "sources": [
+    {
+      "label": "Presidential Decree No. 1529 — Property Registration Decree",
+      "url": "https://lawphil.net/statutes/presdecs/pd1978/pd_1529_1978.html"
+    },
+    {
+      "label": "Land Registration Authority — Frequently Asked Questions",
+      "url": "https://lra.gov.ph/frequently-asked-questions/"
+    },
+    {
+      "label": "LRA eSerbisyo — Certified True Copy FAQ",
+      "url": "https://eserbisyo.lra.gov.ph/land-title-certified-true-copy-faq"
+    },
+    {
+      "label": "Supreme Court, Spouses Manalese v. Estate of Spouses Ferreras, G.R. No. 254046",
+      "url": "https://lawphil.net/judjuris/juri2024/nov2024/gr_254046_2024.html"
+    }
+  ],
+  "disclaimer": "For general educational use. Reading a title is not a substitute for verifying the current Registry of Deeds record, legal due diligence, or a professional land survey."
+}
