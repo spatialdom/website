@@ -1,0 +1,76 @@
+{
+  "slug": "what-does-geodetic-engineer-do-philippines",
+  "heading": "What does a Geodetic Engineer actually do when you buy or own land?",
+  "title": "What does a Geodetic Engineer do? | Spatialdom Insights",
+  "description": "A Philippine landowner's guide to relocation surveys, subdivision, boundary checks and survey plans—and when to hire a licensed Geodetic Engineer.",
+  "intro": "A Geodetic Engineer does more than measure a lot's area. When you buy, build on, divide or settle a dispute over land, the engineer connects survey records, physical monuments and measured positions to help you understand what parcel is actually involved.",
+  "sections": [
+    {
+      "id": "scope",
+      "heading": "The work connects documents to positions on the ground",
+      "paragraphs": [
+        "The Philippine Geodetic Engineering Act, as amended by RA 9200, includes determining land boundaries, preparing land survey plans, subdivision and consolidation surveys, control surveys and engineering surveys. It also covers mapping and geospatial information work.",
+        "A title's technical description is a starting record. A professional survey may require examining approved plans, control references and existing monuments, then measuring and evaluating the site. A plotted polygon on a screen cannot replace those steps."
+      ]
+    },
+    {
+      "id": "hire",
+      "heading": "Different property problems call for different services",
+      "paragraphs": [
+        "Before purchasing a lot, you might request a records review and relocation survey to understand whether the lot offered matches the available survey information and whether boundary monuments can be recovered. Before building a fence or house, a survey can help identify relevant corners and site constraints.",
+        "For a subdivision, consolidation or lot transfer, the engineer may prepare the appropriate survey plan and technical descriptions for the applicable approval and registration processes. Construction work may need topographic, layout or as-built surveys. Ask which deliverable you need instead of ordering a generic 'lot survey.'"
+      ]
+    },
+    {
+      "id": "limits",
+      "heading": "A survey cannot resolve every legal issue",
+      "paragraphs": [
+        "A Geodetic Engineer can evaluate boundary evidence and report survey findings. Ownership, the legal effect of deeds and court disputes may require a lawyer, the Registry of Deeds or a court. A physical fence may differ from the surveyed line; neither should be assumed correct without investigation.",
+        "When a neighbor disputes the location of a monument, ask for the underlying records and methods rather than demanding that a surveyor simply draw the line where someone wants it."
+      ]
+    },
+    {
+      "id": "choose",
+      "heading": "What to ask before hiring",
+      "paragraphs": [
+        "Verify the professional's current registration and authority to practice, explain your intended use and supply the title, approved plan and any previous survey records you have. Ask about site access, scope, timeline, signed and sealed deliverables, fees and what happens if control points or monuments cannot be recovered.",
+        "Parcel Plotter is useful for an initial visualization of bearings and distances. For a decision that affects real property boundaries, engage a licensed Geodetic Engineer."
+      ]
+    }
+  ],
+  "related": [
+    "plot-land-title-technical-description",
+    "technical-description-does-not-close",
+    "what-is-a-mother-title-philippines"
+  ],
+  "sources": [
+    {
+      "label": "RA 9200 — Philippine Geodetic Engineering Act amendments",
+      "url": "https://lawphil.net/statutes/repacts/ra2003/ra_9200_2003.html"
+    },
+    {
+      "label": "Professional Regulation Commission — Geodetic Engineering",
+      "url": "https://www.prc.gov.ph/geodetic-engineering"
+    },
+    {
+      "label": "RA 8560 — Philippine Geodetic Engineering Act",
+      "url": "https://lawphil.net/statutes/repacts/ra1998/ra_8560_1998.html"
+    }
+  ],
+  "reviewerNotes": [
+    "Confirm that examples distinguish a preliminary records review from a commissioned relocation survey.",
+    "Consider a small decision table linking client questions to the right survey service.",
+    "Review the exact phrasing of professional scope against RA 9200."
+  ],
+  "cluster": "land",
+  "state": "review",
+  "publishedAt": null,
+  "lastReviewed": "2026-10-18",
+  "readingMinutes": 2,
+  "product": {
+    "name": "Parcel Plotter",
+    "href": "/parcel-plotter/",
+    "label": "Explore a preliminary parcel plot"
+  },
+  "disclaimer": "For education and preliminary visualization only. Official survey, title and legal questions require appropriate records and qualified professionals."
+}
