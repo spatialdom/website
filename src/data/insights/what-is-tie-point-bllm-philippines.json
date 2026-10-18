@@ -1,0 +1,76 @@
+{
+  "slug": "what-is-tie-point-bllm-philippines",
+  "heading": "What is a tie point or BLLM, and why does it matter when locating a parcel?",
+  "title": "Tie points and BLLMs in Philippine land surveys | Spatialdom Insights",
+  "description": "Understand tie lines, Bureau of Lands Location Monuments and why a parcel can have the correct shape but the wrong map position.",
+  "intro": "A parcel's boundary bearings and distances can tell you its shape without telling you where to place it on a map. A tie point provides the connection to a reference location. In Philippine survey records, that reference may be a Bureau of Lands Location Monument (BLLM).",
+  "sections": [
+    {
+      "id": "shape",
+      "heading": "Boundary lines describe shape; the tie line helps establish location",
+      "paragraphs": [
+        "Imagine tracing four sides of a rectangle starting from a point you choose on a blank sheet. The rectangle can close perfectly, but you could draw the same shape anywhere on the page. A land title's boundary calls can have the same limitation when used without reliable control information.",
+        "A tie line connects a specified reference point to a lot corner, often corner 1. It is separate from the boundary traverse. If you mistakenly include the tie line as a property side, the computed shape and area can be wrong."
+      ]
+    },
+    {
+      "id": "bllm",
+      "heading": "What does BLLM mean?",
+      "paragraphs": [
+        "BLLM stands for Bureau of Lands Location Monument. These are survey reference monuments used in cadastral and related land survey work. DENR's PRS92 guidance describes BLLMs and other existing survey monuments as part of the secondary geodetic control network when they are resurveyed or converted and meet the applicable accuracy requirements.",
+        "A BLLM name or number alone is not enough to guarantee that a coordinate you found online is the correct one for a particular survey. Check the cadastral survey identifier, reference records, coordinate system and datum. Historical plans may use control information that requires careful transformation or verification."
+      ]
+    },
+    {
+      "id": "practical",
+      "heading": "Why a plot can look right but be misplaced",
+      "paragraphs": [
+        "If the parcel's bearings and distances are correctly encoded but the reference point is wrong, the entire polygon may be shifted or rotated on a basemap. Closure will not reveal this error. Likewise, an old or uncertain tie point coordinate should not be treated as a recovered ground monument.",
+        "The Geoportal Philippines Lot Plotter asks users to choose a tie point and enter the tie-to-corner call. It also explicitly warns that its output is for viewing, not legal use. That distinction applies to other browser plotting tools as well."
+      ]
+    },
+    {
+      "id": "use",
+      "heading": "What to do when the tie point is missing or uncertain",
+      "paragraphs": [
+        "You can still make a local, ungeoreferenced plot to understand the parcel's shape. Mark its location as unknown rather than forcing it onto a road or satellite image. For geographic placement, consult the approved plan and appropriate land survey records, and have a licensed Geodetic Engineer verify control and field evidence when necessary.",
+        "Parcel Plotter can help separate shape checking from georeferencing. It cannot independently recover a missing BLLM or establish the legal location of a boundary."
+      ]
+    }
+  ],
+  "related": [
+    "plot-land-title-technical-description",
+    "read-bearings-and-distances-land-title",
+    "technical-description-does-not-close"
+  ],
+  "sources": [
+    {
+      "label": "DENR DAO 2005-13 — Philippine Reference System of 1992",
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/48061"
+    },
+    {
+      "label": "Geoportal Philippines — GP Lot Plotter",
+      "url": "https://www.geoportal.gov.ph/gpapps/lotplotter"
+    },
+    {
+      "label": "RA 9200 — practice of Geodetic Engineering",
+      "url": "https://lawphil.net/statutes/repacts/ra2003/ra_9200_2003.html"
+    }
+  ],
+  "reviewerNotes": [
+    "Check BLLM and cadastral survey terminology against current LMB technical references.",
+    "Consider a diagram showing tie point, tie line, corner 1 and boundary lines.",
+    "Ensure no language implies that map alignment alone determines the legal boundary."
+  ],
+  "cluster": "land",
+  "state": "review",
+  "publishedAt": null,
+  "lastReviewed": "2026-10-18",
+  "readingMinutes": 3,
+  "product": {
+    "name": "Parcel Plotter",
+    "href": "/parcel-plotter/",
+    "label": "Explore a preliminary parcel plot"
+  },
+  "disclaimer": "For education and preliminary visualization only. Official survey, title and legal questions require appropriate records and qualified professionals."
+}
