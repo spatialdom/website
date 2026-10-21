@@ -1,0 +1,52 @@
+# How to plot a land title technical description
+
+**4 min read · Last reviewed 2026-09-26**
+
+> **Review copy.** Edit this Markdown file directly if you want to change the article. When you are satisfied, open [Issue #19](https://github.com/spatialdom/website/issues/19) and change the label from `insight:review` to `insight:approved`.
+
+A technical description is a sequence of directions and distances around a parcel. Plotting it is useful because it turns dense text into a shape you can inspect—but the drawing is still an interpretation of the document, not a field survey or proof of where the boundary lies on the ground.
+
+## Start with the source, not the software
+
+Before plotting anything, identify exactly what document you are reading. On Philippine survey records and titles, the useful clues usually include the lot number, survey plan number, location, area, tie point, and the sequence of boundary lines. If you also have the approved survey plan or lot data computation, keep it beside the title. The goal is not simply to make a polygon appear; it is to preserve the meaning of the source while you encode it.
+
+This matters because a technical description may contain both a tie line and the parcel boundary. The tie line connects a known reference point to a lot corner. The boundary calls then trace the parcel itself. If you accidentally treat the tie line as one side of the property, the drawing can look plausible while being conceptually wrong.
+
+## Read each boundary call as one movement
+
+A boundary call tells you two things: direction and distance. For example, a line written as N 35° 20' E, 24.50 m means travel 24.50 meters in a direction 35 degrees 20 minutes east of north. The next line begins where that line ends. Continue in the order written until the final boundary call returns toward the first corner.
+
+Copy quadrant letters, degrees, minutes, seconds, decimals, and units exactly. N 35° E is not interchangeable with S 35° E, and a missed digit in a distance can noticeably distort the lot. When a title is old, photocopied, scanned, or typed from another record, transcription deserves as much attention as the plotting itself.
+
+## Separate parcel shape from parcel location
+
+There are two different questions hidden inside a technical description: what shape does this sequence produce, and where does that shape belong geographically? Bearings and distances can reconstruct the parcel geometry from an arbitrary starting corner. That is enough for a useful first look at shape, area, and closure.
+
+Placing the parcel on a map requires more information. DENR procedures for cadastral data distinguish boundary bearings and distances from the control or tie information used to derive coordinates, and Geoportal Philippines' lot plotter likewise asks for a tie point before locating a lot. A parcel can therefore be drawn correctly as a shape without yet being reliably georeferenced.
+
+## Check whether the parcel closes—but do not stop there
+
+After the last line, compare the final point with the starting point. If they meet within the precision expected from the source, the traverse closes. If there is a gap, go back through the original text before assuming the underlying survey is wrong. Common causes include a reversed quadrant, a missing line, a decimal error, wrong point order, or a tie line entered as a boundary.
+
+Closure is a useful internal check, not a certificate of correctness. A wrong sequence can sometimes still form a closed shape. Likewise, a parcel may close while being attached to the wrong reference point or placed using an inappropriate coordinate system. Treat closure as one diagnostic among several.
+
+## Use the plot to ask better questions
+
+A quick plot is excellent for seeing whether the parcel is long and narrow, irregular, unexpectedly large, or obviously different from the plan you expected. It can also help you identify the exact line that deserves rechecking. This is where a tool such as Parcel Plotter is most useful: it shortens the path from technical text to something a landowner, buyer, broker, student, or professional can inspect.
+
+What it cannot do is verify ownership, authenticate the title, recover missing monuments, settle a boundary dispute, or replace a relocation or other professional land survey. Philippine law places land surveys, determination of metes and bounds, subdivision and consolidation work, and related survey plans within the practice of Geodetic Engineering. If the result will affect a purchase, construction, subdivision, legal dispute, or actual occupation on the ground, have the relevant records reviewed by a licensed Geodetic Engineer.
+
+## Related Spatialdom product
+
+[Plot the technical description in Parcel Plotter](/parcel-plotter/)
+
+## Sources and further reading
+
+- [DENR Memorandum Circular No. 2010-06 — transformation and integration of cadastral data into PRS92](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49164)
+- [LMB Memorandum Circular No. 2015-002 — standard tabular format of technical descriptions](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/68545)
+- [Geoportal Philippines — GP Lot Plotter](https://www.geoportal.gov.ph/gpapps/lotplotter)
+- [Republic Act No. 9200 — amendment to the Philippine Geodetic Engineering Act](https://lawphil.net/statutes/repacts/ra2003/ra_9200_2003.html)
+
+---
+
+*For educational use and preliminary understanding only. A browser plot does not verify title validity, establish a legal boundary, or replace an official survey or professional advice from a licensed Geodetic Engineer.*
