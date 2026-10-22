@@ -5,9 +5,9 @@
   "description": "A plain-language guide to Original, Transfer and Condominium Certificates of Title in the Philippines.",
   "heading": "OCT, TCT and CCT: what is the difference?",
   "intro": "OCT, TCT and CCT are all certificates used in Philippine property registration, but they arise in different situations. An OCT is the first certificate for registered land, a TCT is a later certificate after a transfer or other transaction, and a CCT covers a condominium unit.",
-  "state": "review",
+  "state": "approved",
   "publishedAt": null,
-  "lastReviewed": "2026-09-27",
+  "lastReviewed": "2026-10-22",
   "readingMinutes": 5,
   "sections": [
     {
@@ -65,5 +65,10 @@
       "url": "https://eserbisyo.lra.gov.ph/land-title-certified-true-copy-faq"
     }
   ],
-  "disclaimer": "For general educational use. Title type alone does not establish that a proposed transaction is safe or complete; verify the current registration record and obtain professional advice where appropriate."
+  "disclaimer": "For general educational use. Title type alone does not establish that a proposed transaction is safe or complete; verify the current registration record and obtain professional advice where appropriate.",
+  "reviewApproval": {
+    "method": "local-review",
+    "approvedAt": "2026-10-22T15:00:32.232Z",
+    "contentHash": "54a54bb6f68e14493bee1ca75fc827b959fe97abe29f52c0318059c093698bb4"
+  }
 }

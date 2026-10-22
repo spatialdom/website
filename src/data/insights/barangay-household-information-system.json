@@ -61,9 +61,9 @@
     "description": "A practical look at how a barangay can maintain household records for planning and services without turning a one-time survey into an unmanageable or unsafe database.",
     "heading": "Barangay household information systems",
     "intro": "A barangay household information system should help local staff keep track of a changing community. The difficult part is not building a form—it is deciding what to maintain, who may update it, and how the barangay keeps the information accurate and protected over time.",
-    "state": "review",
+    "state": "approved",
     "publishedAt": null,
-    "lastReviewed": "2026-09-26",
+    "lastReviewed": "2026-10-22",
     "sections": [
       {
         "id": "why-registry",
@@ -145,6 +145,11 @@
         "url": "https://privacy.gov.ph/npc-circular-16-01-security-of-personal-data-in-government-agencies/"
       }
     ],
-    "disclaimer": "For educational use. Barangay and LGU information systems must follow the applicable legal mandate, privacy and security requirements, records policies, and authorized procedures for collection, use, sharing, and retention."
+    "disclaimer": "For educational use. Barangay and LGU information systems must follow the applicable legal mandate, privacy and security requirements, records policies, and authorized procedures for collection, use, sharing, and retention.",
+    "reviewApproval": {
+      "method": "local-review",
+      "approvedAt": "2026-10-22T15:01:34.698Z",
+      "contentHash": "9a13c98e17e328e79369f6fe1c16c4d8fda420cc46685ea3e4614c49bd33ae8f"
+    }
   }
 }

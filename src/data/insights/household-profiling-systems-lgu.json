@@ -61,9 +61,9 @@
     "description": "What makes an LGU household profiling system useful: clear purpose, reliable household records, regular updates, geographic context, access controls, and privacy by design.",
     "heading": "Household profiling systems for LGUs",
     "intro": "A household profiling system is useful only when the information can support real local decisions and remain current enough to trust. Collecting a large form once is easy; maintaining a responsible local information system is the harder part.",
-    "state": "review",
+    "state": "approved",
     "publishedAt": null,
-    "lastReviewed": "2026-09-26",
+    "lastReviewed": "2026-10-22",
     "sections": [
       {
         "id": "purpose-first",
@@ -145,6 +145,11 @@
         "url": "https://privacy.gov.ph/npc-commends-new-dilg-issuance-enhancing-data-privacy-compliance-among-lgus/"
       }
     ],
-    "disclaimer": "For educational use. Actual LGU household profiling must follow the applicable legal mandate, data-sharing rules, privacy requirements, records policies, and authorized local procedures."
+    "disclaimer": "For educational use. Actual LGU household profiling must follow the applicable legal mandate, data-sharing rules, privacy requirements, records policies, and authorized local procedures.",
+    "reviewApproval": {
+      "method": "local-review",
+      "approvedAt": "2026-10-22T14:59:07.755Z",
+      "contentHash": "fff202405daa0317b71df3d139e4b19c1d61181e3243b02f42d7b1b5fbd9d323"
+    }
   }
 }

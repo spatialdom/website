@@ -63,14 +63,19 @@
     "Ensure no language implies that map alignment alone determines the legal boundary."
   ],
   "cluster": "land",
-  "state": "review",
+  "state": "approved",
   "publishedAt": null,
-  "lastReviewed": "2026-10-18",
+  "lastReviewed": "2026-10-22",
   "readingMinutes": 3,
   "product": {
     "name": "Parcel Plotter",
     "href": "/parcel-plotter/",
     "label": "Explore a preliminary parcel plot"
   },
-  "disclaimer": "For education and preliminary visualization only. Official survey, title and legal questions require appropriate records and qualified professionals."
+  "disclaimer": "For education and preliminary visualization only. Official survey, title and legal questions require appropriate records and qualified professionals.",
+  "reviewApproval": {
+    "method": "local-review",
+    "approvedAt": "2026-10-22T15:01:23.164Z",
+    "contentHash": "6d5cf59d4b9e2399f219bb4e727a0e92f46228dbd20139573f136273affa4994"
+  }
 }

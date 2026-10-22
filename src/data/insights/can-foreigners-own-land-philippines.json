@@ -75,14 +75,19 @@
     "Avoid suggesting nominee or corporate structures that would circumvent nationality restrictions."
   ],
   "cluster": "land",
-  "state": "review",
+  "state": "approved",
   "publishedAt": null,
-  "lastReviewed": "2026-10-18",
+  "lastReviewed": "2026-10-22",
   "readingMinutes": 3,
   "product": {
     "name": "Parcel Plotter",
     "href": "/parcel-plotter/",
     "label": "Visualize a parcel's technical description with Parcel Plotter"
   },
-  "disclaimer": "For general educational information only. Verify current records and requirements with the relevant government office. Consult a lawyer, licensed Geodetic Engineer or other qualified professional when the transaction or site warrants it."
+  "disclaimer": "For general educational information only. Verify current records and requirements with the relevant government office. Consult a lawyer, licensed Geodetic Engineer or other qualified professional when the transaction or site warrants it.",
+  "reviewApproval": {
+    "method": "local-review",
+    "approvedAt": "2026-10-22T14:57:59.656Z",
+    "contentHash": "76d4c254e06ae19c6598e47697cb1240d230a2dfe2af2cdea5919cef43cbca94"
+  }
 }

@@ -61,9 +61,9 @@
     "description": "What Republic Act No. 12001 changes in real property valuation, why better property information matters, and where digital tax mapping fits into an LGU's implementation work.",
     "heading": "RPVARA and digital tax mapping for LGUs",
     "intro": "The Real Property Valuation and Assessment Reform Act (RA 12001) is not a 'digital mapping law.' It is a valuation and assessment reform law. But it makes one thing very clear: better valuation depends on better, more current, and more connected real property information.",
-    "state": "review",
+    "state": "approved",
     "publishedAt": null,
-    "lastReviewed": "2026-09-26",
+    "lastReviewed": "2026-10-22",
     "sections": [
       {
         "id": "what-rpvara-does",
@@ -137,6 +137,11 @@
         "url": "https://privacy.gov.ph/data-privacy-act/"
       }
     ],
-    "disclaimer": "For educational use. RPVARA implementation, valuation, assessment, taxation, and LGU compliance should follow the current law, implementing rules, BLGF issuances, and authorized local procedures."
+    "disclaimer": "For educational use. RPVARA implementation, valuation, assessment, taxation, and LGU compliance should follow the current law, implementing rules, BLGF issuances, and authorized local procedures.",
+    "reviewApproval": {
+      "method": "local-review",
+      "approvedAt": "2026-10-22T15:00:41.829Z",
+      "contentHash": "c437827f4bd23148de32a1ca5c166a9ea45c49631018791911a4919cd5a0869d"
+    }
   }
 }

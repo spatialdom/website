@@ -61,9 +61,9 @@
     "description": "Learn how quadrant bearings, distances, tie lines, and boundary sequences work in Philippine land title technical descriptions.",
     "heading": "How to read bearings and distances on a land title",
     "intro": "Bearings and distances are the instructions that describe one boundary line after another. Once you understand how a single call works, a technical description becomes much less intimidating.",
-    "state": "review",
+    "state": "approved",
     "publishedAt": null,
-    "lastReviewed": "2026-09-26",
+    "lastReviewed": "2026-10-22",
     "sections": [
       {
         "id": "one-call",
@@ -133,6 +133,11 @@
         "url": "https://lra.gov.ph/etd-accreditation-process/"
       }
     ],
-    "disclaimer": "For educational use only. Reading or plotting a technical description does not establish an official boundary or replace review by a licensed Geodetic Engineer when professional surveying is required."
+    "disclaimer": "For educational use only. Reading or plotting a technical description does not establish an official boundary or replace review by a licensed Geodetic Engineer when professional surveying is required.",
+    "reviewApproval": {
+      "method": "local-review",
+      "approvedAt": "2026-10-22T15:00:12.325Z",
+      "contentHash": "b26e2680f6fdf2215a0ee242b98211914acecf5e40cdf122b8f72c95b0b922f0"
+    }
   }
 }

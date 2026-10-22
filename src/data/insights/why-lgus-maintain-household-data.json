@@ -61,9 +61,9 @@
     "description": "Why local governments maintain household-level information even when national census data exists, and how current local registries can support planning without ignoring privacy.",
     "heading": "Why LGUs maintain local household data",
     "intro": "National census data tells us a great deal about a community. Local household registries answer a different question: what does an LGU need to know between censuses to operate programs, understand population movement, and respond to changing local needs?",
-    "state": "review",
+    "state": "approved",
     "publishedAt": null,
-    "lastReviewed": "2026-09-26",
+    "lastReviewed": "2026-10-22",
     "sections": [
       {
         "id": "census-and-local",
@@ -145,6 +145,11 @@
         "url": "https://privacy.gov.ph/data-privacy-act/"
       }
     ],
-    "disclaimer": "For educational use. Local household data programs must follow their applicable legal mandate and current privacy, security, records, and data-sharing requirements."
+    "disclaimer": "For educational use. Local household data programs must follow their applicable legal mandate and current privacy, security, records, and data-sharing requirements.",
+    "reviewApproval": {
+      "method": "local-review",
+      "approvedAt": "2026-10-22T15:01:12.067Z",
+      "contentHash": "7404edd2b0b8bcb32cbfd9c4e399fcf268f1e37407b55ceb0cbcd3d47c450c15"
+    }
   }
 }

@@ -5,9 +5,9 @@
   "description": "A practical Philippine due-diligence sequence for checking the current title record, annotations, parcel and other warning signs before buying land.",
   "heading": "How do you verify a land title before buying property?",
   "intro": "Start with a fresh Certified True Copy from the Land Registration Authority, compare it with the property and transaction documents, investigate annotations and inconsistencies, and verify the parcel on the ground when the transaction requires it.",
-  "state": "review",
+  "state": "approved",
   "publishedAt": null,
-  "lastReviewed": "2026-09-27",
+  "lastReviewed": "2026-10-22",
   "readingMinutes": 9,
   "sections": [
     {
@@ -83,5 +83,10 @@
       "url": "https://lawphil.net/judjuris/juri2024/nov2024/gr_254046_2024.html"
     }
   ],
-  "disclaimer": "For general educational use, not legal advice or a professional survey. The appropriate due-diligence steps depend on the property and transaction."
+  "disclaimer": "For general educational use, not legal advice or a professional survey. The appropriate due-diligence steps depend on the property and transaction.",
+  "reviewApproval": {
+    "method": "local-review",
+    "approvedAt": "2026-10-22T14:58:42.166Z",
+    "contentHash": "e551d5d1a1870308e53f379af88ca18f450c18cd6d868655a41030daaf976873"
+  }
 }

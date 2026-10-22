@@ -61,9 +61,9 @@
     "description": "A practical workflow for turning legacy cadastral and tax maps into usable GIS data while preserving source records, identifiers, accuracy limits, and review history.",
     "heading": "How to digitize cadastral and tax maps",
     "intro": "Digitizing a parcel map is not the same as tracing whatever lines appear on a scan. The useful output is a spatial dataset whose parcels can still be traced back to their source, identifiers, coordinate reference, and level of confidence.",
-    "state": "review",
+    "state": "approved",
     "publishedAt": null,
-    "lastReviewed": "2026-09-26",
+    "lastReviewed": "2026-10-22",
     "sections": [
       {
         "id": "inventory-first",
@@ -141,6 +141,11 @@
         "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/55922"
       }
     ],
-    "disclaimer": "For educational use. Digitized cadastral or tax-map geometry should retain its source and accuracy limitations and should not be presented as an official boundary unless supported by the appropriate approved survey and professional process."
+    "disclaimer": "For educational use. Digitized cadastral or tax-map geometry should retain its source and accuracy limitations and should not be presented as an official boundary unless supported by the appropriate approved survey and professional process.",
+    "reviewApproval": {
+      "method": "local-review",
+      "approvedAt": "2026-10-22T14:59:46.688Z",
+      "contentHash": "a9600c5a6971a2d9e76cc9b09b3036d5aabd91c64fbb720a012dd02752b61279"
+    }
   }
 }

@@ -5,9 +5,9 @@
   "description": "A practical order for reading a Philippine certificate of title: registry details, owner, property description, technical description and annotations.",
   "heading": "How do you read a Philippine land title from top to bottom?",
   "intro": "Read a land title in layers. First confirm which Registry of Deeds and certificate you are looking at, then identify the registered owner and property, read the technical description, and finish by examining every annotation and continuation page.",
-  "state": "review",
+  "state": "approved",
   "publishedAt": null,
-  "lastReviewed": "2026-09-27",
+  "lastReviewed": "2026-10-22",
   "readingMinutes": 8,
   "sections": [
     {
@@ -79,5 +79,10 @@
       "url": "https://lawphil.net/judjuris/juri2024/nov2024/gr_254046_2024.html"
     }
   ],
-  "disclaimer": "For general educational use. Reading a title is not a substitute for verifying the current Registry of Deeds record, legal due diligence, or a professional land survey."
+  "disclaimer": "For general educational use. Reading a title is not a substitute for verifying the current Registry of Deeds record, legal due diligence, or a professional land survey.",
+  "reviewApproval": {
+    "method": "local-review",
+    "approvedAt": "2026-10-22T14:59:25.812Z",
+    "contentHash": "97e2da5e9905da794cbff1a9cdf8f5b006a1687d6b85eb0b166f30d8fc58160c"
+  }
 }

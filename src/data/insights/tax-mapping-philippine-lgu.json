@@ -57,9 +57,9 @@
     "description": "Tax mapping links real property records to place. Here is what it does inside a Philippine assessor's office, why identifiers matter, and where a tax map's authority stops.",
     "heading": "What is tax mapping in a Philippine LGU?",
     "intro": "Tax mapping is the work of organizing real properties geographically so an assessor's office can connect parcels, improvements, tax declarations, and assessment records to the places they refer to. It is not just drawing polygons on a map.",
-    "state": "review",
+    "state": "approved",
     "publishedAt": null,
-    "lastReviewed": "2026-09-26",
+    "lastReviewed": "2026-10-22",
     "sections": [
       {
         "id": "map-plus-records",
@@ -125,6 +125,11 @@
         "url": "https://faspselib.denr.gov.ph/Materials/Detail/ab3d9ecd-5a32-417e-9724-d24394dcdaf7"
       }
     ],
-    "disclaimer": "For educational use. Tax maps and assessment records serve property administration and taxation; they do not by themselves establish ownership or replace an approved survey or official land registration record."
+    "disclaimer": "For educational use. Tax maps and assessment records serve property administration and taxation; they do not by themselves establish ownership or replace an approved survey or official land registration record.",
+    "reviewApproval": {
+      "method": "local-review",
+      "approvedAt": "2026-10-22T15:01:56.573Z",
+      "contentHash": "523a7d796d87f7f7f92244189a79500c4da4880f27033a6fca5326cca5aca493"
+    }
   }
 }

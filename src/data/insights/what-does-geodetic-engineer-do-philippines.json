@@ -63,14 +63,19 @@
     "Review the exact phrasing of professional scope against RA 9200."
   ],
   "cluster": "land",
-  "state": "review",
+  "state": "approved",
   "publishedAt": null,
-  "lastReviewed": "2026-10-18",
+  "lastReviewed": "2026-10-22",
   "readingMinutes": 2,
   "product": {
     "name": "Parcel Plotter",
     "href": "/parcel-plotter/",
     "label": "Explore a preliminary parcel plot"
   },
-  "disclaimer": "For education and preliminary visualization only. Official survey, title and legal questions require appropriate records and qualified professionals."
+  "disclaimer": "For education and preliminary visualization only. Official survey, title and legal questions require appropriate records and qualified professionals.",
+  "reviewApproval": {
+    "method": "local-review",
+    "approvedAt": "2026-10-22T15:00:58.359Z",
+    "contentHash": "70aef2a1ccb411321507ac08e38e5c5d259b2627091f954f42d91d65b1350dba"
+  }
 }
