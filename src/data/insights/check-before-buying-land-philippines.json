@@ -1,0 +1,116 @@
+{
+  "slug": "check-before-buying-land-philippines",
+  "heading": "What should you check before buying land in the Philippines?",
+  "title": "Before buying land in the Philippines: what to check | Spatialdom Insights",
+  "description": "A practical Philippine land-buying due diligence sequence covering title, seller authority, boundaries, access, taxes, zoning and transfer documents.",
+  "intro": "The safest time to investigate a property is before you commit a large payment. A good land purchase is not just a signed deed and a clean-looking title: you need confidence that the seller can convey the rights promised, the lot is the one you inspected, and your intended use is allowed.",
+  "sections": [
+    {
+      "id": "identify",
+      "heading": "Start by identifying exactly what is being sold",
+      "paragraphs": [
+        "Ask for the title number, lot and survey plan numbers, location, land area and a copy of the technical description or approved plan. If the offer is only for part of a larger property, find out whether an approved subdivision plan and a separate title already exist. A highlighted sketch or tax map is not the same as an approved lot description.",
+        "Visit the property in daylight. Ask where its corners and access are said to be, who occupies it, and whether any neighbors dispute the boundaries. Do not treat a fence as conclusive evidence of the legal line."
+      ]
+    },
+    {
+      "id": "title",
+      "heading": "Verify the registration record yourself",
+      "paragraphs": [
+        "Obtain a recent certified true copy of the title through the Registry of Deeds or the LRA eSerbisyo portal. Compare the registered owner, certificate number, lot and plan identifiers and area with the documents the seller provided. Read every annotation and continuation page for mortgages, adverse claims, restrictions, lis pendens or cancellation entries.",
+        "Do not rely on a photo of an owner's duplicate or a statement that the title is 'clean.' A certificate of title is central evidence of registered ownership, but it does not settle every question about occupancy, access, taxes, zoning or boundaries."
+      ]
+    },
+    {
+      "id": "seller",
+      "heading": "Check who has authority to sell",
+      "paragraphs": [
+        "Match the seller's identity to the title and ask whether the land is individually owned, co-owned, conjugal or inherited. If an attorney-in-fact is signing, have the authority document checked. If the owner has died, examine estate and succession requirements; a family member's verbal consent is not enough.",
+        "For corporate sellers, request evidence of the entity's authority and the signatory's authority to dispose of the property. Have a lawyer check unusual ownership arrangements before any non-refundable payment."
+      ]
+    },
+    {
+      "id": "survey",
+      "heading": "Connect the title to the ground",
+      "paragraphs": [
+        "Compare the title's technical description with the approved survey plan and the lot shown on site. A plot can help you understand shape and approximate area, but a correctly closing polygon does not prove that the property is in the right geographic position. Tie points, control information, monuments and field observations matter.",
+        "If boundaries, area, encroachments or access affect your decision, commission a licensed Geodetic Engineer for the appropriate survey or records evaluation. Ask for the deliverable and scope in writing; a site sketch is not automatically a relocation survey."
+      ]
+    },
+    {
+      "id": "rights",
+      "heading": "Investigate access, use and hidden obligations",
+      "paragraphs": [
+        "Verify whether the parcel has lawful access to a public road. A path people have used for years is not necessarily a registered or enforceable right of way. Review relevant easements, waterways, drainage, setbacks and other restrictions.",
+        "Ask the LGU planning office about zoning and permits for your intended use. For agricultural land, investigate whether DAR conversion or agrarian reform restrictions apply. Consider flooding, slope, utilities, existing occupants and any homeowners' or subdivision obligations."
+      ]
+    },
+    {
+      "id": "money",
+      "heading": "Check taxes and the cost of transferring ownership",
+      "paragraphs": [
+        "Request the latest real property tax declaration and tax clearance or payment records from the appropriate LGU. Compare the assessment details with the title without treating the tax declaration as proof of ownership.",
+        "Before agreeing on a price, ask a competent professional to estimate the taxes, fees and sequence for the actual transaction. Philippine transfers can involve capital gains tax or other applicable income tax treatment, documentary stamp tax, local transfer tax, registration charges and notarial or professional fees. The correct treatment depends on the seller, property and transaction; avoid using a single online percentage as a universal quote.",
+        "Clarify in writing who pays each expense, what documents must be delivered, and what happens if registration or title issuance is delayed."
+      ]
+    },
+    {
+      "id": "closing",
+      "heading": "Only then finalize the documents and payment conditions",
+      "paragraphs": [
+        "Have a lawyer review the deed, representations, payment schedule and conditions for release of funds. Where subdivision, estate settlement, mortgage discharge or title correction is pending, tie payment milestones to verifiable deliverables rather than promises.",
+        "After execution and the applicable tax and registration steps, follow through until the transfer is registered and the correct certificate is issued. Keep copies of the signed deed, tax documents, eCAR when applicable, official receipts, survey records and final title.",
+        "If you are still evaluating the technical description, Parcel Plotter is a useful preliminary visualization step. It is not a substitute for title verification, legal due diligence or a professional survey."
+      ]
+    }
+  ],
+  "related": [
+    "verify-land-title-before-buying",
+    "tax-declaration-vs-land-title-philippines",
+    "what-is-a-mother-title-philippines",
+    "annotations-encumbrances-land-title-philippines"
+  ],
+  "sources": [
+    {
+      "label": "LRA — Frequently Asked Questions on Certified True Copies",
+      "url": "https://lra.gov.ph/frequently-asked-questions/"
+    },
+    {
+      "label": "LRA eSerbisyo — Certified True Copy service",
+      "url": "https://eserbisyo.lra.gov.ph/land-title-certified-true-copy-faq"
+    },
+    {
+      "label": "PD 1529 — Property Registration Decree",
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/11/55198"
+    },
+    {
+      "label": "BIR — Tax information",
+      "url": "https://www.bir.gov.ph/tax-info-details"
+    },
+    {
+      "label": "RA 7160 — Local Government Code, Section 20",
+      "url": "https://www.lawphil.net/statutes/repacts/ra1991/ra_7160_1991.html"
+    },
+    {
+      "label": "DAR AO 01-2002 — land-use conversion",
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/39016"
+    }
+  ],
+  "reviewerNotes": [
+    "Have legal and tax reviewers validate transaction-specific tax wording; do not present CGT as applicable to every sale.",
+    "Confirm that a step-by-step diagram would add value without suggesting a fixed one-size-fits-all government process.",
+    "Review links to related Insights, especially the existing title-verification article; ensure no duplicative long sections.",
+    "Consider a downloadable checklist only after this text passes review."
+  ],
+  "cluster": "land",
+  "state": "review",
+  "publishedAt": null,
+  "lastReviewed": "2026-10-18",
+  "readingMinutes": 4,
+  "product": {
+    "name": "Parcel Plotter",
+    "href": "/parcel-plotter/",
+    "label": "Visualize a parcel's technical description with Parcel Plotter"
+  },
+  "disclaimer": "For general educational information only. Verify current records and requirements with the relevant government office. Consult a lawyer, licensed Geodetic Engineer or other qualified professional when the transaction or site warrants it."
+}
