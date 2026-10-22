@@ -5,8 +5,9 @@ import parcelPages from '../../data/parcelPages.json';
 import toolPages from '../../data/toolPages.json';
 import { publishedInsights as insightArticles } from '../../data/insights';
 import lguProductPages from '../../data/lguProductPages.json';
+import siteIdentity from '../../data/siteIdentity.json';
 
-const siteUrl = 'https://spatialdom.xyz';
+const siteUrl = new URL(siteIdentity.url).origin;
 
 function setMeta(selector: string, value: string) {
   document.querySelector<HTMLMetaElement>(selector)?.setAttribute('content', value);
@@ -31,6 +32,7 @@ function RouteMetadata() {
     document.title = page.title;
     setMeta('meta[name="description"]', page.description);
     setMeta('meta[property="og:type"]', type);
+    setMeta('meta[property="og:site_name"]', siteIdentity.name);
     setMeta('meta[property="og:title"]', page.title);
     setMeta('meta[property="og:description"]', page.description);
     setMeta('meta[property="og:url"]', url);

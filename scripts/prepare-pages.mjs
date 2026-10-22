@@ -11,7 +11,8 @@ const sitePages = JSON.parse(readFileSync(resolve('src/data/sitePages.json'), 'u
 const insightClusters = JSON.parse(readFileSync(resolve('src/data/insightClusters.json'), 'utf8'));
 const lguProductPages = JSON.parse(readFileSync(resolve('src/data/lguProductPages.json'), 'utf8'));
 const appUrl = 'https://parcel.spatialdom.xyz/';
-const siteUrl = 'https://spatialdom.xyz';
+const siteIdentity = JSON.parse(readFileSync(resolve('src/data/siteIdentity.json'), 'utf8'));
+const siteUrl = new URL(siteIdentity.url).origin;
 
 if (!existsSync(indexFile)) {
   throw new Error('dist/index.html was not found. Run the Vite build before preparing GitHub Pages output.');

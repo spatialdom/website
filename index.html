@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Spatialdom | Practical Spatial Systems</title>
     <meta
       name="description"
@@ -12,6 +12,7 @@
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#F7F8FA" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Spatialdom" />
     <meta property="og:url" content="https://spatialdom.xyz/" />
     <meta property="og:title" content="Spatialdom | Practical Spatial Systems" />
     <meta
@@ -28,17 +29,26 @@
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1652345700765517"
       crossorigin="anonymous"
     ></script>
-    <script type="application/ld+json">
+    <script id="site-jsonld" type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Spatialdom",
-        "url": "https://spatialdom.xyz/",
-        "description": "Practical spatial systems for land, property, and communities."
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://spatialdom.xyz/#organization",
+            "name": "Spatialdom",
+            "url": "https://spatialdom.xyz/",
+            "description": "Practical spatial systems for land, property, and communities."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://spatialdom.xyz/#website",
+            "name": "Spatialdom",
+            "url": "https://spatialdom.xyz/",
+            "publisher": { "@id": "https://spatialdom.xyz/#organization" }
+          }
+        ]
       }
-    </script>
-    <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"WebSite","name":"Spatialdom","url":"https://spatialdom.xyz/"}
     </script>
   </head>
   <body>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Container from './Container';
-import logoWordmark from '../../assets/logo_transparent.png';
+import logoWordmark from '../../assets/logo.png';
 
 function Footer() {
   return (

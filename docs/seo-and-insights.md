@@ -1,5 +1,28 @@
 # Insights and technical SEO
 
+## Google Search site name
+
+This repository is the main **Spatialdom** brand website, with canonical homepage **https://spatialdom.xyz/**, as confirmed by `public/CNAME`, the homepage title, header, hero label, and footer. These values apply to this repository, not automatically to other Spatialdom products or subdomains. `src/data/siteIdentity.json` declares this identity for route metadata, static generation, and validation. The source `index.html` also contains the literal identity so it is present before JavaScript executes; the build checks it for consistency.
+
+The audit found that both the repository and the live homepage already had the correct `WebSite.name`, `WebSite.url`, title, description, and canonical URL. The missing supporting signal was `og:site_name`. The live HTTPS homepage returned 200 without a `noindex` robots directive or `X-Robots-Tag`; robots.txt allowed crawling and advertised a sitemap containing the homepage. HTTP and `www` resolved to the canonical HTTPS homepage. These checks establish crawl eligibility, not actual Google indexing or the reason Google selected the domain label; that requires Search Console inspection.
+
+The HTML head now contains one `og:site_name` and one `site-jsonld` graph containing a single WebSite node and a single Organization node linked with stable IDs. Existing title/description/canonical values and visible branding remain unchanged. Route-specific Article and BreadcrumbList data remain in `route-jsonld`; client navigation updates only that route graph and preserves the site graph. Do not inject another WebSite node from a component or tag manager. No alternate brand name is claimed because the repository establishes only Spatialdom.
+
+The supplied ICO is served at the stable `/favicon.ico` URL from `public/favicon.ico`, rather than a filename containing an asset hash. It includes square 16, 32, and 48 pixel images. Replace `public/favicon.ico` to update the published favicon; the copy under `src/assets/` is not the served favicon source. The homepage HTML, metadata, structured data, favicon, robots.txt, and sitemap are all in the static build output. GitHub Pages serves them directly, without requiring React execution. No page layouts or visible copy were changed for this SEO update.
+
+`npm run build` validates the initial HTML for every generated route: one title/description/canonical and Open Graph/Twitter property, consistent site identity and WebSite URL, linked Organization, available stable favicon, and no noindex directive. It also checks canonical/sitemap agreement and route-specific structured data.
+
+After deployment, verify manually:
+
+1. Open **View Source** for `https://spatialdom.xyz/`. Confirm one WebSite node with `name: Spatialdom`, `url: https://spatialdom.xyz/`, one `og:site_name: Spatialdom`, the existing branded title/description, and one canonical homepage link. Use View Source, not only the browser's post-JavaScript Elements panel.
+2. Open `/favicon.ico`, `/robots.txt`, and `/sitemap.xml`. Confirm successful responses, the expected icon, crawling allowed for the homepage and icon, and the canonical homepage listed once in the sitemap. Check that homepage response headers have no restrictive `X-Robots-Tag`.
+3. Check that `http://spatialdom.xyz/` and `https://www.spatialdom.xyz/` redirect to `https://spatialdom.xyz/` rather than serving conflicting identities.
+4. Validate the homepage with [Schema Markup Validator](https://validator.schema.org/). Google's Rich Results Test does **not** support site-name validation.
+5. In Google Search Console, inspect the canonical homepage, run **Test live URL**, review crawl/indexing eligibility and Google's selected canonical, and request indexing after the new build is deployed. Submit/confirm the sitemap there as well.
+6. Recheck search appearance after Google recrawls. Site names are selected automatically; these signals express the preference and do not guarantee a particular label or immediate update.
+
+References: [Google site-name documentation](https://developers.google.com/search/docs/appearance/site-names), [favicon guidance](https://developers.google.com/search/docs/appearance/favicon-in-search), [title links](https://developers.google.com/search/docs/appearance/title-link), [snippets and meta descriptions](https://developers.google.com/search/docs/appearance/snippet), and [robots metadata](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag).
+
 ## Publishing an Insight
 
 1. Follow [the editorial workflow](insights-editorial-workflow.md) and add one `src/data/insights/<slug>.json` file. Use a unique descriptive `slug`, clear `title` and `description`, a short `intro`, and sections with unique IDs. Keep claims tied to the listed sources.

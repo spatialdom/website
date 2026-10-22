@@ -7,6 +7,7 @@ const sitePages = data('sitePages.json');
 const parcelPages = data('parcelPages.json');
 const toolPages = data('toolPages.json');
 const lguProductPages = data('lguProductPages.json');
+const siteIdentity = data('siteIdentity.json');
 const pages = [
   ...sitePages,
   ...parcelPages,
@@ -24,16 +25,51 @@ function attribute(html, tag, name) {
   return match?.[0].match(new RegExp(`${name}="([^"]*)"`))?.[1];
 }
 
+function validateSiteIdentity(html, url) {
+  const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1];
+  if (!head) throw new Error(`Missing initial HTML head: ${url}`);
+  for (const pattern of [
+    /<title\b[^>]*>/g,
+    /<meta\b[^>]*\bname="description"[^>]*>/g,
+    /<link\b[^>]*\brel="canonical"[^>]*>/g,
+    ...['type', 'site_name', 'url', 'title', 'description'].map((name) => new RegExp(`<meta\\b[^>]*\\bproperty="og:${name}"[^>]*>`, 'g')),
+    ...['card', 'title', 'description', 'url'].map((name) => new RegExp(`<meta\\b[^>]*\\bname="twitter:${name}"[^>]*>`, 'g'))
+  ]) {
+    if ([...head.matchAll(pattern)].length !== 1) throw new Error(`Missing or duplicate initial metadata (${pattern}): ${url}`);
+  }
+  if (attribute(head, /<meta\b[^>]*property="og:site_name"[^>]*>/, 'content') !== siteIdentity.name) throw new Error(`Incorrect site name: ${url}`);
+  const graphs = [...head.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap((match) => {
+    const value = JSON.parse(match[1]);
+    return value['@graph'] ?? (Array.isArray(value) ? value : [value]);
+  });
+  const websites = graphs.filter((node) => [].concat(node['@type']).includes('WebSite'));
+  const organizations = graphs.filter((node) => [].concat(node['@type']).includes('Organization'));
+  if (websites.length !== 1 || websites[0].name !== siteIdentity.name || websites[0].url !== siteIdentity.url || websites[0]['@id'] !== `${siteIdentity.url}#website`) throw new Error(`Conflicting WebSite identity: ${url}`);
+  if (organizations.length !== 1 || organizations[0].name !== siteIdentity.name || organizations[0].url !== siteIdentity.url || websites[0].publisher?.['@id'] !== organizations[0]['@id']) throw new Error(`Conflicting organization identity: ${url}`);
+  const icons = [...head.matchAll(/<link\b[^>]*\brel="icon"[^>]*>/g)];
+  if (icons.length !== 1 || attribute(icons[0][0], /<link[^>]*>/, 'href') !== siteIdentity.favicon || !existsSync(resolve('dist', siteIdentity.favicon.slice(1)))) throw new Error(`Missing stable favicon: ${url}`);
+  if (/<meta\b[^>]*(?:name="(?:robots|googlebot)"[^>]*content="[^"]*\b(?:noindex|none)\b|content="[^"]*\b(?:noindex|none)\b[^"]*"[^>]*name="(?:robots|googlebot)")/i.test(head)) throw new Error(`Public page is marked noindex: ${url}`);
+}
+
+validateSiteIdentity(readFileSync(resolve('index.html'), 'utf8'), 'source index.html');
+
 for (const page of pages) {
-  const url = `https://spatialdom.xyz/${page.slug ? `${page.slug}/` : ''}`;
+  const url = `${siteIdentity.url}${page.slug ? `${page.slug}/` : ''}`;
   const path = resolve('dist', page.slug, 'index.html');
   if (!existsSync(path)) throw new Error(`Missing generated HTML: ${path}`);
   const html = readFileSync(path, 'utf8');
+  validateSiteIdentity(html, url);
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];
   const description = attribute(html, /<meta name="description"[^>]*\/>/, 'content');
   const canonical = attribute(html, /<link rel="canonical"[^>]*\/>/, 'href');
   const ogUrl = attribute(html, /<meta property="og:url"[^>]*\/>/, 'content');
   const twitterUrl = attribute(html, /<meta name="twitter:url"[^>]*\/>/, 'content');
+  const ogTitle = attribute(html, /<meta property="og:title"[^>]*\/>/, 'content');
+  const ogDescription = attribute(html, /<meta property="og:description"[^>]*\/>/, 'content');
+  const twitterTitle = attribute(html, /<meta name="twitter:title"[^>]*\/>/, 'content');
+  const twitterDescription = attribute(html, /<meta name="twitter:description"[^>]*\/>/, 'content');
+  if (ogTitle !== title || twitterTitle !== title || ogDescription !== description || twitterDescription !== description) throw new Error(`Conflicting title or description: ${url}`);
+  if (!page.slug && (title !== page.title || description !== page.description || !title.startsWith(`${siteIdentity.name} |`) || !description.startsWith(`${siteIdentity.name} `))) throw new Error('Homepage metadata does not match its brand and content configuration.');
   if (!title || !description || !html.includes('<h1') || seenTitles.has(title) || seenDescriptions.has(description)) throw new Error(`Missing or duplicate content metadata: ${url}`);
   if (canonical !== url || ogUrl !== url || twitterUrl !== url || !sitemap.includes(`<loc>${url}</loc>`)) throw new Error(`Incorrect canonical or sitemap URL: ${url}`);
   if (seenUrls.has(url)) throw new Error(`Duplicate URL: ${url}`);
