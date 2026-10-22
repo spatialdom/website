@@ -4,7 +4,19 @@
 
 Spatialdom Insights is the long-form knowledge and organic acquisition layer of spatialdom.xyz. It is not a generic company blog. Each article should answer a real question, teach something useful, preserve professional boundaries, and connect naturally to the relevant Spatialdom product or capability.
 
-GitHub is the editorial system of record.
+The Git repository is the editorial system of record. Article JSON is the source of truth for content and local approvals; GitHub issues track the topic backlog and publication status.
+
+## Local review dashboard
+
+1. Run `npm run review` (`npm.cmd run review` in PowerShell if needed). The browser opens the local `/review/insights/` dashboard. Normal `npm run dev` does not enable the dashboard or its write API.
+2. Select a finished draft to see the same article renderer used by the published site. Reviewer notes, where provided, appear separately above the preview.
+3. Click **Edit** to change the prose, sections, sources, product link, or search settings. **Save edits and preview** saves the article JSON and returns it to review. The preview can show unsaved edits, but approval requires saving first and leaving edit mode.
+4. Click **Approve for publication** after reviewing the saved version. The dashboard records the review date in Philippine time and a content hash. Any subsequent content change invalidates that approval. **Return to review** explicitly withdraws it.
+5. Commit changes on your working branch, merge to `master`, and push when ready. The existing weekly publication workflow reads valid local approvals directly; no GitHub label change is required. Its weekly limits still apply. An approved draft does not replace a published article until the publisher releases it.
+
+The local dashboard binds to loopback and checks local host, request origin, and a per-session write token. It needs no hosted service or GitHub credentials. Local approval is an intentional repository action, not a verified GitHub identity signature; repository write/merge access is the trust boundary. The existing GitHub-approval path remains available for articles not managed through local review. Once managed locally, an invalid or withdrawn local approval cannot be overridden by an old issue label.
+
+Stale browser tabs cannot overwrite newer files: reload from disk if the dashboard reports a conflict. Drafts and approval records are excluded from the public manifest. Markdown files under `content/insights/review/` are historical review copies, not the publishing source; use the dashboard to make edits.
 
 ## Editorial states
 
@@ -17,7 +29,7 @@ Every Insight topic/article must be in exactly one of these states:
 - `insight:scheduled` — approved and assigned to a publication slot.
 - `insight:published` — live on spatialdom.xyz/insights.
 
-Human approval is mandatory. No article may move from `insight:review` to `insight:approved` automatically.
+Human approval is mandatory. No article may move from review to approved automatically. The dashboard's **Approve for publication** button is the local equivalent of the GitHub label transition.
 
 ## Review queue backpressure
 
@@ -115,7 +127,7 @@ Existing slugs should normally remain unchanged to avoid unnecessary URL churn.
 
 ## Dominic's required action
 
-Dominic's only required workflow action is:
+Dominic's required workflow action is to review the saved article and click **Approve for publication** locally, then commit and merge the approval. Alternatively, the original GitHub workflow uses:
 
 `insight:review` → `insight:approved`
 

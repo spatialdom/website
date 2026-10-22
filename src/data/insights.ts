@@ -13,6 +13,8 @@ export interface InsightArticle {
   releasedAt?: string | null;
   legacy?: boolean;
   disclaimer?: string;
+  reviewerNotes?: string[];
+  reviewApproval?: { method: string; approvedAt: string; contentHash: string } | null;
   sections: { id: string; heading: string; paragraphs: string[] }[];
   related: string[];
   product: { name: string; href: string; label: string };

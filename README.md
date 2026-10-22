@@ -18,6 +18,14 @@ npm install
 npm run dev
 ```
 
+## Review Insight drafts locally
+
+Run `npm run review` (or `npm.cmd run review` in PowerShell if script execution is restricted). It opens `http://127.0.0.1:5173/review/insights/`; use the port printed by Vite if 5173 is occupied.
+
+Select an already-written draft, preview the article, and click **Edit** or **Approve for publication**. **Save edits and preview** writes directly to `src/data/insights/<slug>.json`. Saving edits returns the draft to review; approval covers the saved version only. Legacy rewrites stay in `candidate` until publication, preserving the current live article.
+
+Commit your edits and approvals on a working branch and merge into `master`. Push `master` when ready to share them with the weekly publisher. Merging approved drafts does not immediately publish them. The dashboard and its write API run only in local review mode and are excluded from the public build. See [the editorial workflow](docs/insights-editorial-workflow.md).
+
 ## Build
 
 ```bash

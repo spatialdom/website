@@ -1,6 +1,6 @@
 # Insights review index
 
-Draft review copies and their tracking issues.
+These Markdown files are historical review copies. Run `npm run review` and use the local dashboard to preview, edit, and approve the current drafts. Edits save to article JSON; changing a Markdown copy does not update the publishing source. The links below retain the original copies and tracking issues.
 
 - [How to plot a land title technical description](./plot-land-title-technical-description.md) — [Issue #19](https://github.com/spatialdom/website/issues/19)
 - [How to read bearings and distances on a land title](./read-bearings-and-distances-land-title.md) — [Issue #20](https://github.com/spatialdom/website/issues/20)

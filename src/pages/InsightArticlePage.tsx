@@ -2,18 +2,23 @@ import { Link } from 'react-router-dom';
 import Container from '../components/layout/Container';
 import { publishedInsights as articles } from '../data/insights';
 import { readingMinutes } from '../data/readingTime';
+import type { InsightArticle } from '../data/insights';
 
 function InsightArticlePage({ slug }: { slug: string }) {
   const article = articles.find((item) => item.slug === slug);
   if (!article) return null;
+  return <InsightArticleContent article={article} />;
+}
 
+export function InsightArticleContent({ article, embedded = false }: { article: InsightArticle; embedded?: boolean }) {
+  const Root = embedded ? 'div' : 'main';
   const related = article.related.map((relatedSlug) => articles.find((item) => item.slug === relatedSlug)).filter((item) => item !== undefined);
   const productLink = article.product.href.startsWith('mailto:')
     ? <a className="interactive-accent mt-4" href={article.product.href}>{article.product.label}</a>
     : <Link className="interactive-accent mt-4" to={article.product.href}>{article.product.label}</Link>;
 
   return (
-    <main className="pb-16 pt-32 sm:pt-40">
+    <Root className="pb-16 pt-32 sm:pt-40">
       <Container className="max-w-4xl">
         <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm text-text-secondary">
           <Link className="text-link" to="/">Home</Link><span aria-hidden="true">/</span>
@@ -63,7 +68,7 @@ function InsightArticlePage({ slug }: { slug: string }) {
           </div>
         </article>
       </Container>
-    </main>
+    </Root>
   );
 }
 

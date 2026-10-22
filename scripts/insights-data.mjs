@@ -8,11 +8,17 @@ export const allInsights = readdirSync(directory).filter((file) => file.endsWith
   return article;
 });
 
-export function toPublicArticle({ candidate, ...article }) {
+export function toPublicArticle({ candidate, reviewApproval, reviewerNotes, ...article }) {
   return article;
 }
 
-export const publishedInsights = allInsights.filter((article) => article.state === 'published').map(toPublicArticle);
+export function publicManifest(articles) {
+  const published = articles.filter((article) => article.state === 'published');
+  const slugs = new Set(published.map((article) => article.slug));
+  return published.map((article) => ({ ...toPublicArticle(article), related: article.related.filter((slug) => slugs.has(slug)) }));
+}
+
+export const publishedInsights = publicManifest(allInsights);
 export function readingMinutes(article) {
   const words = [article.heading, article.intro, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs])]
     .join(' ').trim().split(/\s+/).length;

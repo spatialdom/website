@@ -16,6 +16,8 @@ import lguProductPages from './data/lguProductPages.json';
 
 const CoordinateConverterPage = lazy(() => import('./tools/coordinate-converter/CoordinateConverterPage'));
 const GeoJSONViewerPage = lazy(() => import('./tools/geojson-viewer/GeoJSONViewerPage'));
+const InsightsReviewPage = import.meta.env.DEV && import.meta.env.MODE === 'review'
+  ? lazy(() => import('./pages/InsightsReviewPage')) : null;
 
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
@@ -40,6 +42,7 @@ function App() {
         <ScrollToHash />
         <Suspense fallback={null}>
           <Routes>
+            {InsightsReviewPage && <Route path="/review/insights" element={<InsightsReviewPage />} />}
             <Route path="/" element={<HomePage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />

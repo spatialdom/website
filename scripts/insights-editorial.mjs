@@ -3,6 +3,7 @@ import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { allInsights } from './insights-data.mjs';
 import { plan } from './insights-plan.mjs';
+import { editorialSlug, hasLocalApproval, withLocalReview } from './insights-approval.mjs';
 
 const owner = 'spatialdom';
 const repo = 'website';
@@ -24,6 +25,9 @@ function getQueue() {
 }
 
 function hasDominicApproval(issue) {
+  const article = allInsights.find((item) => item.slug === editorialSlug(issue));
+  const draft = article?.candidate ?? article;
+  if (draft && Object.hasOwn(draft, 'reviewApproval')) return hasLocalApproval(draft);
   const events = gh('api', `repos/${owner}/${repo}/issues/${issue.number}/events?per_page=100`);
   const lastApproved = events.filter((event) => event.event === 'labeled' && event.label?.name === 'insight:approved').at(-1);
   if (lastApproved?.actor?.login !== approver) return false;
@@ -36,7 +40,7 @@ function hasDominicApproval(issue) {
 const command = process.argv[2] ?? 'plan';
 const relaunch = process.argv.includes('--relaunch');
 const today = new Date().toISOString().slice(0, 10);
-const queue = getQueue();
+const queue = withLocalReview(getQueue(), allInsights);
 const result = plan(queue, allInsights, today, relaunch);
 
 if (command === 'plan') {
@@ -57,7 +61,8 @@ if (command === 'plan') {
     delete next.candidate;
     if (article.legacy) next.legacy = true;
     writeFileSync(resolve('src/data/insights', `${slug}.json`), JSON.stringify(next, null, 2) + '\n');
-    published.push({ number, slug, previousState: issue.state });
+    // The issue may still be labeled review when approval happened locally.
+    published.push({ number, slug, previousState: issue.labels.find((label) => label.name.startsWith('insight:'))?.name.slice(8) ?? issue.state });
   }
   writeFileSync(resolve('insights-publication-result.json'), JSON.stringify(published, null, 2) + '\n');
   console.log(JSON.stringify({ ...result, published }, null, 2));
