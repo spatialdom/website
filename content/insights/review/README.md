@@ -1,6 +1,8 @@
 # Insights review index
 
-These Markdown files are historical review copies. Run `npm run review` and use the local dashboard to preview, edit, and approve the current drafts. Edits save to article JSON; changing a Markdown copy does not update the publishing source. The links below retain the original copies and tracking issues.
+These Markdown files are the **human-readable editorial review copies**. Review and edit prose here as normal paragraphs, then mark the corresponding GitHub issue `insight:approved` only when satisfied. The editorial publication process must synchronize approved Markdown prose into the corresponding article JSON before release, preserving metadata, references, links, product CTA and publication state.
+
+**Important:** The local `npm run review` dashboard currently edits article JSON directly, not these Markdown files. If you use that dashboard to revise an article, mirror its final prose into the Markdown review copy before approving. Do not overwrite a newer human-edited Markdown copy with older JSON. GitHub issue labels are the publication gate; a JSON `reviewApproval` value alone does not authorize publication while the issue is still `insight:review`.
 
 - [How to plot a land title technical description](./plot-land-title-technical-description.md) — [Issue #19](https://github.com/spatialdom/website/issues/19)
 - [How to read bearings and distances on a land title](./read-bearings-and-distances-land-title.md) — [Issue #20](https://github.com/spatialdom/website/issues/20)
@@ -22,3 +24,5 @@ These Markdown files are historical review copies. Run `npm run review` and use 
 - [What should you check before buying land in the Philippines?](./check-before-buying-land-philippines.md) — [Issue #38](https://github.com/spatialdom/website/issues/38)
 - [What does a Geodetic Engineer actually do when you buy or own land?](./what-does-geodetic-engineer-do-philippines.md) — [Issue #47](https://github.com/spatialdom/website/issues/47)
 - [What is a tie point or BLLM, and why does it matter when locating a parcel?](./what-is-tie-point-bllm-philippines.md) — [Issue #51](https://github.com/spatialdom/website/issues/51)
+
+- [What do annotations and encumbrances on a land title mean?](./annotations-encumbrances-land-title-philippines.md) — [Issue #35](https://github.com/spatialdom/website/issues/35)
