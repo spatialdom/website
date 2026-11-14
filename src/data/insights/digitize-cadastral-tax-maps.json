@@ -35,9 +35,9 @@
     "rpvara-digital-tax-mapping"
   ],
   "product": {
-    "name": "SPARTA",
-    "href": "/sparta/",
-    "label": "Explore SPARTA for digitized parcel records"
+    "name": "Kadastra",
+    "href": "/kadastra/",
+    "label": "Kadastra: coming soon; development deferred until after SMACCs"
   },
   "sources": [
     {
@@ -119,9 +119,9 @@
       "rpvara-digital-tax-mapping"
     ],
     "product": {
-      "name": "SPARTA",
-      "href": "/sparta/",
-      "label": "Explore SPARTA for parcel-centered LGU mapping workflows"
+      "name": "Kadastra",
+      "href": "/kadastra/",
+      "label": "Kadastra: coming soon; development deferred until after SMACCs"
     },
     "sources": [
       {

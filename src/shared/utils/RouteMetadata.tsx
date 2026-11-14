@@ -51,12 +51,12 @@ function RouteMetadata() {
         : parcelPages.some((item) => item.slug === slug && slug !== 'parcel-plotter')
           ? [{ name: 'Parcel Plotter', url: `${siteUrl}/parcel-plotter/` }]
           : lguPage?.kind === 'guide'
-            ? [{ name: lguPage.family === 'sparta' ? 'SPARTA' : 'RBIM Cloud', url: `${siteUrl}/${lguPage.family === 'sparta' ? 'sparta' : 'rbim-cloud'}/` }]
+            ? [{ name: lguPage.family === 'kadastra' ? 'Kadastra' : 'RBIM Cloud', url: `${siteUrl}/${lguPage.family === 'kadastra' ? 'kadastra' : 'rbim-cloud'}/` }]
           : [];
       graph.push({ '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
         ...parent.map((item, index) => ({ '@type': 'ListItem', position: index + 2, name: item.name, item: item.url })),
-        { '@type': 'ListItem', position: parent.length + 2, name: lguPage?.kind === 'product' ? (lguPage.family === 'sparta' ? 'SPARTA' : 'RBIM Cloud') : page.heading, item: url }
+        { '@type': 'ListItem', position: parent.length + 2, name: lguPage?.kind === 'product' ? (lguPage.family === 'kadastra' ? 'Kadastra' : 'RBIM Cloud') : page.heading, item: url }
       ] });
     }
     if (graph.length > 0) {

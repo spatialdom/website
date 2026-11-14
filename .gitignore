@@ -5,3 +5,7 @@ dist
 *.local
 src/data/publishedInsights.generated.json
 insights-publication-result.json
+src/data/designGuidelines.generated.json
+src/styles/design-tokens.generated.css
+public/design/
+artifacts/

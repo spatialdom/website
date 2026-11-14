@@ -11,12 +11,21 @@ export const productPaths = [
     external: true
   },
   {
-    audience: 'I work with property records in an LGU',
+    audience: 'I work in professional Geodetic Engineering',
     name: 'SPARTA',
-    description: "Build and maintain a parcel and tax mapping system around the real work of the Assessor's Office.",
-    action: 'Discuss Tax Mapping',
+    description: "Professional Geodetic Engineering workspace for projects, survey workflows and professional deliverables.",
+    action: 'Ask about SPARTA',
     href: mailtoFor(inquirySubjects.sparta),
     learnHref: '/sparta/',
+    external: false
+  },
+  {
+    audience: 'I work with property records in an LGU',
+    name: 'Kadastra',
+    description: 'Future LGU tax-mapping and property-assessment platform. Coming soon. Development deferred until after SMACCs.',
+    action: 'View Kadastra status',
+    href: '/kadastra/',
+    learnHref: '/tax-mapping-system-philippines/',
     external: false
   },
   {

@@ -19,6 +19,8 @@ function Footer() {
               Parcel Plotter
             </Link>
             <Link to="/sparta/" className="theme-text-link">SPARTA</Link>
+            <Link to="/kadastra/" className="theme-text-link">Kadastra</Link>
+            <Link to="/design/guidelines/" className="theme-text-link">Design guidelines</Link>
             <Link to="/rbim-cloud/" className="theme-text-link">RBIM Cloud</Link>
             <Link to="/contact" className="theme-text-link">
               Contact

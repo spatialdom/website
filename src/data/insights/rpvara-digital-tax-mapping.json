@@ -54,7 +54,7 @@
       "heading": "Think of digital tax mapping as infrastructure for the reform",
       "paragraphs": [
         "A good digital parcel layer will not determine market value on its own. What it can do is give the valuation and assessment process a reliable spatial backbone: which property is this, where is it, what records belong to it, what changed, and what nearby evidence may be relevant?",
-        "That is a more useful way to connect RPVARA and systems such as SPARTA. The map is not a substitute for valuation standards or assessor judgment; it is infrastructure that helps those processes operate on cleaner, traceable information."
+        "That is a more useful way to connect RPVARA and the future Kadastra platform (coming soon; development deferred until after SMACCs). The map is not a substitute for valuation standards or assessor judgment; it is infrastructure that helps those processes operate on cleaner, traceable information."
       ]
     }
   ],
@@ -63,9 +63,9 @@
     "digitize-cadastral-tax-maps"
   ],
   "product": {
-    "name": "SPARTA",
-    "href": "/sparta/",
-    "label": "See how SPARTA approaches parcel-centered property administration"
+    "name": "Kadastra",
+    "href": "/kadastra/",
+    "label": "Kadastra: coming soon; development deferred until after SMACCs"
   },
   "sources": [
     {

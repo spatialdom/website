@@ -6,6 +6,8 @@ import ContactPage from './pages/ContactPage';
 import InsightsPage from './pages/InsightsPage';
 import InsightArticlePage from './pages/InsightArticlePage';
 import LguProductPage from './pages/LguProductPage';
+import DesignGuidelinesPage from './pages/DesignGuidelinesPage';
+import SpartaPage from './pages/SpartaPage';
 import PrivacyPage from './pages/PrivacyPage';
 import ParcelPage from './pages/ParcelPage';
 import ToolsPage from './pages/ToolsPage';
@@ -45,6 +47,8 @@ function App() {
             {InsightsReviewPage && <Route path="/review/insights" element={<InsightsReviewPage />} />}
             <Route path="/" element={<HomePage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/design/guidelines" element={<DesignGuidelinesPage />} />
+            <Route path="/sparta" element={<SpartaPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/parcel-plotter" element={<ParcelPage slug="parcel-plotter" />} />
             <Route path="/plot-land-title-technical-description" element={<ParcelPage slug="plot-land-title-technical-description" />} />
