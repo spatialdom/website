@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#F7F8FA" />
+<title>Design guidelines — Spatialdom</title>
+<meta name="description" content="Spatialdom design guidelines for consistent, accessible, precise product interfaces, geospatial workflows and writing." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root { --bg:#F7F8FA; --paper:#FFFFFF; --ink:#17202A; --muted:#596574; --brand:#123B5D; --border:#DCE2E8; --soft:#E8F0F6; --line-height:1.55; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:'Source Sans 3',system-ui,sans-serif; font-size:16px; line-height:var(--line-height); }
+:focus-visible { outline:3px solid #1B557F; outline-offset:3px; }
+a { color:#1B557F; text-underline-offset:3px; }
+a:hover { color:var(--brand); }
+.skip {position:absolute;left:-9999px;z-index:99;top:12px;padding:10px 14px;background:#fff;border:1px solid var(--border);}
+.skip:focus {left:14px;}
+.topbar { background:rgba(255,255,255,.96); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:40; backdrop-filter:blur(12px); }
+.topinner { max-width:1500px; margin:auto; min-height:65px; padding:10px 30px; display:flex; align-items:center; gap:20px; justify-content:space-between; }
+.brand { display:flex;gap:11px;align-items:center; color:var(--brand); text-decoration:none; font-size:19px;font-weight:700; letter-spacing:-.02em; }
+.brandmark { height:31px; width:31px; display:grid;place-items:center; border:2px solid var(--brand); border-radius:10px; font-weight:700; font-size:19px; line-height:1; }
+.breadcrumb {color:var(--muted);font-size:14px;}
+.breadcrumb strong{color:var(--ink);font-weight:600}
+.toolbar {display:flex;gap:9px;align-items:center;}
+.btn {font-family:inherit;font-size:14px;font-weight:600;min-height:42px;padding:9px 13px;border:1px solid var(--border); border-radius:8px; background:#fff;color:var(--ink);cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:#7d9ab2;background:#eef3f7}
+.btn-primary {background:var(--brand);color:#fff;border-color:var(--brand)}
+.btn-primary:hover {background:#0e2f4b;color:#fff;}
+.shell {max-width:1500px;margin:auto;display:grid;grid-template-columns:282px minmax(0,1fr); gap:58px;padding:37px 40px 96px;}
+.sidebar { position:sticky; top:102px; align-self:start; max-height:calc(100vh - 120px); overflow:auto; padding-right:15px;}
+.sidebar-label { font-size:12px;font-weight:700;letter-spacing:.065em;text-transform:uppercase;color:var(--muted);padding:9px 11px 12px; }
+.sidebar nav {display:grid;gap:1px;}
+.sidebar nav a { display:block; border-radius:7px; padding:7px 11px; text-decoration:none; color:#455462; font-size:14px;line-height:1.3; }
+.sidebar nav a:hover {background:#e9eef2;color:var(--ink)}
+.sidebar nav a.active {background:var(--soft);font-weight:600;color:var(--brand);}
+.sidebar small {display:block;border-top:1px solid var(--border);margin-top:20px;padding:17px 11px;color:var(--muted);line-height:1.5}
+.main {min-width:0;max-width:980px;}
+.eyebrow{color:var(--brand);text-transform:uppercase;letter-spacing:.10em;font-weight:700;font-size:12px; margin:0 0 13px}
+.status{border:1px solid var(--border);display:inline-block;border-radius:999px;color:var(--muted);background:#fff;padding:3px 11px;font-size:12px;margin-left:10px;white-space:nowrap}
+.main article h1 {font-size:clamp(36px,5vw,60px);font-weight:700;letter-spacing:-.045em;line-height:1.1;margin:0 0 19px;color:var(--ink)}
+.main article h2 {border-top:1px solid var(--border);padding-top:34px;margin-top:49px;font-size:24px;line-height:1.22;font-weight:700;letter-spacing:-.018em;scroll-margin-top:100px}
+.main article h3{font-size:18px;margin-top:29px;margin-bottom:10px;scroll-margin-top:100px}
+.main article p,.main article li{color:#344554}
+.main article p{margin:13px 0}
+.main article li{padding-left:2px;margin:6px 0}
+.main article li p{margin:0}
+.main article ol,.main article ul{padding-left:25px;margin:14px 0 20px}
+.main article strong{color:var(--ink)}
+.main article a{overflow-wrap:anywhere}
+.main article blockquote{margin:28px 0 29px;padding:19px 22px;border-left:4px solid var(--brand);background:#eaf0f5;border-radius:0 8px 8px 0}
+.main article blockquote p{margin:6px 0}
+.main article blockquote strong{font-size:19px}
+.main article hr{border:0;border-top:1px solid var(--border)}
+.main article table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow-x:auto;margin:22px 0 28px;}
+.main article th,.main article td{padding:12px 14px; border-bottom:1px solid var(--border);text-align:left;min-width:95px; vertical-align:top;}
+.main article th{background:#edf1f5;color:var(--ink);font-weight:600}
+.main article tr:nth-child(even) td{background:#f1f4f6}
+.main article code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.87em;border:1px solid #e4e8ec;background:#f1f4f7;border-radius:4px;padding:1px 4px;white-space:normal;overflow-wrap:anywhere}
+.main article table code{white-space:nowrap}
+.main article li input[type=checkbox]{accent-color:var(--brand)}
+.meta {background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 19px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin:17px 0 31px}
+.meta p{margin:0;color:var(--muted);font-size:14px}
+.meta a{font-size:13px;font-weight:600}
+.hero-tools{display:flex;flex-wrap:wrap;gap:8px}
+.footer{margin-top:75px;border-top:1px solid var(--border);padding-top:23px;color:var(--muted);font-size:14px}
+.mobile-nav{display:none}
+@media(max-width:1020px){.shell{gap:25px;grid-template-columns:230px minmax(0,1fr);padding:32px 24px}.sidebar nav a{font-size:13px}.topinner{padding:10px 22px}}
+@media(max-width:760px){.shell{display:block;padding:22px 17px 70px}.sidebar{display:none}.topinner{padding:9px 16px;gap:10px}.breadcrumb{display:none}.toolbar{gap:6px}.toolbar .optional{display:none}.brand{font-size:17px}.brandmark{height:28px;width:28px;font-size:16px}.btn{padding:8px 10px;font-size:13px}.mobile-nav{display:block;border:1px solid var(--border);background:#fff;border-radius:8px;padding:12px 14px;margin:0 0 27px}.mobile-nav summary{cursor:pointer;font-weight:600}.mobile-nav nav{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:13px 0 3px}.mobile-nav a{font-size:13px;text-decoration:none}.main article h2{margin-top:37px;padding-top:30px;font-size:22px}.status{margin:0 0 12px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+<header class="topbar"><div class="topinner">
+<a class="brand" href="https://spatialdom.xyz/"><span class="brandmark" aria-hidden="true">S</span><span>spatialdom</span></a>
+<div class="breadcrumb">Design <span aria-hidden="true">/</span> <strong>Guidelines</strong></div>
+<div class="toolbar"><a class="btn optional" href="GUIDELINES.md">View Markdown</a><a class="btn optional" href="tokens.json">Design tokens</a><button id="copy-agent" class="btn btn-primary" type="button">Copy agent rules</button></div>
+</div></header>
+<div class="shell">
+<aside class="sidebar" aria-label="Guidelines navigation"><div class="sidebar-label">On this page</div><nav><a href="#how-to-apply-these-rules">How to apply these rules</a>
+<a href="#01-product-philosophy">01 · Product philosophy</a>
+<a href="#02-personality-and-product-family">02 · Personality and product family</a>
+<a href="#03-color-and-surfaces">03 · Color and surfaces</a>
+<a href="#04-typography-and-numbers">04 · Typography and numbers</a>
+<a href="#05-spacing-layout-and-responsiveness">05 · Spacing, layout and responsiveness</a>
+<a href="#06-icons-borders-and-elevation">06 · Icons, borders and elevation</a>
+<a href="#07-navigation-and-context">07 · Navigation and context</a>
+<a href="#08-buttons-and-actions">08 · Buttons and actions</a>
+<a href="#09-forms-and-validation">09 · Forms and validation</a>
+<a href="#10-feedback-and-application-states">10 · Feedback and application states</a>
+<a href="#11-maps-parcels-and-geospatial-truth">11 · Maps, parcels and geospatial truth</a>
+<a href="#12-tables-data-and-charts">12 · Tables, data and charts</a>
+<a href="#13-accessibility-and-interaction">13 · Accessibility and interaction</a>
+<a href="#14-motion-and-performance">14 · Motion and performance</a>
+<a href="#15-copywriting-and-terminology">15 · Copywriting and terminology</a>
+<a href="#16-product-specific-overlays">16 · Product-specific overlays</a>
+<a href="#17-privacy-trust-and-reporting">17 · Privacy, trust and reporting</a>
+<a href="#18-quality-gates">18 · Quality gates</a>
+<a href="#19-design-tokens-and-machine-use">19 · Design tokens and machine use</a>
+<a href="#20-governance-and-changelog">20 · Governance and changelog</a></nav><small>Working draft · 1.1.0<br/>Based on Spatialdom’s September 2026 product design rulebook.<br/><a href="AGENTS_SNIPPET.md">AI agent instructions</a></small></aside>
+<main class="main" id="main-content"><p class="eyebrow">Product design standard <span class="status">Draft · v1.1</span></p>
+<div class="meta"><p>A living reference for consistent, accessible interfaces across Spatialdom products.</p><div class="hero-tools"><a href="AGENTS_SNIPPET.md">Agent instructions</a><a href="tokens.json">Tokens</a></div></div>
+<details class="mobile-nav"><summary>Browse sections</summary><nav><a href="#how-to-apply-these-rules">How to apply these rules</a>
+<a href="#01-product-philosophy">01 · Product philosophy</a>
+<a href="#02-personality-and-product-family">02 · Personality and product family</a>
+<a href="#03-color-and-surfaces">03 · Color and surfaces</a>
+<a href="#04-typography-and-numbers">04 · Typography and numbers</a>
+<a href="#05-spacing-layout-and-responsiveness">05 · Spacing, layout and responsiveness</a>
+<a href="#06-icons-borders-and-elevation">06 · Icons, borders and elevation</a>
+<a href="#07-navigation-and-context">07 · Navigation and context</a>
+<a href="#08-buttons-and-actions">08 · Buttons and actions</a>
+<a href="#09-forms-and-validation">09 · Forms and validation</a>
+<a href="#10-feedback-and-application-states">10 · Feedback and application states</a>
+<a href="#11-maps-parcels-and-geospatial-truth">11 · Maps, parcels and geospatial truth</a>
+<a href="#12-tables-data-and-charts">12 · Tables, data and charts</a>
+<a href="#13-accessibility-and-interaction">13 · Accessibility and interaction</a>
+<a href="#14-motion-and-performance">14 · Motion and performance</a>
+<a href="#15-copywriting-and-terminology">15 · Copywriting and terminology</a>
+<a href="#16-product-specific-overlays">16 · Product-specific overlays</a>
+<a href="#17-privacy-trust-and-reporting">17 · Privacy, trust and reporting</a>
+<a href="#18-quality-gates">18 · Quality gates</a>
+<a href="#19-design-tokens-and-machine-use">19 · Design tokens and machine use</a>
+<a href="#20-governance-and-changelog">20 · Governance and changelog</a></nav></details>
+<article><h1 id="spatialdom-design-guidelines">Spatialdom design guidelines</h1>
+<p><strong>Version:</strong> 1.1.0-draft<br/>
+<strong>Updated:</strong> 3 November 2026<br/>
+<strong>Status:</strong> Proposed public working standard; not yet adopted or deployed<br/>
+<strong>Canonical destination:</strong> <code>https://spatialdom.xyz/design/guidelines/</code><br/>
+<strong>Applies to:</strong> Spatialdom website, Parcel Plotter, SPARTA (professional Geodetic Engineering workspace), RBIM Cloud, future institutional systems, mobile apps, generated reports, and associated product communications.</p>
+<blockquote>
+<p><strong>The interface disappears. The user's task remains.</strong></p>
+<p>Spatialdom designs for confident decisions, not visual novelty. Make technically complex work understandable without hiding its assumptions or limitations.</p>
+</blockquote>
+<p>This is a living, <strong>normative</strong> standard for humans and AI coding agents. It builds on the Spatialdom Product Design Rulebook v1.0 (September 2026) and adopts select general usability lessons from Vercel's Web Interface Guidelines, but the wording, brand choices and geospatial safeguards here are Spatialdom-specific. It is not a reproduction of Vercel's guide.</p>
+<h2 id="how-to-apply-these-rules">How to apply these rules</h2>
+<ul>
+<li><strong>MUST / MUST NOT:</strong> Required unless a documented exception is approved.</li>
+<li><strong>SHOULD / SHOULD NOT:</strong> Default; explain departures in a pull request.</li>
+<li><strong>MAY:</strong> Optional when the task benefits from it.</li>
+<li><strong>Precedence:</strong> Law, accessibility and safety requirements → current domain specification and real-world correctness → these design guidelines → product-specific UI decisions → individual page styling.</li>
+<li>A product's local <code>AGENTS.md</code> MAY specify additional rules, but MUST NOT silently override cross-product accessibility, truthfulness, privacy, or geospatial accuracy requirements.</li>
+<li>Proposed changes to canonical tokens or behavior require a design decision record, version increment, and review of affected products. The publicly published guide and the machine-readable <code>tokens.json</code> should share a version.</li>
+<li>These rules cover UI, not product roadmap or business decisions. Never infer a feature exists solely because the guidelines show it as an example.</li>
+</ul>
+<h2 id="01-product-philosophy">01 · Product philosophy</h2>
+<ol>
+<li><strong>Design the task first.</strong> Before layout, write down the user, context, intended first thought, first action, successful result, and recovery path.</li>
+<li><strong>One clear next step.</strong> Each region MUST have a discernible primary action; avoid competing primary buttons.</li>
+<li><strong>Reveal complexity progressively.</strong> Advanced tools remain available, but are not prerequisites for completing routine work.</li>
+<li><strong>Recognition over recall.</strong> Show relevant units, current selection, project context, and the meaning of technical terms.</li>
+<li><strong>Preserve work.</strong> Do not unexpectedly discard inputs, plots, map extents, filters or unsaved changes.</li>
+<li><strong>Earn trust with evidence.</strong> Use clear provenance, dates, assumptions, validation states, and reproducible results. Never use visual polish as a substitute for correctness.</li>
+<li><strong>No dark patterns.</strong> No fake urgency, deceptive preselection, hidden charges or misleading product status.</li>
+</ol>
+<h2 id="02-personality-and-product-family">02 · Personality and product family</h2>
+<ul>
+<li>Spatialdom is <strong>calm, grounded, precise, useful, accessible and modern</strong>. It should feel technical, but not cold or overly futuristic.</li>
+<li>All products share design tokens, fonts, icon treatment, interaction semantics, accessibility and content rules.</li>
+<li><strong>Parcel Plotter:</strong> approachable for landowners and buyers; optional expert information; avoids implying that plotted geometry is a legal boundary.</li>
+<li><strong>SPARTA:</strong> task-focused professional Geodetic Engineering workspace for projects, relocation/as-built/topographic survey workflows and professional deliverables. It can be denser where that reduces real work.</li>
+<li><strong>RBIM Cloud / institutional systems:</strong> operational, accountable, audit-friendly; capable of displaying complex records without overwhelming users.</li>
+<li><strong>PTR and developer tools:</strong> minimal, exact, version-aware, with technically accurate field descriptions and examples.</li>
+<li>Product-specific logos may differ, but MUST NOT create an unrelated look-and-feel or contradictory status semantics.</li>
+<li>The previous usage of the name <strong>SPARTA</strong> for LGU tax mapping is obsolete; use <strong>LGU tax-mapping platform (name pending)</strong> until its new product name is approved.</li>
+</ul>
+<h2 id="03-color-and-surfaces">03 · Color and surfaces</h2>
+<p><strong>Canonical light-mode tokens:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color.canvas</code></td>
+<td><code>#F7F8FA</code></td>
+<td>Default quiet work area</td>
+</tr>
+<tr>
+<td><code>color.surface</code></td>
+<td><code>#FFFFFF</code></td>
+<td>Cards, panels, dialogs</td>
+</tr>
+<tr>
+<td><code>color.text.primary</code></td>
+<td><code>#17202A</code></td>
+<td>Primary reading</td>
+</tr>
+<tr>
+<td><code>color.text.secondary</code></td>
+<td><code>#596574</code></td>
+<td>Secondary information</td>
+</tr>
+<tr>
+<td><code>color.action.primary</code></td>
+<td><code>#123B5D</code></td>
+<td>Spatialdom Blue: important actions</td>
+</tr>
+<tr>
+<td><code>color.action.hover</code></td>
+<td><code>#0E2F4B</code></td>
+<td>Primary hover</td>
+</tr>
+<tr>
+<td><code>color.action.pressed</code></td>
+<td><code>#09253C</code></td>
+<td>Primary pressed</td>
+</tr>
+<tr>
+<td><code>color.action.link</code></td>
+<td><code>#1B557F</code></td>
+<td>Links and interactive text</td>
+</tr>
+<tr>
+<td><code>color.selection.surface</code></td>
+<td><code>#E8F0F6</code></td>
+<td>Selected list/table rows</td>
+</tr>
+<tr>
+<td><code>color.status.success</code></td>
+<td><code>#27734A</code></td>
+<td>Completed / validated</td>
+</tr>
+<tr>
+<td><code>color.status.warning</code></td>
+<td><code>#9A6700</code></td>
+<td>Needs review</td>
+</tr>
+<tr>
+<td><code>color.status.danger</code></td>
+<td><code>#B42318</code></td>
+<td>Error or destructive action</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rules</strong></p>
+<ol>
+<li>The primary identity is <strong>Spatialdom Blue <code>#123B5D</code></strong>, not the older deep green or gold.</li>
+<li>Use an off-white canvas and white surfaces. Use borders and spacing before shadows.</li>
+<li>Use color for semantics and hierarchy, not to fill blank space.</li>
+<li>Gold MUST NOT be a core brand or interaction color; it MAY be a rare editorial/decorative accent with an explicit purpose.</li>
+<li>Avoid decorative gradients, glowing borders, neon effects, heavily shaded cards and glassmorphism. Gradients MAY represent continuous measurements in an accessible data visualization.</li>
+<li>Never indicate approval, errors or map feature classification by color alone. Pair color with words, symbols and/or patterns.</li>
+<li>Dark mode MAY be offered. If implemented, every semantic role needs an accessible dark value. Do not mechanically invert hex values.</li>
+<li>Application components MUST consume semantic tokens rather than hardcode hex values. The current site has some token-level variations; reconcile them through a reviewed migration, not silent replacement.</li>
+</ol>
+<h2 id="04-typography-and-numbers">04 · Typography and numbers</h2>
+<ol>
+<li>Use <strong>Source Sans 3</strong> for product UIs and documentation. Fallback: <code>Source Sans 3, Source Sans Pro, system-ui, -apple-system, Segoe UI, sans-serif</code>.</li>
+<li>Use weights 400 (body), 500 (labels), 600 (headings), and occasionally 700 (hero). Avoid light-weight interface text.</li>
+<li>Use <strong>sentence case</strong> in headings, navigation, buttons, labels and errors. Preserve official proper names, acronyms and field nomenclature. Do not adopt Vercel's title-case-button convention.</li>
+<li>Use a clear scale: body generally 16 px; supplementary content around 14 px only when legible; sufficient line height; readable paragraph width around 60–75 characters.</li>
+<li>Use <code>font-variant-numeric: tabular-nums</code> in tables, bearing/distance fields, currency, dates and survey measurements.</li>
+<li>Align numbers by decimal where useful and keep significant digits appropriate to the data. Never imply accuracy by showing unjustified decimal places.</li>
+<li>Display values with explicit units: <code>24.15 m</code>, <code>600 m²</code>, <code>0.42 m closure</code>. Keep number and unit together when practical.</li>
+<li>Technical identifiers, exact dataset names, PTR keys and code MUST preserve their case and punctuation.</li>
+</ol>
+<h2 id="05-spacing-layout-and-responsiveness">05 · Spacing, layout and responsiveness</h2>
+<ul>
+<li>Space scale: <strong>4, 8, 12, 16, 24, 32, 48, 64 px</strong>. Prefer those steps.</li>
+<li>Radius scale: <strong>4, 6, 8, 12, 16 px</strong>; pills reserved for chips and badges, not all buttons.</li>
+<li>Mobile-first mental model. Review at <strong>390 px</strong>, <strong>768 px</strong>, <strong>1024 px</strong>, and <strong>1440 px+</strong> widths.</li>
+<li>Prefer CSS Grid, Flexbox and intrinsic sizing. Avoid absolute positioning for major content layouts.</li>
+<li>Marketing content: constrained reading width and generous whitespace. Professional workspaces: more width is acceptable for maps, forms and data tables.</li>
+<li>On mobile, prioritize the current task; secondary panels become tabs, drawers or bottom sheets where appropriate.</li>
+<li>At 200% zoom and text enlargement, content remains operable without clipping or losing actions.</li>
+<li>Embedded maps MUST NOT trap page scrolling. Use an explicit activate-map or map/list experience.</li>
+<li>The default background is clean; do not add topographic contours, parcel grids or satellite imagery merely for visual identity.</li>
+</ul>
+<h2 id="06-icons-borders-and-elevation">06 · Icons, borders and elevation</h2>
+<ol>
+<li>Prefer one rounded-outline icon family within each product. Base at 24 px, approximately 1.75–2 px stroke, rounded caps and joins.</li>
+<li>Icons support text. Unfamiliar icons MUST have visible labels; icon-only controls require accessible names and tooltips where useful.</li>
+<li>Use a light border to group related content; avoid wrapping every piece of content in its own card.</li>
+<li>Use modest shadows only when a surface truly floats (menu, popover, dialog) or needs separation.</li>
+<li>Nested shapes should have visually consistent corner radii.</li>
+</ol>
+<h2 id="07-navigation-and-context">07 · Navigation and context</h2>
+<ol>
+<li>Organize by users' tasks and terms, not backend database or code modules.</li>
+<li>Current page, active tab and selected record MUST be visually unmistakable beyond color alone.</li>
+<li>Browser Back and Forward SHOULD restore relevant scroll position and contextual state.</li>
+<li>Deep-link filters, tabs, records and selected views when sharing them is safe and meaningful.</li>
+<li>Links navigate; buttons perform actions. Do not make clickable-looking surfaces inert.</li>
+<li>Make destination and external-site behavior clear. Keep the brand recognizable across product subdomains.</li>
+</ol>
+<h2 id="08-buttons-and-actions">08 · Buttons and actions</h2>
+<ul>
+<li><strong>Primary:</strong> solid Spatialdom Blue with white text; one primary action per region.</li>
+<li><strong>Secondary:</strong> bordered/quiet for alternatives such as Preview or Export.</li>
+<li><strong>Tertiary:</strong> text for low-emphasis navigation and disclosure.</li>
+<li><strong>Destructive:</strong> danger styling only when the action actually destroys or rejects something.</li>
+<li>Labels MUST be verbs plus objects or outcomes where reasonable: <strong>Save project</strong>, <strong>Add course</strong>, <strong>Export PTR</strong>, <strong>View survey details</strong>.</li>
+<li>Avoid generic <strong>Submit</strong>, <strong>OK</strong>, <strong>Proceed</strong> or <strong>Click here</strong> when a precise label fits.</li>
+<li>Confirm destructive operations or provide a reliable undo.</li>
+<li>Loading buttons retain the action name and clearly indicate progress; prevent duplicate requests.</li>
+</ul>
+<h2 id="09-forms-and-validation">09 · Forms and validation</h2>
+<ol>
+<li>Use labels, not placeholders, as the primary description of every input.</li>
+<li>Put labels above controls for scanning and mobile comprehension.</li>
+<li>Use useful examples for unfamiliar inputs: quadrant bearings, coordinate reference systems, title technical descriptions, dates, and file formats.</li>
+<li>Let users type and paste; avoid validation that interrupts incomplete but still-being-edited input.</li>
+<li>Errors appear beside the affected field; after submit, focus or summarize the first invalid input.</li>
+<li>Preserve all valid input after a server or validation error. Give an explicit draft/unsaved state for long forms.</li>
+<li>Minimize required fields; explain why sensitive information is needed.</li>
+<li>Input, processing, and results MUST state what happened when an automatic parse or calculation has uncertainty.</li>
+<li>Use 16 px+ input text on mobile; common touch targets should be 44 × 44 px or more.</li>
+</ol>
+<h2 id="10-feedback-and-application-states">10 · Feedback and application states</h2>
+<ul>
+<li>Design <strong>loading, empty, sparse, dense, success, warning, error, disabled, offline, unsaved, partially complete and permission-denied</strong> states.</li>
+<li>Small actions get inline feedback; saves and long-running operations get persistent and specific status.</li>
+<li>Every message should answer: <strong>What happened? Is my work safe? What can I do next?</strong></li>
+<li>Never show a green “Verified” badge for a parcel merely because the geometry closed mathematically.</li>
+<li>Distinguish <strong>computed</strong>, <strong>document-stated</strong>, <strong>manually adjusted</strong>, <strong>reviewed</strong>, and <strong>officially approved</strong> information when such distinctions apply.</li>
+</ul>
+<h2 id="11-maps-parcels-and-geospatial-truth">11 · Maps, parcels and geospatial truth</h2>
+<ol>
+<li><strong>Shape is not location.</strong> Bearing-distance calls can define local parcel geometry without establishing geographic coordinates. Never guess a map position from an unknown origin.</li>
+<li><strong>Local plotting is valid.</strong> If a valid georeference is unavailable, plot locally, label it as such, and disable or explain geographic map/export options that require a CRS.</li>
+<li><strong>Georeferencing is explicit.</strong> Display source, CRS/datum, tie point/reference, transformation assumptions and confidence when used.</li>
+<li><strong>Do not silently adjust geometry.</strong> Preserve the original plotted courses and geometry; record adjustments separately with user action and reason.</li>
+<li><strong>Closure is a metric, not a legal conclusion.</strong> Label linear/relative closure and its units. Do not treat closure alone as title validity or boundary confirmation.</li>
+<li><strong>Area is contextual.</strong> Distinguish computed area from declared area. Explain discrepancies without silently overwriting either value.</li>
+<li><strong>No legal authority implied.</strong> A parcel plot, overlap, adjacent polygon, geospatial overlay or generated document does not by itself prove ownership, boundary location, cadastral approval or survey validity.</li>
+<li><strong>Operational layer first.</strong> Keep the basemap subdued. Highlight selected features in both map and accompanying list, where present.</li>
+<li><strong>Accessible map interactions.</strong> Every essential map gesture has keyboard/button alternatives. On mobile, use bottom sheets or a map/list mode for feature information.</li>
+<li><strong>Coordinate correctness.</strong> Do not mix CRS, axis order, datum, units or epochs silently. Label transformations and quality limitations.</li>
+<li><strong>Uncertainty is visible.</strong> Distinguish approximate location, user-edited geometry, source-record geometry and surveyed/authoritative geometry where the data actually supports those categories.</li>
+<li><strong>Useful exports.</strong> Clearly label the format, spatial reference and whether the output is a technical aid or an official deliverable.</li>
+</ol>
+<h2 id="12-tables-data-and-charts">12 · Tables, data and charts</h2>
+<ol>
+<li>Choose tables for comparable records, cards for objects with varying content, and charts when a pattern matters.</li>
+<li>Keep column headers clear; make large tables sortable/filterable only when the action is meaningful.</li>
+<li>Use tabular figures; align text left and numbers right (or by decimal where practical).</li>
+<li>Design mobile overflow deliberately: key columns, purposeful horizontal scroll, or a structured detail view.</li>
+<li>Charts should answer a stated question. Prefer position/length over 3D shapes and decorative pie charts.</li>
+<li>Legends, units, dates, sources, geographic extents and uncertainty MUST accompany analytics where needed for interpretation.</li>
+<li>Maps are not default charts. Use a map only when spatial relationships are necessary to answer the question.</li>
+<li>Prefer accessible color palettes; give important charts a text summary or accessible equivalent.</li>
+</ol>
+<h2 id="13-accessibility-and-interaction">13 · Accessibility and interaction</h2>
+<ol>
+<li>Target <strong>WCAG 2.2 AA</strong> for web applications; test with keyboard, screen reader, zoom and touch.</li>
+<li>Never hide the focus indicator or place it under a sticky overlay.</li>
+<li>Use semantic HTML: native buttons, anchors, labels and tables before custom ARIA widgets.</li>
+<li>Dialogs manage focus and return it on close. Keyboard escape/close behavior is predictable.</li>
+<li>All core workflows MUST be operable without a mouse, including map or diagram alternatives where practicable.</li>
+<li>Respect <code>prefers-reduced-motion</code> and browser zoom. Do not disable zoom.</li>
+<li>Aim for at least 4.5:1 normal-text contrast except legitimate standard exceptions and adequate nontext control contrast.</li>
+<li>Avoid communicating information only through color, position, animation, sound or iconography.</li>
+<li>Provide accessible names for icon-only controls and meaningful alternative text for essential visuals.</li>
+<li>Test forms and navigation with assistive technologies and at least one real mobile/desktop configuration.</li>
+</ol>
+<h2 id="14-motion-and-performance">14 · Motion and performance</h2>
+<ul>
+<li>Motion should explain a state change, not compete for attention. Prefer CSS transforms/opacity; never use indiscriminate <code>transition: all</code>.</li>
+<li>Suggested ranges: micro state 100–180 ms; sheet/panel 180–280 ms; navigation up to 350 ms when helpful. These are defaults, not compulsory delays.</li>
+<li>Every animation must be interruptible; support reduced motion.</li>
+<li>Loading must reflect actual work; never fake a long task or hide an error behind endless activity.</li>
+<li>Keep layout stable; allocate space for images/charts. Avoid UI freezes on computations, large files and large tables.</li>
+<li>Treat performance as part of accessibility, especially on ordinary mobile devices and weak networks.</li>
+</ul>
+<h2 id="15-copywriting-and-terminology">15 · Copywriting and terminology</h2>
+<p><strong>Voice:</strong> Clear. Precise. Professional. Respectful. Practical. Never theatrical, pushy or condescending.</p>
+<ol>
+<li><strong>Use active voice.</strong> “Enter the technical description” rather than “The technical description should be entered.”</li>
+<li><strong>Write for the user.</strong> Explain their outcome before Spatialdom's technology. Use “you” where natural, but not in every sentence.</li>
+<li><strong>Keep labels concrete.</strong> “Export coordinate table” beats “Continue” or “Proceed”.</li>
+<li><strong>Be concise without removing meaning.</strong> Technical or legal nuance is more important than shaving off a word.</li>
+<li><strong>Use sentence case</strong>, including buttons, menus, headings, alerts and notification titles.</li>
+<li><strong>Use “and” in prose</strong> rather than Vercel's house preference for <code>&amp;</code>. Ampersands may appear in brand names, compact UI labels or conventional technical phrases.</li>
+<li><strong>Use numerals, units and conventions consistently:</strong> <code>3 parcels</code>, <code>20.00 m</code>, <code>₱20,000</code> (or <code>₱20,000.00</code> when accounting demands two decimals). Do not mix currency precision within one table.</li>
+<li><strong>Keep terminology stable:</strong> “technical description”, “course”, “bearing”, “distance”, “local plot”, “georeferenced map”, “computed area”, “declared area”, and “closure error”. Define unfamiliar terms briefly near the first use.</li>
+<li><strong>Errors explain recovery.</strong> Say what went wrong, what is preserved and how to fix it. Do not blame the person.</li>
+<li><strong>Status labels state real states:</strong> “Draft”, “Needs review”, “Computed”, “Pending approval”. Do not say “Approved” unless an authorized approval occurred.</li>
+<li><strong>No inflated claims.</strong> Avoid “100% accurate”, “officially verified”, “guaranteed compliant”, and invented partner/client claims.</li>
+<li><strong>No fake affordances.</strong> If a feature is planned, label it “Planned” or “Coming soon”; do not imitate a working checkout or action.</li>
+<li><strong>Respect professional boundaries.</strong> Where appropriate, clarify that software outputs do not replace verification by a licensed Geodetic Engineer or an authorized agency.</li>
+<li><strong>Use helpful empty states.</strong> Describe why the space is empty and give the smallest useful next action.</li>
+<li><strong>Prefer user terms over internal schemas.</strong> Show “Survey date” rather than <code>survey_date_recorded_at</code>.</li>
+</ol>
+<h3 id="copywriting-examples">Copywriting examples</h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Avoid</th>
+<th>Prefer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First-use instruction</td>
+<td>Input your TD to begin processing</td>
+<td>Enter the technical description to see the parcel</td>
+</tr>
+<tr>
+<td>Empty workspace</td>
+<td>No data available</td>
+<td>No parcels yet. Add a parcel to get started.</td>
+</tr>
+<tr>
+<td>Ambiguous button</td>
+<td>Submit</td>
+<td>Save project</td>
+</tr>
+<tr>
+<td>Technical validation</td>
+<td>Invalid input</td>
+<td>Course 4 has an incomplete bearing. Review the direction and degrees.</td>
+</tr>
+<tr>
+<td>Local plot</td>
+<td>Parcel location confirmed</td>
+<td>Parcel plotted locally. Add a valid reference to view it on a map.</td>
+</tr>
+<tr>
+<td>Non-closing geometry</td>
+<td>Survey failed</td>
+<td>The traverse does not close. Closure error: 0.42 m. Review the courses before using the result.</td>
+</tr>
+<tr>
+<td>Save failure</td>
+<td>Error 500</td>
+<td>We couldn't save this project. Your changes are still here. Try again.</td>
+</tr>
+<tr>
+<td>Future feature</td>
+<td>Buy now (disabled)</td>
+<td>DXF export — planned</td>
+</tr>
+<tr>
+<td>Source distinction</td>
+<td>Actual area: 600 m²</td>
+<td>Computed area: 598.7 m² · Declared area: 600 m²</td>
+</tr>
+<tr>
+<td>Destructive confirmation</td>
+<td>Are you sure?</td>
+<td>Delete this parcel? This will remove it from the project.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="16-product-specific-overlays">16 · Product-specific overlays</h2>
+<p><strong>Parcel Plotter</strong></p>
+<ul>
+<li>Landowner/buyer-first defaults; expert settings do not obstruct basic plot comprehension.</li>
+<li>Editing a technical description SHOULD update the plot responsively in workflows that support live computation; do not invent a mandatory “Plot parcel” button if the product computes automatically.</li>
+<li>Show parsing as assisted interpretation, not authoritative recognition. Let users inspect and edit extracted courses.</li>
+<li>State “local plot” versus “map” clearly; explain why a map may be unavailable.</li>
+</ul>
+<p><strong>SPARTA (professional GE workspace)</strong></p>
+<ul>
+<li>Organize around real project workflows, not features invented for a demo.</li>
+<li>Start with relocation, as-built, and topographic surveys; maintain continuity across quotation, project work, field notes and deliverables as those features exist.</li>
+<li>Distinguish original plot, field observations, edits/adjustments, professional review and deliverable status; preserve traceability.</li>
+<li>Do not auto-label files “approved” or imply approval by DENR/LRA/other bodies without evidence.</li>
+</ul>
+<p><strong>RBIM / institutional systems</strong></p>
+<ul>
+<li>Optimize routine operational tasks, auditability and record stewardship.</li>
+<li>Treat personal/household records as sensitive. Reduce exposure and display only necessary fields by role and purpose.</li>
+<li>Avoid implying model-generated statistics are authoritative administrative records without review.</li>
+</ul>
+<p><strong>PTR / developer experiences</strong></p>
+<ul>
+<li>Preserve the precise PTR schema version, input assumptions, errors and reproducibility.</li>
+<li>Explain technical representation without suggesting it confers legal rights or official survey status.</li>
+<li>Avoid hard-coded domain semantics in a presentation layer when the underlying specification owns them.</li>
+</ul>
+<h2 id="17-privacy-trust-and-reporting">17 · Privacy, trust and reporting</h2>
+<ul>
+<li>Collect only what the action requires. Make saving, sharing, telemetry and document processing transparent.</li>
+<li>Do not log raw land titles, owner details, technical descriptions, exact parcels or household records merely to measure clicks.</li>
+<li>Separate analytics metadata from source-record data. Share exact input for debugging only with permission and clear retention controls.</li>
+<li>Explain source date, transformations, uncertainty and status wherever they affect consequential decisions.</li>
+<li>Clearly distinguish Spatialdom's computation from government authority and regulated professional services.</li>
+<li>Reports, downloads, emails, social posts and print materials SHOULD follow the same vocabulary, brand palette and truthfulness standards as the UI.</li>
+</ul>
+<h2 id="18-quality-gates">18 · Quality gates</h2>
+<p><strong>Before design</strong></p>
+<ul>
+<li>[ ] Name the user, context, main task, first thought, first action, success and recovery path.</li>
+<li>[ ] Confirm whether a map is genuinely necessary.</li>
+<li>[ ] Confirm the correct product overlay and professional/legal boundary.</li>
+</ul>
+<p><strong>Before merging</strong></p>
+<ul>
+<li>[ ] Uses semantic tokens and Source Sans 3, with no retired palette or decorative geospatial background.</li>
+<li>[ ] Sentence-case, action-oriented copy with explicit measurements/units.</li>
+<li>[ ] Empty, loading, success, warning, error and offline states considered.</li>
+<li>[ ] Responsive at 390 px, tablet, desktop and 200% zoom.</li>
+<li>[ ] Keyboard, labels, focus, touch targets, contrast and reduced-motion behaviors reviewed.</li>
+<li>[ ] No invented coordinates, CRS or unexplained geometric adjustment.</li>
+<li>[ ] Preserves work, asks before destructive operations and doesn't overclaim authority.</li>
+<li>[ ] Product-specific override documented where needed.</li>
+<li>[ ] Unit/interaction tests and manual verification completed as appropriate.</li>
+</ul>
+<h2 id="19-design-tokens-and-machine-use">19 · Design tokens and machine use</h2>
+<ul>
+<li>The accompanying <code>tokens.json</code> is the <strong>proposed</strong> machine-readable companion to this draft. Production CSS and components should map their existing semantic variables to this vocabulary, with visual regression review for differences.</li>
+<li>AI assistants should read the relevant repository's <code>AGENTS.md</code> and this document <strong>before</strong> generating or modifying UI.</li>
+<li>Use a short local <code>AGENTS.md</code> reference in each repository, pinned to an adopted version. Do not rely on an external web page being fetched automatically at execution time.</li>
+<li>If a visual or content exception is needed, record <strong>rule, reason, impact, owner and review date</strong> in the PR or design decision.</li>
+<li>The public site SHOULD expose human-readable guidance, a copyable agent prompt, raw Markdown, a token manifest, version, change log and source repository links.</li>
+</ul>
+<h2 id="20-governance-and-changelog">20 · Governance and changelog</h2>
+<ul>
+<li><strong>Draft 1.1.0, 2026-11-03:</strong> Consolidates the September Product Design Rulebook into a web-friendly, agent-friendly guide; aligns with current Spatialdom Blue, Source Sans 3, consumer Parcel Plotter, professional SPARTA, accessible interactions and geospatial truth standards. <strong>Pending review/adoption</strong>.</li>
+<li><strong>Source baseline:</strong> Spatialdom Product Design Rulebook v1.0, September 2026.</li>
+<li><strong>Additional reference:</strong> Vercel Web Interface Guidelines, consulted 3 November 2026 — https://vercel.com/design/guidelines</li>
+<li><strong>Accessibility baseline:</strong> W3C WCAG 2.2 — https://www.w3.org/TR/WCAG22/</li>
+<li><strong>Source of architectural truth:</strong> Product specifications and current implementation repositories. This guide does not replace PTR schema, PTR Core, surveying standards, law or product-specific decisions.</li>
+</ul>
+</article>
+<div class="footer">Spatialdom Design Guidelines · Proposed standard for review · 3 November 2026<br/>This preview is a standalone HTML file; it has not been deployed to spatialdom.xyz.</div>
+</main></div>
+<script>
+const AGENT_TEXT = "# Spatialdom design instructions for AI coding agents\n\n**Draft companion to Spatialdom Design Guidelines v1.1.0.** Add this section to each repository's `AGENTS.md` only after the standard is approved. Keep a version-pinned local copy of the full guidelines in the repository or a reviewed shared package; do not assume an agent can fetch URLs.\n\n## Mandatory design instructions\n\nWhen creating or changing UI/UX, content, components, charts, maps, exports or customer-facing communication:\n\n1. Read the adopted **Spatialdom Design Guidelines** and this repository's product-specific specifications before generating code. Reference: https://spatialdom.xyz/design/guidelines/ (human-readable URL, not a substitute for the pinned local copy).\n2. Build for the user's actual task. Define the target user, first thought, first action, success state and recovery path. Prefer one primary action per region and progressive disclosure.\n3. Follow Spatialdom Blue `#123B5D`, canvas `#F7F8FA`, Source Sans 3, sentence case, semantic tokens, restrained surfaces, 4 px-based spacing and rounded-outline icons. Do not resurrect deep green/gold, use decorative gradients, or place generic map/topographic backgrounds.\n4. Respect WCAG 2.2 AA, keyboard controls, meaningful focus, clear labels, contrast, touch targets, zoom and reduced motion. Test mobile and desktop states.\n5. Write active, concise, factual, action-oriented copy. Use terms consistently and always include measurement units and important source/status distinctions. Prefer specific recovery steps over generic errors.\n6. For parcels, **never invent geographic coordinates, CRS, legal boundary truth, parcel ownership, survey approval, or source precision**. Differentiate local vs georeferenced geometry, computed vs declared area, original vs adjusted geometry, and technical plot vs official survey.\n7. Preserve input, draft state and navigational context; design empty/loading/error/offline states. Confirm destructive changes or provide Undo. Respect data minimization and sensitive records.\n8. Do not duplicate domain computation outside its authoritative library or change PTR semantics through the UI layer. Domain specifications override illustrative examples in this prompt.\n9. If a product needs an exception, document the specific rule, user need and QA outcome; do not silently drift.\n\n## Before completing the task\n\n- Identify the guidelines applied and any deliberate exceptions.\n- Check responsive states (390 px, tablet, desktop), focus and keyboard operation, user text/units, empty/error states, and geospatial truthfulness.\n- Verify tests/build where available. Do not claim to have run checks you could not execute.\n- Give the reviewer a concise summary of what changed, why, outstanding QA work and any guidelines not satisfied.\n";
+const copyBtn=document.getElementById('copy-agent');
+copyBtn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(AGENT_TEXT);copyBtn.textContent='Copied';}catch(e){const input=document.createElement('textarea');input.value=AGENT_TEXT;document.body.appendChild(input);input.select();try{document.execCommand('copy');copyBtn.textContent='Copied';}catch(_){copyBtn.textContent='Open agent rules';window.location.href='AGENTS_SNIPPET.md';}input.remove();}setTimeout(()=>{copyBtn.textContent='Copy agent rules'},2000)});
+const sections=[...document.querySelectorAll('article h2')];
+const navLinks=[...document.querySelectorAll('.sidebar nav a')];
+if ('IntersectionObserver' in window){const ob=new IntersectionObserver((entries)=>{for(const e of entries){if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}}},{rootMargin:'-110px 0px -64% 0px',threshold:0});sections.forEach(s=>ob.observe(s));}
+</script>
+</body></html>
