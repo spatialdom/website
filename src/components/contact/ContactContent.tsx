@@ -10,9 +10,9 @@ const inquiryOptions = [
     subject: inquirySubjects.parcel
   },
   {
-    name: 'SPARTA / Tax Mapping',
-    description: "Tax mapping and Assessor's Office workflows.",
-    action: 'Discuss Tax Mapping',
+    name: 'SPARTA',
+    description: "Professional Geodetic Engineering workspace.",
+    action: 'Ask about SPARTA',
     subject: inquirySubjects.sparta
   },
   {
@@ -47,7 +47,7 @@ function ContactContent({ headingLevel = 'h2' }: ContactContentProps) {
         Tell us what you're working on.
       </Heading>
       <p className="mt-4 max-w-prose leading-7 text-text-secondary">
-        Contact Spatialdom about Parcel Plotter early access or feedback, SPARTA tax mapping, or an RBIM Cloud demo.
+        Contact Spatialdom about Parcel Plotter early access or feedback, the SPARTA professional Geodetic Engineering workspace, or an RBIM Cloud demo.
       </p>
 
       <div className="mt-8 border-t border-border-subtle pt-6">
@@ -72,11 +72,7 @@ function ContactContent({ headingLevel = 'h2' }: ContactContentProps) {
               <a className="interactive-accent mt-5 self-start" href={mailtoFor(option.subject)}>
                 {option.action}
               </a>
-              {option.name === 'SPARTA / Tax Mapping' ? (
-                <a className="text-link mt-4 self-start text-sm" href={mailtoFor(inquirySubjects.spartaWorkflow)}>
-                  Discuss an Assessor's Office workflow
-                </a>
-              ) : null}
+
             </article>
           ))}
         </div>

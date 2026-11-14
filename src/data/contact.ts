@@ -2,8 +2,7 @@ export const contactEmail = 'spatialdom@gmail.com';
 
 export const inquirySubjects = {
   parcel: 'Parcel Plotter — Early Access / Feedback',
-  sparta: 'SPARTA — Tax Mapping Discussion',
-  spartaWorkflow: "SPARTA — Assessor's Office Workflow Discussion",
+  sparta: 'SPARTA — Professional Geodetic Engineering Inquiry',
   rbim: 'RBIM Cloud — Demo Request'
 } as const;
 

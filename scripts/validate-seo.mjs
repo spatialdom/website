@@ -83,7 +83,7 @@ for (const page of pages) {
     if (!graph.some((item) => item['@type'] === 'BreadcrumbList')) throw new Error(`Missing breadcrumb JSON-LD: ${url}`);
     if (page.article && (!graph.some((item) => item['@type'] === 'Article') || !html.includes('Related product:'))) throw new Error(`Missing article content: ${url}`);
   }
-  if (page.family === 'sparta' && (!html.includes('Discuss Tax Mapping') || !html.includes('mailto:spatialdom@gmail.com'))) throw new Error(`Missing SPARTA contact flow: ${url}`);
+  if (page.family === 'kadastra' && (!html.includes('Development deferred until after SMACCs') || html.includes('Discuss Tax Mapping'))) throw new Error(`Incorrect Kadastra availability: ${url}`);
   if (page.family === 'rbim' && (!html.includes('Request a Demo') || !html.includes('GIZ assistance') || !html.includes('Spatialdom did not create'))) throw new Error(`Missing RBIM CTA or attribution: ${url}`);
 }
 
@@ -99,3 +99,22 @@ if (!fallbackHtml.includes('<div id="root"></div>') || !fallbackHtml.includes('s
 if (!readFileSync(resolve('dist/index.html'), 'utf8').includes('src="/assets/')) throw new Error('Vite assets must use the custom-domain root base path.');
 if (!readFileSync(resolve('dist/robots.txt'), 'utf8').includes('Allow: /')) throw new Error('robots.txt does not allow public content.');
 console.log(`Validated ${pages.length} canonical pages, metadata, sitemap, and structured data.`);
+
+// The design route and raw references are part of the existing Pages contract.
+const designHtml = readFileSync('dist/design/guidelines/index.html', 'utf8');
+const ids = [...designHtml.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+if (new Set(ids).size !== ids.length) throw new Error('Duplicate design page IDs');
+for (const match of designHtml.matchAll(/href="#([^"]+)"/g)) {
+  if (!ids.includes(match[1])) throw new Error(`Broken design anchor: ${match[1]}`);
+}
+for (const match of designHtml.matchAll(/(?:href|src)="(\/[^"#]*)(?:#[^"]*)?"/g)) {
+  const href = match[1];
+  if (!existsSync(resolve('dist', '.' + href)) && !existsSync(resolve('dist', '.' + href, 'index.html'))) throw new Error(`Broken design asset or link: ${href}`);
+}
+for (const name of ['GUIDELINES.md', 'COMPONENTS.md', 'AGENTS_SNIPPET.md', 'tokens.json']) {
+  if (readFileSync(`docs/design/${name}`, 'utf8') !== readFileSync(`dist/design/${name}`, 'utf8')) throw new Error(`Out-of-sync design reference: ${name}`);
+  if (readFileSync(`docs/design/source-supplied/${name}`, 'utf8') !== readFileSync(`dist/design/source/${name}`, 'utf8')) throw new Error(`Out-of-sync original source: ${name}`);
+}
+const spartaHtml = readFileSync('dist/sparta/index.html', 'utf8');
+if (!spartaHtml.includes('Professional Geodetic Engineering workspace') || /SPARTA (?:tax mapping|helps Assessor)/i.test(spartaHtml)) throw new Error('Incorrect SPARTA definition');
+console.log('Validated design anchors, assets, raw reference parity and product definitions.');

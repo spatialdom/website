@@ -1,0 +1,4 @@
+# Markdown hard line breaks are intentional in the publication references.
+docs/design/*.md whitespace=-blank-at-eol
+# Keep the supplied source package byte-for-byte, including its line endings.
+docs/design/source-supplied/* -text whitespace=-blank-at-eol

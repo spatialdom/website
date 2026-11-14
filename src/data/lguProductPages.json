@@ -1,68 +1,184 @@
 [
   {
-    "slug": "sparta",
-    "family": "sparta",
+    "slug": "kadastra",
+    "family": "kadastra",
     "kind": "product",
-    "title": "SPARTA | Tax Mapping Modernization for Philippine LGUs | Spatialdom",
-    "description": "Bring tax maps and property records into a working parcel database. Explore SPARTA's digitization, reconciliation, field validation, and maintenance approach for LGUs.",
-    "heading": "From tax maps and property records to a working parcel database.",
-    "intro": "SPARTA helps Assessor's Offices establish, organize, map, validate, and keep property information current. The work can include data preparation, field review, and staff workflows alongside the software.",
+    "title": "Kadastra | Future LGU Tax Mapping and Property Assessment | Spatialdom",
+    "description": "Kadastra is the future LGU tax-mapping and property-assessment platform. Coming soon; development is deferred until after SMACCs.",
+    "heading": "Kadastra: tax mapping and property assessment.",
+    "intro": "Coming soon. Development deferred until after SMACCs. Kadastra is the future LGU tax-mapping and property-assessment platform; it is not available for subscriptions or deployment.",
     "sections": [
-      {"heading":"Start with the office's real records","paragraphs":["Tax declarations, parcel identifiers, old tax maps, cadastral sheets, and field notes often sit in different places. Before a map becomes useful, staff need to know which records refer to the same property and where the source is uncertain.","SPARTA is scoped around that work. An implementation may include scanning and digitizing source maps, populating a parcel database, matching records, mapping parcels, and flagging exceptions for review. The aim is an office that can use and update the information after the initial project."]},
-      {"heading":"A workflow that continues after digitization","paragraphs":["Digitize the source, reconcile identifiers, map the parcel, validate uncertain cases, operate with the records, and maintain changes. The sequence is a working model, not a promise that every LGU begins at the same stage.","Parcel divisions, consolidations, corrections, and new assessments need a clear route through the office. Staff should be able to see the source of a geometry, who reviewed it, and what still needs field or document validation."]},
-      {"heading":"Tax mapping for the RPVARA era","paragraphs":["The Real Property Valuation and Assessment Reform Act encourages stronger property information and digital workflows. A usable map and reconciled parcel records can support preparation, but software alone does not establish compliance with valuation standards or implementing rules.","We start with the Assessor's Office process and the available records, then discuss what digitization, validation, and ongoing support the LGU actually needs."
-      ]}
+      {
+        "heading": "Start with the office's real records",
+        "paragraphs": [
+          "Tax declarations, parcel identifiers, old tax maps, cadastral sheets, and field notes often sit in different places. Before a map becomes useful, staff need to know which records refer to the same property and where the source is uncertain.",
+          "The future Kadastra platform is intended for parcel and assessment workflows. Digitization, reconciliation, validation and maintenance are planning considerations, not available product capabilities."
+        ]
+      },
+      {
+        "heading": "A workflow that continues after digitization",
+        "paragraphs": [
+          "Digitize the source, reconcile identifiers, map the parcel, validate uncertain cases, operate with the records, and maintain changes. The sequence is a working model, not a promise that every LGU begins at the same stage.",
+          "Parcel divisions, consolidations, corrections, and new assessments need a clear route through the office. Staff should be able to see the source of a geometry, who reviewed it, and what still needs field or document validation."
+        ]
+      },
+      {
+        "heading": "Tax mapping for the RPVARA era",
+        "paragraphs": [
+          "The Real Property Valuation and Assessment Reform Act encourages stronger property information and digital workflows. A usable map and reconciled parcel records can support preparation, but software alone does not establish compliance with valuation standards or implementing rules.",
+          "The educational guides describe general office processes and source-record considerations. They do not promise product availability, deployment or regulatory compliance."
+        ]
+      }
     ],
-    "related": ["tax-mapping-system-philippines", "rpvara-tax-mapping", "digitize-cadastral-tax-maps"],
-    "sources": [{"label":"BLGF Manual on Real Property Appraisal and Assessment Operations","url":"https://blgf.gov.ph/wp-content/uploads/2015/08/ManualRPAandAO.pdf"},{"label":"Republic Act No. 12001","url":"https://lawphil.net/statutes/repacts/ra2024/ra_12001_2024.html"}]
+    "related": [
+      "tax-mapping-system-philippines",
+      "rpvara-tax-mapping",
+      "digitize-cadastral-tax-maps"
+    ],
+    "sources": [
+      {
+        "label": "BLGF Manual on Real Property Appraisal and Assessment Operations",
+        "url": "https://blgf.gov.ph/wp-content/uploads/2015/08/ManualRPAandAO.pdf"
+      },
+      {
+        "label": "Republic Act No. 12001",
+        "url": "https://lawphil.net/statutes/repacts/ra2024/ra_12001_2024.html"
+      }
+    ]
   },
   {
     "slug": "tax-mapping-system-philippines",
-    "family": "sparta",
+    "family": "kadastra",
     "kind": "guide",
     "title": "Tax Mapping System for Philippine LGUs | Spatialdom",
     "description": "Learn what a Philippine LGU tax mapping system should connect: parcel maps, property identifiers, assessment records, validation, and day-to-day updates.",
     "heading": "What does a tax mapping system need to do for an LGU?",
     "intro": "A tax map is most useful when an Assessor's Office can connect each parcel to its supporting property record and keep both current.",
     "sections": [
-      {"heading":"Connect the parcel and the assessment record","paragraphs":["The map gives staff a way to locate a property. The assessment record carries the information used in office work. A dependable system links them through identifiers and keeps the source of each map feature visible.","BLGF guidance describes maintaining property identification and tax mapping systems. A digital screen is therefore only one part of the job: unmatched records, duplicate identifiers, and uncertain map lines still need review."]},
-      {"heading":"Plan for changes, not just initial encoding","paragraphs":["A parcel may be split, consolidated, corrected, or linked to a new assessment. The system needs a way to record these changes without losing the earlier source or the reason for an edit.","Field validation and document checks matter where a map and an assessment record disagree. Mark unresolved cases clearly so staff do not mistake a provisional geometry for a verified one."]},
-      {"heading":"Keep the role of the tax map clear","paragraphs":["Tax mapping supports assessment administration and spatial review. It does not by itself establish ownership or an official surveyed boundary. A successful modernization project gives the office a repeatable process for correcting and maintaining its records."]}
+      {
+        "heading": "Connect the parcel and the assessment record",
+        "paragraphs": [
+          "The map gives staff a way to locate a property. The assessment record carries the information used in office work. A dependable system links them through identifiers and keeps the source of each map feature visible.",
+          "BLGF guidance describes maintaining property identification and tax mapping systems. A digital screen is therefore only one part of the job: unmatched records, duplicate identifiers, and uncertain map lines still need review."
+        ]
+      },
+      {
+        "heading": "Plan for changes, not just initial encoding",
+        "paragraphs": [
+          "A parcel may be split, consolidated, corrected, or linked to a new assessment. The system needs a way to record these changes without losing the earlier source or the reason for an edit.",
+          "Field validation and document checks matter where a map and an assessment record disagree. Mark unresolved cases clearly so staff do not mistake a provisional geometry for a verified one."
+        ]
+      },
+      {
+        "heading": "Keep the role of the tax map clear",
+        "paragraphs": [
+          "Tax mapping supports assessment administration and spatial review. It does not by itself establish ownership or an official surveyed boundary. A successful modernization project gives the office a repeatable process for correcting and maintaining its records."
+        ]
+      }
     ],
-    "related": ["sparta", "digitize-cadastral-tax-maps", "rpvara-tax-mapping"],
-    "sources": [{"label":"BLGF Manual on Real Property Appraisal and Assessment Operations","url":"https://blgf.gov.ph/wp-content/uploads/2015/08/ManualRPAandAO.pdf"}]
+    "related": [
+      "kadastra",
+      "digitize-cadastral-tax-maps",
+      "rpvara-tax-mapping"
+    ],
+    "sources": [
+      {
+        "label": "BLGF Manual on Real Property Appraisal and Assessment Operations",
+        "url": "https://blgf.gov.ph/wp-content/uploads/2015/08/ManualRPAandAO.pdf"
+      }
+    ]
   },
   {
     "slug": "rpvara-tax-mapping",
-    "family": "sparta",
+    "family": "kadastra",
     "kind": "guide",
     "title": "RPVARA and Tax Mapping for LGUs | Spatialdom",
     "description": "Understand how reliable parcel and property records can support an LGU preparing for the RPVARA era, without mistaking a map system for legal compliance.",
     "heading": "Tax mapping for the RPVARA era",
     "intro": "RPVARA raises the importance of usable property information. An LGU still needs to separate mapping and record preparation from formal valuation and compliance decisions.",
     "sections": [
-      {"heading":"What RPVARA changes in the conversation","paragraphs":["Republic Act No. 12001 reforms real property valuation and assessment and provides for stronger property information and digital processes. Its implementing rules and BLGF guidance govern formal requirements.","A tax map can help locate properties and reconcile records, but a parcel polygon is not a valuation. No software should be called RPVARA compliant without a separate review against the applicable requirements."]},
-      {"heading":"Prepare the data an office can trust","paragraphs":["Start with tax declarations, property identifiers, map sheets, and other source documents. Identify records that cannot be matched confidently and note which geometries are traced, field checked, or still provisional.","Build a change process for subdivisions, consolidations, corrections, and new assessments. Keep the history and source visible so staff can revisit decisions when records disagree."]},
-      {"heading":"Discuss the implementation work","paragraphs":["SPARTA can support a modernization effort that includes digitization, data population, parcel mapping, reconciliation, validation, and maintenance design. The right scope depends on the LGU's source records, staffing, and current workflow."]}
+      {
+        "heading": "What RPVARA changes in the conversation",
+        "paragraphs": [
+          "Republic Act No. 12001 reforms real property valuation and assessment and provides for stronger property information and digital processes. Its implementing rules and BLGF guidance govern formal requirements.",
+          "A tax map can help locate properties and reconcile records, but a parcel polygon is not a valuation. No software should be called RPVARA compliant without a separate review against the applicable requirements."
+        ]
+      },
+      {
+        "heading": "Prepare the data an office can trust",
+        "paragraphs": [
+          "Start with tax declarations, property identifiers, map sheets, and other source documents. Identify records that cannot be matched confidently and note which geometries are traced, field checked, or still provisional.",
+          "Build a change process for subdivisions, consolidations, corrections, and new assessments. Keep the history and source visible so staff can revisit decisions when records disagree."
+        ]
+      },
+      {
+        "heading": "Discuss the implementation work",
+        "paragraphs": [
+          "A modernization effort may include digitization, data population, parcel mapping, reconciliation, validation, and maintenance design. The right scope depends on the LGU's source records, staffing, and current workflow."
+        ]
+      }
     ],
-    "related": ["sparta", "tax-mapping-system-philippines", "digitize-cadastral-tax-maps"],
-    "sources": [{"label":"Republic Act No. 12001","url":"https://lawphil.net/statutes/repacts/ra2024/ra_12001_2024.html"},{"label":"BLGF implementing rules for RA 12001","url":"https://blgf.gov.ph/wp-content/uploads/2025/03/BLGF-MC-No.-001.2025-IRR-of-RA-No.-12001-or-the-RPVARA-Reform-Act-6-Jan-2025-Approved-3.pdf"}]
+    "related": [
+      "kadastra",
+      "tax-mapping-system-philippines",
+      "digitize-cadastral-tax-maps"
+    ],
+    "sources": [
+      {
+        "label": "Republic Act No. 12001",
+        "url": "https://lawphil.net/statutes/repacts/ra2024/ra_12001_2024.html"
+      },
+      {
+        "label": "BLGF implementing rules for RA 12001",
+        "url": "https://blgf.gov.ph/wp-content/uploads/2025/03/BLGF-MC-No.-001.2025-IRR-of-RA-No.-12001-or-the-RPVARA-Reform-Act-6-Jan-2025-Approved-3.pdf"
+      }
+    ]
   },
   {
     "slug": "digitize-cadastral-tax-maps",
-    "family": "sparta",
+    "family": "kadastra",
     "kind": "guide",
     "title": "Digitize Cadastral and Tax Maps for LGUs | Spatialdom",
     "description": "A practical path from scanned cadastral and tax maps to reviewable parcel data, with identifiers, source tracking, reconciliation, and field validation.",
     "heading": "How can an LGU digitize cadastral and tax maps?",
     "intro": "Scanning and tracing are only the beginning. The office also needs to know where every parcel line came from and how to handle conflicting records.",
     "sections": [
-      {"heading":"Inventory and scan the source","paragraphs":["Record each sheet's title, scale, identifiers, date if shown, and source office. Scan at a resolution that preserves small labels and linework, and keep the original image available for review.","Separate cadastral index maps, tax maps, and approved survey documents by purpose. Their lines may relate to the same parcel, but they should not be treated as interchangeable authority."]},
-      {"heading":"Align, trace, and reconcile","paragraphs":["Georeference sheets using reliable control information, then inspect alignment rather than trusting one point. Trace parcel geometry with consistent shared edges and attach the correct identifiers and source references.","Check for overlaps, gaps, duplicate identifiers, and parcels with no matching assessment record. Flag uncertain lines for document or field validation instead of filling gaps by guesswork."]},
-      {"heading":"Make the result maintainable","paragraphs":["Track whether a feature is provisional, reviewed, or verified. Record who changed it and why. SPARTA's implementation work can combine digitization with database population, reconciliation, validation, and an office process for future updates."]}
+      {
+        "heading": "Inventory and scan the source",
+        "paragraphs": [
+          "Record each sheet's title, scale, identifiers, date if shown, and source office. Scan at a resolution that preserves small labels and linework, and keep the original image available for review.",
+          "Separate cadastral index maps, tax maps, and approved survey documents by purpose. Their lines may relate to the same parcel, but they should not be treated as interchangeable authority."
+        ]
+      },
+      {
+        "heading": "Align, trace, and reconcile",
+        "paragraphs": [
+          "Georeference sheets using reliable control information, then inspect alignment rather than trusting one point. Trace parcel geometry with consistent shared edges and attach the correct identifiers and source references.",
+          "Check for overlaps, gaps, duplicate identifiers, and parcels with no matching assessment record. Flag uncertain lines for document or field validation instead of filling gaps by guesswork."
+        ]
+      },
+      {
+        "heading": "Make the result maintainable",
+        "paragraphs": [
+          "Track whether a feature is provisional, reviewed, or verified. Record who changed it and why. A maintainable workflow can combine digitization with database population, reconciliation, validation, and an office process for future updates."
+        ]
+      }
     ],
-    "related": ["sparta", "tax-mapping-system-philippines", "rpvara-tax-mapping"],
-    "sources": [{"label":"DENR cadastral index mapping guide","url":"https://faspselib.denr.gov.ph/Materials/Detail/ab3d9ecd-5a32-417e-9724-d24394dcdaf7"},{"label":"DENR GIS construction guide","url":"https://faspselib.denr.gov.ph/Materials/Detail/6e64fc57-842f-41b3-93b4-2843736be349"}]
+    "related": [
+      "kadastra",
+      "tax-mapping-system-philippines",
+      "rpvara-tax-mapping"
+    ],
+    "sources": [
+      {
+        "label": "DENR cadastral index mapping guide",
+        "url": "https://faspselib.denr.gov.ph/Materials/Detail/ab3d9ecd-5a32-417e-9724-d24394dcdaf7"
+      },
+      {
+        "label": "DENR GIS construction guide",
+        "url": "https://faspselib.denr.gov.ph/Materials/Detail/6e64fc57-842f-41b3-93b4-2843736be349"
+      }
+    ]
   },
   {
     "slug": "rbim-cloud",

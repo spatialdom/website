@@ -14,6 +14,7 @@ function Navbar() {
   const reducedMotion = useReducedMotion();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const isDocumentation = location.pathname.startsWith('/design/');
   const isHome = location.pathname === '/';
 
   const getSectionHref = (href: string) => (href.startsWith('#') && !isHome ? `/${href}` : href);
@@ -53,7 +54,7 @@ function Navbar() {
       <Container
         className={cn(
           'mt-4 rounded-xl border px-4 py-3 transition-all duration-500 ease-refined sm:mt-5 sm:px-5',
-          scrolled ? 'theme-nav-scrolled' : 'border-transparent bg-transparent'
+          scrolled || isDocumentation ? 'theme-nav-scrolled' : 'border-transparent bg-transparent'
         )}
       >
         <div className="flex items-center justify-between gap-4">
